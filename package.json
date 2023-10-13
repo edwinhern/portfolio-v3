@@ -11,6 +11,7 @@
     "format:check": "prettier --check --ignore-path .gitignore ."
   },
   "dependencies": {
+    "@vercel/analytics": "^1.1.1",
     "clsx": "^2.0.0",
     "lucide-react": "^0.286.0",
     "next": "13.5.4",
