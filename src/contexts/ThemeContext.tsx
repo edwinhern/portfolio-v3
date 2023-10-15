@@ -9,13 +9,21 @@ interface ThemeContextProps {
 const ThemeContext = createContext<ThemeContextProps | undefined>(undefined);
 
 export const ThemeProvider: React.FC<ChildProp> = ({ children }) => {
-  const [theme, setTheme] = useState<string>('light');
+  const [theme, setTheme] = useState<string>('uninitialized');
 
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
   };
 
   useEffect(() => {
+    if (theme === 'uninitialized') {
+      const preferredTheme = window.matchMedia('(prefers-color-scheme: dark)')
+        .matches
+        ? 'dark'
+        : 'light';
+      setTheme(preferredTheme);
+    }
+
     document.body.classList.remove(theme === 'light' ? 'dark' : 'light');
     document.body.classList.add(theme);
   }, [theme]);

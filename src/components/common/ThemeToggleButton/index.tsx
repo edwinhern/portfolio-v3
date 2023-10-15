@@ -4,11 +4,12 @@ import { Button } from '@/components/ui/button';
 
 const ThemeToggleButton = () => {
   const { theme, toggleTheme } = useTheme();
+  if (theme === 'uninitialized') return null;
 
   return (
     <Button
       onClick={toggleTheme}
-      variant='ghost'
+      variant='outline'
       size='icon'
       aria-label='Toggle Theme'
       title='Toggle Theme'
