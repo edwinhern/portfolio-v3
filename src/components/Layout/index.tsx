@@ -7,7 +7,7 @@ export const AppLayout: React.FC<ChildProp> = ({ children }) => {
   return (
     <>
       <MaxWidthWrapper
-        className={`${styles.appLayoutContainer} flex min-h-screen flex-col space-y-4 py-2.5 antialiased`}
+        className={`${styles.appLayoutContainer} space-y-4 py-2.5 antialiased`}
       >
         <Navbar />
         {children}
