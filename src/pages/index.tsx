@@ -30,10 +30,10 @@ export async function getServerSideProps() {
       throw new Error('Failed to fetch Medium posts from API');
     }
 
-    const posts: Article[] = await response.json();
+    const articles: Article[] = await response.json();
 
     return {
-      props: { posts },
+      props: { articles },
     };
   } catch (error) {
     console.error((error as Error).message);
