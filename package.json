@@ -6,9 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "format": "prettier --write --ignore-path .gitignore .",
-    "format:check": "prettier --check --ignore-path .gitignore ."
+    "lint": "next lint --fix .",
+    "format": "prettier --write .",
+    "check:lint": "eslint .",
+    "check:format": "prettier --check ."
   },
   "dependencies": {
     "@radix-ui/react-navigation-menu": "^1.1.4",
@@ -27,6 +28,7 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@next/eslint-plugin-next": "^13.5.4",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
