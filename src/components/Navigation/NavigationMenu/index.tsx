@@ -9,7 +9,7 @@ import {
   Link,
 } from '@radix-ui/react-navigation-menu';
 import { AlignJustify } from 'lucide-react';
-import { menuData } from '@/data/menuData';
+import { menuData } from '@/data';
 import { cn } from '@/utils';
 
 export function Menu() {

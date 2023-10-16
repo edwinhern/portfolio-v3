@@ -1,8 +1,11 @@
 import { NextSeo } from 'next-seo';
-import { GridLayout } from '@/components/Layout/GridLayout';
+import { PortfolioOverview } from '@/components/Layout/GridLayout';
 import defaultSEOConfig from '@/utils/next-seo-config';
+import { Article, MediumProps } from '@/types/api/medium-articles';
 
-export default function Home() {
+interface HomeProps extends MediumProps {}
+
+export default function Home({ articles }: HomeProps) {
   return (
     <>
       <NextSeo
@@ -13,7 +16,30 @@ export default function Home() {
           title: 'Edwin H - Home Page',
         }}
       />
-      <GridLayout />
+      <PortfolioOverview articles={articles} />
     </>
   );
+}
+
+export async function getServerSideProps() {
+  try {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_VERCEL_URL}/api/medium-articles`,
+    );
+    if (!response.ok) {
+      throw new Error('Failed to fetch Medium posts from API');
+    }
+
+    const posts: Article[] = await response.json();
+
+    return {
+      props: { posts },
+    };
+  } catch (error) {
+    console.error((error as Error).message);
+
+    return {
+      props: { articles: [] },
+    };
+  }
 }
