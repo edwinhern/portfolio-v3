@@ -1,7 +1,12 @@
 import Link from 'next/link';
-import ThemeToggleButton from '@/components/common/ThemeToggleButton';
 import React from 'react';
 import { Menu } from '../NavigationMenu';
+import dynamic from 'next/dynamic';
+
+const ThemeToggleButton = dynamic(
+  () => import('@/components/common/ThemeToggleButton'),
+  { ssr: false },
+);
 
 export const Navbar = () => {
   return (

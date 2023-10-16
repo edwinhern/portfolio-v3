@@ -1,10 +1,13 @@
 import { Sun, Moon } from 'lucide-react';
-import { useTheme } from '@/contexts/ThemeContext';
 import { Button } from '@/components/ui/button';
+import { useTheme } from 'next-themes';
 
 const ThemeToggleButton = () => {
-  const { theme, toggleTheme } = useTheme();
-  if (theme === 'uninitialized') return null;
+  const { theme, setTheme } = useTheme();
+
+  const toggleTheme = () => {
+    setTheme(theme === 'light' ? 'dark' : 'light');
+  };
 
   return (
     <Button
