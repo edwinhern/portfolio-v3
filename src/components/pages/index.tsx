@@ -1,5 +1,5 @@
 import Carousel from 'react-multi-carousel';
-import { cardContent, responsive } from '@/data';
+import { aboutMeData, blogData, responsive } from '@/data';
 import {
   Card,
   CardContent,
@@ -19,13 +19,13 @@ export const PortfolioOverview = ({ articles }: PortfolioOverviewProps) => {
       <div className='space-y-4'>
         <div className='md:hidden'>
           <Carousel ssr responsive={responsive}>
-            {cardContent.map((card, idx) => (
+            {aboutMeData.map((card, idx) => (
               <Card key={idx}>
                 <Image
                   src={card.src}
                   alt={card.alt}
                   className='h-48 w-full rounded-t-lg object-cover object-center'
-                  width={300}
+                  width={420}
                   height={200}
                 />
                 <CardHeader className='p-4'>
@@ -44,137 +44,96 @@ export const PortfolioOverview = ({ articles }: PortfolioOverviewProps) => {
         </div>
         {/* About Me and show a picture of the companies, and where I worked */}
         <div className='hidden grid-cols-1 gap-4 md:grid md:grid-cols-2 lg:grid-cols-4'>
-          <Card>
-            <Image
-              src='https://source.unsplash.com/random/1080x920?tesla'
-              alt='Companies I worked at'
-              className='h-48 w-full rounded-t-lg object-cover object-center'
-              width={300}
-              height={200}
-            />
-            <CardHeader className='p-4'>
-              <CardTitle className='text-sm font-medium'>About Me</CardTitle>
-            </CardHeader>
-            <CardContent className='p-4'>
-              <div className='text-sm text-muted-foreground'>
-                Places that I worked with in my career.
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <Image
-              src='https://source.unsplash.com/random/1080x920?nature'
-              alt='Random nature image from Unsplash'
-              className='h-48 w-full rounded-t-lg object-cover object-center'
-              width={300}
-              height={200}
-            />
-            <CardHeader className='p-4'>
-              <CardTitle className='text-sm font-medium'>
-                Tranquil Nature
-              </CardTitle>
-            </CardHeader>
-            <CardContent className='p-4'>
-              <div className='text-sm text-muted-foreground'>
-                Escape the hustle and bustle with the serenity of nature.
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <Image
-              src='https://source.unsplash.com/random/1080x920?architecture'
-              alt='Random architecture image from Unsplash'
-              className='h-48 w-full rounded-t-lg object-cover object-center'
-              width={300}
-              height={200}
-            />
-            <CardHeader className='p-4'>
-              <CardTitle className='text-sm font-medium'>
-                Minimalist Designs
-              </CardTitle>
-            </CardHeader>
-            <CardContent className='p-4'>
-              <div className='text-sm text-muted-foreground'>
-                Experience the elegance of simplicity in modern design.
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <Image
-              src='https://source.unsplash.com/random/1080x920?lifestyle'
-              alt='Random lifestyle image from Unsplash'
-              className='h-48 w-full rounded-t-lg object-cover object-center'
-              width={300}
-              height={200}
-            />
-            <CardHeader className='p-4'>
-              <CardTitle className='text-sm font-medium'>
-                Urban Lifestyle
-              </CardTitle>
-            </CardHeader>
-            <CardContent className='p-4'>
-              <div className='text-sm text-muted-foreground'>
-                Immerse yourself in the rhythms of city life.
-              </div>
-            </CardContent>
-          </Card>
+          {aboutMeData.map((item, index) => (
+            <Card key={index}>
+              <Image
+                src={item.src}
+                alt={item.alt}
+                className='h-48 w-full rounded-t-lg object-cover object-center'
+                width={420}
+                height={200}
+              />
+              <CardHeader className='px-4'>
+                <CardTitle className='text-sm font-medium'>
+                  {item.title}
+                </CardTitle>
+              </CardHeader>
+              <CardContent className='px-4'>
+                <div className='text-xs text-muted-foreground md:text-sm'>
+                  {item.description}
+                </div>
+              </CardContent>
+            </Card>
+          ))}
         </div>
+
         {/* Showcase my blog with a picture and a title, subtitle, and link */}
         <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-7'>
-          <Card className='col-span-full p-4 md:col-span-4'>
-            <CardHeader>
-              <CardTitle className='text-lg font-bold'>Overview</CardTitle>
-            </CardHeader>
-            <CardContent className='mt-2'>
-              <div className='text-sm text-muted-foreground'>
-                An in-depth look at global trends shaping our world.
-              </div>
-            </CardContent>
-          </Card>
-          <Card className='col-span-full p-4 md:col-span-3'>
-            <CardHeader>
-              <CardTitle className='text-lg font-bold'>Recent Sales</CardTitle>
-              <CardDescription className='mt-2 text-sm'>
-                You made 265 sales this month.
-              </CardDescription>
-            </CardHeader>
-          </Card>
+          {blogData.map((blog, index) => (
+            <Card
+              key={index}
+              className={`col-span-full px-4 ${
+                index === 0 ? 'md:col-span-4' : 'md:col-span-3'
+              }`}
+            >
+              <CardHeader>
+                <CardTitle className='text-lg font-bold'>
+                  {blog.title}
+                </CardTitle>
+                {blog.description && (
+                  <CardDescription className='mt-2 text-sm'>
+                    {blog.description}
+                  </CardDescription>
+                )}
+              </CardHeader>
+              <CardContent className='mt-2'>
+                <div className='text-sm text-muted-foreground'>
+                  {blog.content}
+                </div>
+              </CardContent>
+            </Card>
+          ))}
         </div>
 
         {/* Contact and Location such as where I'm looking for jobs such as Remote and Dallas/Plano TX jobs */}
         <div className='grid grid-cols-1 gap-4 md:grid-cols-7'>
           <Card className='col-span-full p-4 md:col-span-2'>
-            <CardHeader>
-              <CardTitle className='text-lg font-bold'>Music Vibes</CardTitle>
-            </CardHeader>
-            <CardContent className='mt-2'>
-              <div className='text-sm text-muted-foreground'>
-                Groove to the beats that move your soul.
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card className='col-span-full p-4 md:col-span-5'>
             <Image
-              src='https://source.unsplash.com/random/1080x920?nature'
+              src='/city/austin.png'
               alt='Random landscape image from Unsplash'
-              className='h-36 w-full rounded-t-lg object-cover '
-              width={100}
-              height={100}
+              className='h-64 w-full justify-center rounded-lg object-cover object-center md:h-40 lg:h-48'
+              width={420}
+              height={200}
             />
-            <CardHeader className='p-4'>
+            <CardHeader>
               <CardTitle className='text-lg font-bold'>
-                Breathtaking Views
+                Location: Austin TX 🤠
               </CardTitle>
             </CardHeader>
-            <CardContent className='p-4'>
-              <div className='text-sm text-muted-foreground'>
-                Experience the majesty of nature&apos;s vast expanse.
-              </div>
-            </CardContent>
+          </Card>
+
+          <Card className='col-span-full space-x-4 p-4 md:col-span-5 md:flex'>
+            <div className='w-full flex-col justify-center md:flex md:h-full'>
+              <Image
+                src='/projects/wildfire-tracker.png'
+                alt='Random landscape image from Unsplash'
+                className='h-48 w-full rounded-lg object-cover object-center md:h-56 lg:h-64'
+                width={420}
+                height={200}
+              />
+            </div>
+            <div className='flex w-1/2 flex-col items-start'>
+              <CardHeader className='p-4'>
+                <CardTitle className='text-lg font-bold'>
+                  Recent Projects
+                </CardTitle>
+              </CardHeader>
+              <CardContent className='p-4'>
+                <div className='text-sm text-muted-foreground'>
+                  Experience the majesty of nature&apos;s vast expanse.
+                </div>
+              </CardContent>
+            </div>
           </Card>
         </div>
       </div>

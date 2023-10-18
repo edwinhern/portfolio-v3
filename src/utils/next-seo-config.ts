@@ -2,15 +2,15 @@ const defaultSEOConfig = {
   title: 'Edwin H - Portfolio',
   description:
     'Edwin H is a software developer specialized in front-end and back-end development.',
-  canonical: 'https://www.edwinhportfolio.com/',
+  canonical: 'https://www.edwinhern-portfolio.com/',
   openGraph: {
-    url: 'https://www.edwinhportfolio.com/',
+    url: 'https://www.edwinhern-portfolio.com/',
     title: 'Edwin H - Portfolio',
     description:
       'Edwin H is a software developer specialized in front-end and back-end development. This portfolio showcases his projects and professional experience.',
     images: [
       {
-        url: 'https://source.unsplash.com/random/1080x920?tesla',
+        url: '/me.png',
         width: 1080,
         height: 920,
         alt: 'Edwin H Portfolio',
@@ -21,7 +21,7 @@ const defaultSEOConfig = {
   },
   twitter: {
     handle: '@EdwinH',
-    site: '@EdwinHPortfolio',
+    site: '@edwinhern-portfolio',
     cardType: 'summary_large_image',
   },
 };

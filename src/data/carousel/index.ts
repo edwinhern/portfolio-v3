@@ -1,27 +1,38 @@
-export const cardContent = [
+export const aboutMeData = [
   {
-    src: 'https://source.unsplash.com/random/1080x920?tesla',
-    alt: 'Companies I worked at',
+    src: '/me.png',
+    alt: 'About Me',
     title: 'About Me',
     description: 'Places that I worked with in my career.',
   },
   {
-    src: 'https://source.unsplash.com/random/1080x920?nature',
-    alt: 'Random nature image from Unsplash',
+    src: '/jobs/tesla.png',
+    alt: 'Illustration of Tesla',
     title: 'Tranquil Nature',
     description: 'Escape the hustle and bustle with the serenity of nature.',
   },
   {
-    src: 'https://source.unsplash.com/random/1080x920?architecture',
-    alt: 'Random architecture image from Unsplash',
+    src: '/jobs/jpmorgan-chase.png',
+    alt: 'Illustration of JPMorgan Chase & Co.',
     title: 'Minimalist Designs',
     description: 'Experience the elegance of simplicity in modern design.',
   },
   {
-    src: 'https://source.unsplash.com/random/1080x920?lifestyle',
-    alt: 'Random lifestyle image from Unsplash',
+    src: '/jobs/seo-tech.png',
+    alt: 'Illustration of SEO Tech Developer',
     title: 'Urban Lifestyle',
     description: 'Immerse yourself in the rhythms of city life.',
+  },
+];
+
+export const blogData = [
+  {
+    title: 'Contact Me',
+    content: 'An in-depth look at global trends shaping our world.',
+  },
+  {
+    title: 'Recent Sales',
+    description: 'You made 265 sales this month.',
   },
 ];
 
