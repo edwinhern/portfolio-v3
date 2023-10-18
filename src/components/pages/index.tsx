@@ -16,9 +16,9 @@ export const PortfolioOverview = ({ articles }: PortfolioOverviewProps) => {
   console.log(articles);
   return (
     <>
-      <div className='p- md:hidden'>
-        <div className='lg:hidden'>
-          <Carousel infinite={true} responsive={responsive}>
+      <div className='space-y-4'>
+        <div className='md:hidden'>
+          <Carousel ssr responsive={responsive}>
             {cardContent.map((card, idx) => (
               <Card key={idx}>
                 <Image
@@ -42,9 +42,6 @@ export const PortfolioOverview = ({ articles }: PortfolioOverviewProps) => {
             ))}
           </Carousel>
         </div>
-      </div>
-
-      <div className='space-y-4'>
         {/* About Me and show a picture of the companies, and where I worked */}
         <div className='hidden grid-cols-1 gap-4 md:grid md:grid-cols-2 lg:grid-cols-4'>
           <Card>

@@ -1,5 +1,5 @@
 import { NextSeo } from 'next-seo';
-import { PortfolioOverview } from '@/components/Layout/GridLayout';
+import { PortfolioOverview } from '@/components/pages';
 import defaultSEOConfig from '@/utils/next-seo-config';
 import { Article, MediumProps } from '@/types/api/medium-articles';
 
