@@ -21,25 +21,25 @@ export default function Home({ articles }: HomeProps) {
   );
 }
 
-export async function getServerSideProps() {
-  try {
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_VERCEL_URL}/api/medium-articles`,
-    );
-    if (!response.ok) {
-      throw new Error('Failed to fetch Medium posts from API');
-    }
+// export async function getServerSideProps() {
+//   try {
+//     const response = await fetch(
+//       `${process.env.NEXT_PUBLIC_VERCEL_URL}/api/medium-articles`,
+//     );
+//     if (!response.ok) {
+//       throw new Error('Failed to fetch Medium posts from API');
+//     }
 
-    const articles: Article[] = await response.json();
+//     const articles: Article[] = await response.json();
 
-    return {
-      props: { articles },
-    };
-  } catch (error) {
-    console.error((error as Error).message);
+//     return {
+//       props: { articles },
+//     };
+//   } catch (error) {
+//     console.error((error as Error).message);
 
-    return {
-      props: { articles: [] },
-    };
-  }
-}
+//     return {
+//       props: { articles: [] },
+//     };
+//   }
+// }

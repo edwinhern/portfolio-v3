@@ -1,14 +1,8 @@
-import Carousel from 'react-multi-carousel';
-import { aboutMeData, blogData, responsive } from '@/data';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
+import { aboutMeData, blogData } from '@/data';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Image from 'next/image';
 import { MediumProps } from '@/types/api/medium-articles';
+import { CarouselComponent, CustomCard } from '../Carousel';
 
 interface PortfolioOverviewProps extends MediumProps {}
 
@@ -17,31 +11,17 @@ export const PortfolioOverview = ({ articles }: PortfolioOverviewProps) => {
   return (
     <>
       <div className='space-y-4'>
-        <div className='md:hidden'>
-          <Carousel ssr responsive={responsive}>
-            {aboutMeData.map((card, idx) => (
-              <Card key={idx}>
-                <Image
-                  src={card.src}
-                  alt={card.alt}
-                  className='h-48 w-full rounded-t-lg object-cover object-center'
-                  width={420}
-                  height={200}
-                />
-                <CardHeader className='p-4'>
-                  <CardTitle className='text-sm font-medium'>
-                    {card.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className='p-4'>
-                  <div className='text-sm text-muted-foreground'>
-                    {card.description}
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </Carousel>
-        </div>
+        <CarouselComponent>
+          {aboutMeData.map((card, idx) => (
+            <CustomCard
+              key={idx}
+              src={card.src}
+              alt={card.alt}
+              title={card.title}
+              description={card.description}
+            />
+          ))}
+        </CarouselComponent>
         {/* About Me and show a picture of the companies, and where I worked */}
         <div className='hidden grid-cols-1 gap-4 md:grid md:grid-cols-2 lg:grid-cols-4'>
           {aboutMeData.map((item, index) => (
@@ -49,7 +29,7 @@ export const PortfolioOverview = ({ articles }: PortfolioOverviewProps) => {
               <Image
                 src={item.src}
                 alt={item.alt}
-                className='h-48 w-full rounded-t-lg object-cover object-center'
+                className='h-48 w-full rounded-t-lg object-cover'
                 width={420}
                 height={200}
               />
@@ -59,7 +39,7 @@ export const PortfolioOverview = ({ articles }: PortfolioOverviewProps) => {
                 </CardTitle>
               </CardHeader>
               <CardContent className='px-4'>
-                <div className='text-xs text-muted-foreground md:text-sm'>
+                <div className='text-sm text-muted-foreground'>
                   {item.description}
                 </div>
               </CardContent>
@@ -72,7 +52,7 @@ export const PortfolioOverview = ({ articles }: PortfolioOverviewProps) => {
           {blogData.map((blog, index) => (
             <Card
               key={index}
-              className={`col-span-full px-4 ${
+              className={`col-span-full flex flex-col items-start md:px-4 ${
                 index === 0 ? 'md:col-span-4' : 'md:col-span-3'
               }`}
             >
@@ -80,13 +60,8 @@ export const PortfolioOverview = ({ articles }: PortfolioOverviewProps) => {
                 <CardTitle className='text-lg font-bold'>
                   {blog.title}
                 </CardTitle>
-                {blog.description && (
-                  <CardDescription className='mt-2 text-sm'>
-                    {blog.description}
-                  </CardDescription>
-                )}
               </CardHeader>
-              <CardContent className='mt-2'>
+              <CardContent>
                 <div className='text-sm text-muted-foreground'>
                   {blog.content}
                 </div>
@@ -99,9 +74,9 @@ export const PortfolioOverview = ({ articles }: PortfolioOverviewProps) => {
         <div className='grid grid-cols-1 gap-4 md:grid-cols-7'>
           <Card className='col-span-full p-4 md:col-span-2'>
             <Image
-              src='/city/austin.png'
-              alt='Random landscape image from Unsplash'
-              className='h-64 w-full justify-center rounded-lg object-cover object-center md:h-40 lg:h-48'
+              src='/city/austin-sketch.png'
+              alt='Austin Texas - yeehaw!'
+              className='h-48 w-full justify-center rounded-lg object-cover md:h-40 lg:h-48'
               width={420}
               height={200}
             />
@@ -112,19 +87,19 @@ export const PortfolioOverview = ({ articles }: PortfolioOverviewProps) => {
             </CardHeader>
           </Card>
 
-          <Card className='col-span-full space-x-4 p-4 md:col-span-5 md:flex'>
-            <div className='w-full flex-col justify-center md:flex md:h-full'>
+          <Card className='col-span-full flex space-x-4 p-4 md:col-span-5'>
+            <div className='md:flex md:h-full md:w-full md:flex-col md:justify-center'>
               <Image
                 src='/projects/wildfire-tracker.png'
                 alt='Random landscape image from Unsplash'
-                className='h-48 w-full rounded-lg object-cover object-center md:h-56 lg:h-64'
+                className='h-48 w-full rounded-lg object-cover md:h-56 lg:h-64'
                 width={420}
                 height={200}
               />
             </div>
-            <div className='flex w-1/2 flex-col items-start'>
+            <div className='md:flex md:w-1/2 md:flex-col'>
               <CardHeader className='p-4'>
-                <CardTitle className='text-lg font-bold'>
+                <CardTitle className='text-sm font-bold md:text-lg'>
                   Recent Projects
                 </CardTitle>
               </CardHeader>

@@ -3,36 +3,36 @@ export const aboutMeData = [
     src: '/me.png',
     alt: 'About Me',
     title: 'About Me',
-    description: 'Places that I worked with in my career.',
+    description: 'Click to see more info on what I do outside of coding',
   },
   {
     src: '/jobs/tesla.png',
     alt: 'Illustration of Tesla',
-    title: 'Tranquil Nature',
-    description: 'Escape the hustle and bustle with the serenity of nature.',
+    title: 'Tesla',
+    description: 'Click to view my internship and full-time experience',
   },
   {
     src: '/jobs/jpmorgan-chase.png',
     alt: 'Illustration of JPMorgan Chase & Co.',
-    title: 'Minimalist Designs',
-    description: 'Experience the elegance of simplicity in modern design.',
+    title: 'JP Morgan Chase & Co.',
+    description: 'Click to view my internship experience',
   },
   {
     src: '/jobs/seo-tech.png',
     alt: 'Illustration of SEO Tech Developer',
-    title: 'Urban Lifestyle',
-    description: 'Immerse yourself in the rhythms of city life.',
+    title: 'SEO Tech Developer',
+    description: 'Click to see my first internship experience',
   },
 ];
 
 export const blogData = [
   {
     title: 'Contact Me',
-    content: 'An in-depth look at global trends shaping our world.',
+    content: 'To talk or discuss potential projects or opportunities.',
   },
   {
-    title: 'Recent Sales',
-    description: 'You made 265 sales this month.',
+    title: 'Blogs',
+    content: 'Click to navigate to my medium blog',
   },
 ];
 
