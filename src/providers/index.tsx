@@ -1,5 +1,5 @@
 import { Analytics } from '@vercel/analytics/react';
-import { AppLayout } from '@/components/Layout';
+import { AppLayout } from '@/components/Layout/AppLayout';
 import { ChildProp } from '@/types/common';
 import { ThemeProvider } from '@/providers/ThemeProvider';
 
