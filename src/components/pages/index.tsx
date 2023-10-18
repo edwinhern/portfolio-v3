@@ -102,7 +102,7 @@ export const PortfolioOverview = ({ articles }: PortfolioOverviewProps) => {
             </div>
             <div className='mt-1 md:flex md:w-1/2 md:flex-col'>
               <CardHeader className='p-4'>
-                <CardTitle className='text-sm font-bold md:text-lg'>
+                <CardTitle className='text-lg font-bold'>
                   Recent Projects
                 </CardTitle>
               </CardHeader>
