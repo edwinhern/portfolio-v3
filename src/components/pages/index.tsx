@@ -56,12 +56,12 @@ export const PortfolioOverview = ({ articles }: PortfolioOverviewProps) => {
                 index === 0 ? 'md:col-span-4' : 'md:col-span-3'
               }`}
             >
-              <CardHeader className='px-4'>
+              <CardHeader>
                 <CardTitle className='text-lg font-bold'>
                   {blog.title}
                 </CardTitle>
               </CardHeader>
-              <CardContent className='px-4'>
+              <CardContent>
                 <div className='text-sm text-muted-foreground'>
                   {blog.content}
                 </div>
