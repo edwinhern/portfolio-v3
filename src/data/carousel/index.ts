@@ -3,36 +3,36 @@ export const aboutMeData = [
     src: '/me.png',
     alt: 'About Me',
     title: 'About Me',
-    description: 'Click to see more info on what I do outside of coding',
+    description: 'Click to learn more about me outside of coding',
   },
   {
     src: '/jobs/tesla.png',
     alt: 'Illustration of Tesla',
     title: 'Tesla',
-    description: 'Click to view my internship and full-time experience',
+    description: 'Click to explore my internship and full-time experience',
   },
   {
     src: '/jobs/jpmorgan-chase.png',
     alt: 'Illustration of JPMorgan Chase & Co.',
     title: 'JP Morgan Chase & Co.',
-    description: 'Click to view my internship experience',
+    description: 'Click to see my internship journey at Chase',
   },
   {
     src: '/jobs/seo-tech.png',
     alt: 'Illustration of SEO Tech Developer',
     title: 'SEO Tech Developer',
-    description: 'Click to see my first internship experience',
+    description: 'Click to view my first internship experience',
   },
 ];
 
 export const blogData = [
   {
     title: 'Contact Me',
-    content: 'To talk or discuss potential projects or opportunities.',
+    content: "Let's discuss potential projects and opportunities",
   },
   {
     title: 'Blogs',
-    content: 'Click to navigate to my medium blog',
+    content: 'Click to visit my Medium blog for insights',
   },
 ];
 

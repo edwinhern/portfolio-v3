@@ -52,16 +52,16 @@ export const PortfolioOverview = ({ articles }: PortfolioOverviewProps) => {
           {blogData.map((blog, index) => (
             <Card
               key={index}
-              className={`col-span-full flex flex-col items-start md:px-4 ${
+              className={`col-span-full ${
                 index === 0 ? 'md:col-span-4' : 'md:col-span-3'
               }`}
             >
-              <CardHeader>
+              <CardHeader className='px-4'>
                 <CardTitle className='text-lg font-bold'>
                   {blog.title}
                 </CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className='px-4'>
                 <div className='text-sm text-muted-foreground'>
                   {blog.content}
                 </div>
@@ -72,19 +72,22 @@ export const PortfolioOverview = ({ articles }: PortfolioOverviewProps) => {
 
         {/* Contact and Location such as where I'm looking for jobs such as Remote and Dallas/Plano TX jobs */}
         <div className='grid grid-cols-1 gap-4 md:grid-cols-7'>
-          <Card className='col-span-full p-4 md:col-span-2'>
-            <Image
-              src='/city/austin-sketch.png'
-              alt='Austin Texas - yeehaw!'
-              className='h-48 w-full justify-center rounded-lg object-cover md:h-40 lg:h-48'
-              width={420}
-              height={200}
-            />
-            <CardHeader>
-              <CardTitle className='text-lg font-bold'>
-                Location: Austin TX 🤠
-              </CardTitle>
+          <Card className='col-span-full md:col-span-2'>
+            <div className='p-4'>
+              <Image
+                src='/city/austin-sketch.png'
+                alt='Austin Texas - yeehaw!'
+                className='h-40 w-full justify-center rounded-t-lg object-cover md:rounded-lg lg:h-48'
+                width={420}
+                height={200}
+              />
+            </div>
+            <CardHeader className='-mb-2 px-4'>
+              <CardTitle className='text-lg font-bold'>Location</CardTitle>
             </CardHeader>
+            <CardContent className='-mb-2 px-4'>
+              <div className='text-sm text-muted-foreground'>Austin TX 🤠</div>
+            </CardContent>
           </Card>
 
           <Card className='col-span-full flex space-x-4 p-4 md:col-span-5'>
@@ -97,7 +100,7 @@ export const PortfolioOverview = ({ articles }: PortfolioOverviewProps) => {
                 height={200}
               />
             </div>
-            <div className='md:flex md:w-1/2 md:flex-col'>
+            <div className='mt-1 md:flex md:w-1/2 md:flex-col'>
               <CardHeader className='p-4'>
                 <CardTitle className='text-sm font-bold md:text-lg'>
                   Recent Projects
