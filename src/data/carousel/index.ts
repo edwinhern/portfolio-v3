@@ -1,38 +1,38 @@
 export const aboutMeData = [
   {
     src: '/me.png',
-    alt: 'About Me',
-    title: 'About Me',
-    description: 'Click to learn more about me outside of coding',
+    alt: 'Portrait of me',
+    title: 'My Story',
+    description: 'Discover my journey in the tech world',
   },
   {
     src: '/jobs/tesla.png',
-    alt: 'Illustration of Tesla',
+    alt: 'Tesla Icon',
     title: 'Tesla',
     description: 'Click to explore my internship and full-time experience',
   },
   {
     src: '/jobs/jpmorgan-chase.png',
-    alt: 'Illustration of JPMorgan Chase & Co.',
+    alt: 'JPMorgan Chase & Co. Icon',
     title: 'JP Morgan Chase & Co.',
     description: 'Click to see my internship journey at Chase',
   },
   {
     src: '/jobs/seo-tech.png',
-    alt: 'Illustration of SEO Tech Developer',
-    title: 'SEO Tech Developer',
-    description: 'Click to view my first internship experience',
+    alt: 'SEO Tech Developer Icon',
+    title: 'SEO Tech Internship',
+    description: 'Where my tech journey began',
   },
 ];
 
 export const blogData = [
   {
     title: 'Contact Me',
-    content: "Let's discuss potential projects and opportunities",
+    content: "Let's collaborate on the next big thing",
   },
   {
     title: 'Blogs',
-    content: 'Click to visit my Medium blog for insights',
+    content: 'Explore my tech thoughts on Medium',
   },
 ];
 
