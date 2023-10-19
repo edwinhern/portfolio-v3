@@ -1,13 +1,9 @@
 .blogContent {
-  @apply m-5 px-10 md:px-16 lg:px-28;
+  @apply px-7 md:px-14 lg:px-28;
 }
 
-.title {
-  @apply mb-5 text-2xl font-bold;
-}
-
-.section {
-  @apply mb-8;
+.blogContent h1 {
+  @apply mb-5 text-2xl font-bold md:text-5xl;
 }
 
 .blogContent h4 {

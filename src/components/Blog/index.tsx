@@ -13,7 +13,7 @@ export const BlogContent = ({ article }: BlogContentProps) => {
     <>
       <BlogLayout metadata={article}>
         <div className={styles.blogContent}>
-          <h1 className='mb-5 text-3xl font-bold md:text-5xl'>{title}</h1>
+          <h1>{title}</h1>
           <div
             className='space-y-4'
             dangerouslySetInnerHTML={{ __html: description }}
