@@ -7,6 +7,7 @@ export interface Article {
   description: string;
   content: string;
   categories: string[];
+  slug?: string;
 }
 
 export interface MediumProps {

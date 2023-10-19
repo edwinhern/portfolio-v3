@@ -9,7 +9,7 @@ import {
 export const PortfolioOverview = () => {
   return (
     <>
-      <div className='space-y-4'>
+      <div className='animate-slideFromDownAndFade space-y-4'>
         {/* About Me */}
         <MobileAboutMeSection />
         <AboutMeSection />
