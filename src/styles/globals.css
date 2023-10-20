@@ -56,4 +56,8 @@
   body {
     @apply bg-background font-gotham text-foreground;
   }
+
+  .bg-card {
+    @apply transform cursor-pointer select-none transition-transform duration-150 hover:bg-secondary focus:outline-none active:scale-95;
+  }
 }

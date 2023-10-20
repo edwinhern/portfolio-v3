@@ -9,6 +9,7 @@ export const AboutMeSection = () => {
       {aboutMeData.map((item) => (
         <Card key={item.title}>
           <Image
+            draggable={false}
             src={item.src}
             alt={item.alt}
             className='h-48 w-full rounded-t-lg object-cover'

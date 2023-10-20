@@ -30,6 +30,7 @@ export const CustomCard: FC<CustomCardProps> = ({
 }) => (
   <Card>
     <Image
+      draggable={false}
       src={src}
       alt={alt}
       className='h-48 w-full rounded-t-lg object-cover'

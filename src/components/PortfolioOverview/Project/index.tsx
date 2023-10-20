@@ -6,6 +6,7 @@ export const ProjectsSection = () => {
     <Card className='col-span-full flex space-x-4 p-4 md:col-span-5'>
       <div className='md:flex md:h-full md:w-full md:flex-col md:justify-center'>
         <Image
+          draggable={false}
           src='/projects/wildfire-tracker.png'
           alt='Random landscape image from Unsplash'
           className='h-48 w-full rounded-lg object-cover md:h-56 lg:h-64'

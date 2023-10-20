@@ -6,6 +6,7 @@ export const LocationSection = () => {
     <Card className='col-span-full md:col-span-2'>
       <div className='p-4'>
         <Image
+          draggable={false}
           src='/city/austin-sketch.png'
           alt='Austin Texas - yeehaw!'
           className='h-40 w-full justify-center rounded-t-lg object-cover md:rounded-lg lg:h-48'
