@@ -36,7 +36,7 @@ export const AboutMeSection = () => {
   return (
     <div className='hidden grid-cols-1 gap-4 md:grid md:grid-cols-2 lg:grid-cols-4'>
       {aboutMeData.map((item) => (
-        <DialogWrapper>
+        <DialogWrapper key={item.title}>
           <Card key={item.title}>
             <Image
               draggable={false}
