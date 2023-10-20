@@ -1,55 +1,18 @@
 import { NextSeo } from 'next-seo';
 import defaultSEOConfig from '@/utils/next-seo-config';
-import { Article, MediumProps } from '@/types/api/medium-articles';
-import { useState } from 'react';
-import Link from 'next/link';
-import { Badge } from '@/components/ui/badge';
-import { titleToSlug } from '@/utils/blog';
+import { Article } from '@/types/api/medium-articles';
+import Custom404 from '@/pages/404';
+import { BlogList } from '@/components/Blog/BlogList';
 
-const CardBlogPost = ({ post, index }: { post: Article; index: number }) => {
-  const delay = 80 * index;
-  const postSlug = titleToSlug(post.title);
-  return (
-    <li key={post.title} className='mb-6'>
-      <Link href={`/blog/${postSlug}`}>
-        <div
-          className='flex animate-slideFromLeftAndFade transition hover:opacity-70'
-          style={{
-            animationDelay: `${delay}ms`,
-          }}
-        >
-          <div className='flex-1 pr-4'>
-            <span className='paragraph'>{post.title}</span>
-          </div>
-          <time className='text-sm text-neutral-500 dark:text-neutral-300'>
-            {new Date(post.pubDate).toLocaleDateString('en-US', {
-              year: 'numeric',
-              month: 'short',
-              day: '2-digit',
-            })}
-          </time>
-        </div>
-      </Link>
-    </li>
-  );
-};
-
-interface HomeProps extends MediumProps {}
+interface HomeProps {
+  articles: Article[];
+}
 
 export default function Blog({ articles }: HomeProps) {
-  const [selectedTags, setSelectedTags] = useState<string[]>([]);
-  const allBlogTags = articles.reduce((acc, post) => {
-    return [...acc, ...post.categories];
-  }, [] as string[]);
-
-  const uniqueBlogTags = Array.from(new Set(allBlogTags));
-
-  const filteredPosts = articles.filter((post) => {
-    if (selectedTags.length === 0) {
-      return true;
-    }
-    return post.categories.some((tag) => selectedTags.includes(tag));
-  });
+  if (!articles || articles.length === 0) {
+    console.error('No articles found.');
+    return <Custom404 />;
+  }
 
   return (
     <>
@@ -61,55 +24,26 @@ export default function Blog({ articles }: HomeProps) {
           title: 'Edwin H - Blog Page',
         }}
       />
-      <section>
-        <div className='flex animate-slideFromLeftAndFade flex-wrap gap-2'>
-          {uniqueBlogTags.map((tag) => {
-            return (
-              <Badge
-                key={tag}
-                variant={selectedTags.includes(tag) ? 'secondary' : 'default'}
-                onClick={() => {
-                  if (selectedTags.includes(tag)) {
-                    setSelectedTags(selectedTags.filter((t) => t !== tag));
-                  } else {
-                    setSelectedTags([...selectedTags, tag]);
-                  }
-                }}
-              >
-                {tag}
-              </Badge>
-            );
-          })}
-        </div>
-        <ul className='mt-10'>
-          {filteredPosts.map((post, index) => {
-            return <CardBlogPost key={post.title} post={post} index={index} />;
-          })}
-        </ul>
-      </section>
+      <BlogList articles={articles} />
     </>
   );
 }
 
 export async function getServerSideProps() {
+  const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL;
+
   try {
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_VERCEL_URL}/api/medium-articles`,
-    );
+    const response = await fetch(`${baseUrl}/api/medium-articles`);
+
     if (!response.ok) {
       throw new Error('Failed to fetch Medium posts from API');
     }
 
     const articles: Article[] = await response.json();
 
-    return {
-      props: { articles },
-    };
+    return { props: { articles } };
   } catch (error) {
     console.error((error as Error).message);
-
-    return {
-      props: { articles: [] },
-    };
+    return { props: { articles: null } };
   }
 }

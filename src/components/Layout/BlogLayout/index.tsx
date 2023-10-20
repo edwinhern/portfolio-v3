@@ -1,11 +1,10 @@
-import { ChildProp } from '@/types/common';
 import Link from 'next/link';
-import { FooterBlog } from '@/components/Blog/FooterBlog';
-import { CopyLink } from '@/components/Blog/CopyLink';
 import { ArticleJsonLd } from 'next-seo';
-import { Article } from '@/types/api/medium-articles';
-import { TwitterLink } from '@/components/Blog/TwitterLink';
 
+import { ChildProp } from '@/types/common';
+import { Article } from '@/types/api/medium-articles';
+import { CopyLink } from '@/components/Blog/BlogPost/Buttons/CopyLink';
+import { TwitterLink } from '@/components/Blog/BlogPost/Buttons/TwitterLink';
 interface BlogContentProps extends ChildProp {
   metadata: Article;
 }

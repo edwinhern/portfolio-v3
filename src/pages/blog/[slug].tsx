@@ -1,18 +1,14 @@
 import { NextSeo } from 'next-seo';
-import { BlogContent } from '@/components/Blog';
-import defaultSEOConfig from '@/utils/next-seo-config';
+
 import { Article, MediumProps } from '@/types/api/medium-articles';
-import { useRouter } from 'next/router';
+import { BlogContent } from '@/components/Blog/BlogPost/BlogContent';
+import defaultSEOConfig from '@/utils/next-seo-config';
 import { findArticleBySlug } from '@/utils/blog';
 import Custom404 from '../404';
 
 interface HomeProps extends MediumProps {}
 
-export default function Blog({ articles }: HomeProps) {
-  const router = useRouter();
-  const { slug } = router.query;
-  const article = findArticleBySlug(slug as string, articles) as Article;
-
+export default function Blog({ article }: HomeProps) {
   if (!article) {
     console.error('No metadata found for this post');
     return <Custom404 />;
@@ -22,7 +18,7 @@ export default function Blog({ articles }: HomeProps) {
     <>
       <NextSeo
         {...defaultSEOConfig}
-        title='Edwin H - Home'
+        title='Edwin H - Blog Page'
         openGraph={{
           ...defaultSEOConfig.openGraph,
           title: 'Edwin H - Blog Page',
@@ -33,25 +29,22 @@ export default function Blog({ articles }: HomeProps) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps(context: any) {
+  const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL;
+
   try {
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_VERCEL_URL}/api/medium-articles`,
-    );
+    const response = await fetch(`${baseUrl}/api/medium-articles`);
+
     if (!response.ok) {
       throw new Error('Failed to fetch Medium posts from API');
     }
 
     const articles: Article[] = await response.json();
+    const article = findArticleBySlug(context.params.slug, articles);
 
-    return {
-      props: { articles },
-    };
+    return { props: { article } };
   } catch (error) {
     console.error((error as Error).message);
-
-    return {
-      props: { articles: [] },
-    };
+    return { props: { article: null } };
   }
 }

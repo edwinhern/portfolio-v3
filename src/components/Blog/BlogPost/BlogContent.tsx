@@ -1,6 +1,6 @@
+import { BlogLayout } from '@/components/Layout/BlogLayout';
 import { Article } from '@/types/api/medium-articles';
-import { BlogLayout } from '../Layout/BlogLayout';
-import styles from './Blog.module.css';
+import styles from './styles/BlogPost.module.css';
 
 interface BlogContentProps {
   article: Article;

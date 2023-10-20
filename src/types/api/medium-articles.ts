@@ -11,5 +11,5 @@ export interface Article {
 }
 
 export interface MediumProps {
-  articles: Article[];
+  article: Article | null;
 }

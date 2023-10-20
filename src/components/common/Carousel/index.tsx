@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { ChildProp } from '@/types/common';
 import Carousel from 'react-multi-carousel';
 import { responsive } from '@/data';
-import { Card, CardHeader, CardTitle, CardContent } from '../ui/card';
+import { Card, CardHeader, CardTitle, CardContent } from '../../ui/card';
 import Image from 'next/image';
 
 export const CarouselComponent: FC<ChildProp> = ({ children }) => {

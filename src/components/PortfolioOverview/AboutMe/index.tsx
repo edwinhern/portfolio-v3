@@ -1,4 +1,4 @@
-import { CarouselComponent, CustomCard } from '@/components/Carousel';
+import { CarouselComponent, CustomCard } from '@/components/common/Carousel';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { aboutMeData } from '@/data';
 import Image from 'next/image';

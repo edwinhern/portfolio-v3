@@ -6,7 +6,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '@/components/ui/tooltip';
-import { Button } from '../ui/button';
+import { Button } from '../../../ui/button';
 
 type CopyLinkProps = { link: string };
 export const CopyLink: React.FC<CopyLinkProps> = ({ link }) => {

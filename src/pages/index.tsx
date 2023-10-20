@@ -1,5 +1,5 @@
 import { NextSeo } from 'next-seo';
-import { PortfolioOverview } from '@/components/pages';
+import { PortfolioOverview } from '@/components/PortfolioOverview';
 import defaultSEOConfig from '@/utils/next-seo-config';
 
 export default function Home() {

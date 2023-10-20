@@ -5,7 +5,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '@/components/ui/tooltip';
-import { Button } from '../ui/button';
+import { Button } from '../../../ui/button';
 
 export const TwitterLink = ({ title, baseUrl, slug }: any) => {
   return (
@@ -15,7 +15,7 @@ export const TwitterLink = ({ title, baseUrl, slug }: any) => {
           <Tooltip>
             <TooltipTrigger>
               <Button
-                variant='secondary'
+                variant='ghost'
                 size={'icon'}
                 className='inline-flex cursor-pointer p-2 transition'
                 onClick={() => {
