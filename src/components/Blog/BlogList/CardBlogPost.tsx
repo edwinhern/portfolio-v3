@@ -15,15 +15,15 @@ export const CardBlogPost = ({
     <li key={post.title} className='mb-6'>
       <Link href={`/blog/${postSlug}`}>
         <div
-          className='flex animate-slideFromLeftAndFade transition hover:opacity-70'
-          style={{
-            animationDelay: `${delay}ms`,
-          }}
+          className='flex items-center justify-between transition hover:opacity-70'
+          style={{ animationDelay: `${delay}ms` }}
         >
-          <div className='flex-1 pr-4'>
-            <span className='paragraph'>{post.title}</span>
+          <div className='flex-1 truncate pr-4'>
+            <span className='block truncate text-lg font-medium'>
+              {post.title}
+            </span>
           </div>
-          <time className='text-sm text-neutral-500 dark:text-neutral-300'>
+          <time className='ml-4 text-sm text-neutral-500 dark:text-neutral-300'>
             {new Date(post.pubDate).toLocaleDateString('en-US', {
               year: 'numeric',
               month: 'short',
