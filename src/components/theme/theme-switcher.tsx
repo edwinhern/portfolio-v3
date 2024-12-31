@@ -1,6 +1,5 @@
 "use client";
 
-import { cn } from "@/utils/classes";
 import { IconMoon, IconSun } from "justd-icons";
 import { useTheme } from "next-themes";
 import { Button, type ButtonProps } from "ui";
