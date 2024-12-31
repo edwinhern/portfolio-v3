@@ -18,19 +18,31 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-	title: "Edwin Hernandez",
-	description:
-		"Dallas TX based software engineer, sharing insights on well-designed products and technology advancements.",
 	metadataBase: new URL("https://edwinhern.com"),
+	alternates: { canonical: "/" },
+	title: {
+		default: "Edwin Hernandez",
+		template: "%s | Edwin Hernandez",
+	},
+	description: "Dallas TX based software engineer, optimist, community builder.",
+	icons: {
+		apple: "/favicons/apple-touch-icon.png",
+		icon: "/favicons/favicon.ico",
+		shortcut: "/favicons/favicon-16x16.png",
+	},
 	openGraph: {
-		title: "Edwin Hernandez",
-		url: "https://edwinhern.com",
+		description: "Dallas TX based software engineer, optimist, community builder.",
 		images: [
 			{
-				url: "https://edwinhern.com/api/og?title=Edwinhern",
-				alt: "Edwinhern",
+				alt: "Edwin Hernandez",
+				url: "/og-image.png",
 			},
 		],
+		locale: "en_US",
+		siteName: "edwinhern",
+		title: "Edwin Hernandez",
+		type: "website",
+		url: "https://edwinhern.com",
 	},
 };
 

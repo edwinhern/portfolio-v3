@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @plugin 'tailwindcss-animate';
+@plugin '@tailwindcss/typography';
 
 @variant dark (&:is(.dark *));
 
@@ -54,6 +55,9 @@
 	--color-chart-3: var(--chart-3);
 	--color-chart-4: var(--chart-4);
 	--color-chart-5: var(--chart-5);
+
+	--font-sans: var(--font-geist-sans);
+	--font-mono: var(--font-geist-mono);
 }
 
 @layer base {
