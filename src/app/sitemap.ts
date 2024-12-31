@@ -17,7 +17,7 @@ async function getBlogSlugs(dir: string) {
 }
 
 export default async function sitemap() {
-	const blogDir = path.join(process.cwd(), "app/(routes)/", "blog");
+	const blogDir = path.join(process.cwd(), "src/app/(routes)/", "blog");
 	const slugs = await getBlogSlugs(blogDir);
 
 	const blogs = slugs.map((slug) => ({
