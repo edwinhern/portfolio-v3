@@ -1,6 +1,6 @@
 "use client";
 
-import { ThemeSwitcher } from "@/components/theme-switcher";
+import { ThemeSwitcher } from "@/components/theme/theme-switcher";
 import { Icons } from "@/components/ui/icons";
 import { IconBook, IconCircleInfo, IconGear, IconHome } from "justd-icons";
 import { usePathname } from "next/navigation";

@@ -5,7 +5,8 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { useRouter } from "next/navigation";
 import type { PropsWithChildren } from "react";
 import { RouterProvider } from "react-aria-components";
-import { ThemeProvider } from "./theme-provider";
+
+import { ThemeProvider } from "./theme/theme-provider";
 
 declare module "react-aria-components" {
 	interface RouterConfig {
