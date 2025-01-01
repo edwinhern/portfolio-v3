@@ -1,4 +1,5 @@
 import { MdxLayout } from "@/components/mdx-layout";
+import { incrementView } from "@/lib/views";
 
 export const metadata = {
   title: 'My Stack',
@@ -8,12 +9,14 @@ export const metadata = {
   },
 };
 
-export default function Page({children}) {
- return (
-    <MdxLayout>
-      {children}
-    </MdxLayout>
-  );
+export default async function Page({ children }) {
+	await incrementView("stack");
+
+	return (
+		<MdxLayout>
+			{children}
+		</MdxLayout>
+	);
 }
 
 # My Stack
