@@ -23,28 +23,33 @@ async function getBlogFilePath(slug?: string) {
 	};
 }
 
-async function parseBlogFile(filePath: string, slug: string): Promise<BlogPostWithContent> {
-	// Read and parse the MDX file
-	const fileContent = await fs.readFile(filePath, "utf-8");
-	const { data: metadata, content } = matter(fileContent);
+async function parseBlogFile(filePath: string, slug: string): Promise<BlogPostWithContent | null> {
+	try {
+		// Read and parse the MDX file
+		const fileContent = await fs.readFile(filePath, "utf-8");
+		const { data: metadata, content } = matter(fileContent);
 
-	// Get file stats
-	const stats = await fs.stat(filePath);
+		// Get file stats
+		const stats = await fs.stat(filePath);
 
-	// Get view count
-	const { id, views } = await getViewCount(slug);
+		// Get view count
+		const { id, views } = await getViewCount(slug);
 
-	return {
-		id,
-		slug,
-		title: metadata?.title || slug,
-		date: new Date(metadata?.date || "").toISOString(),
-		summary: metadata?.summary || "",
-		tags: metadata?.tags || [],
-		views,
-		lastModified: stats.mtime.toISOString(),
-		content,
-	};
+		return {
+			id,
+			slug,
+			title: metadata?.title || slug,
+			date: new Date(metadata?.date || "").toISOString(),
+			summary: metadata?.summary || "",
+			tags: metadata?.tags || [],
+			views,
+			lastModified: stats.mtime.toISOString(),
+			content,
+		};
+	} catch (error) {
+		console.error(`Failed to parse blog file for slug: ${slug}`, error);
+		return null;
+	}
 }
 
 export async function getBlogPosts(): Promise<BlogPost[]> {
@@ -58,13 +63,18 @@ export async function getBlogPosts(): Promise<BlogPost[]> {
 		files.map(async (filename) => {
 			const slug = filename.replace(".mdx", "");
 			const post = await parseBlogFile(path.join(dir, filename), slug);
+
+			if (!post) return null;
+
 			// Omit content when returning list of posts
 			const { content, ...postWithoutContent } = post;
 			return postWithoutContent;
 		}),
 	);
 
-	return blogPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+	return blogPosts
+		.filter((post): post is BlogPost => post !== null)
+		.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
 export async function getBlogPost(slug: string): Promise<BlogPostWithContent | null> {

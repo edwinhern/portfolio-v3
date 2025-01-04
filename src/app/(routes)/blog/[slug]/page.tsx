@@ -1,12 +1,11 @@
-import { MdxLayout } from "@/components/mdx/mdx-layout";
-import { getBlogPost } from "@/features/blog/blog.utils";
-import { incrementView } from "@/lib/views";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-type SlugProps = Promise<{
-	slug: string;
-}>;
+import { MdxLayout } from "@/components/mdx/layout";
+import { getBlogPost } from "@/features/blog/blog.utils";
+import { incrementView } from "@/lib/views";
+
+type SlugProps = Promise<{ slug: string }>;
 
 export async function generateMetadata({ params }: { params: SlugProps }): Promise<Metadata> {
 	const { slug } = await params;
