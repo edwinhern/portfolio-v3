@@ -6,11 +6,8 @@
 
 @theme {
 	/* Recommended font is: Inter, Sathosi, Geist */
-	/*--font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",*/
-	/*"Segoe UI Symbol", "Noto Color Emoji";*/
-
-	/*--font-mono: var(--font-mono), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",*/
-	/*"Segoe UI Symbol", "Noto Color Emoji";*/
+	--font-sans: var(--font-geist-sans);
+	--font-mono: var(--font-geist-mono);
 
 	--color-border: var(--border);
 	--color-input: var(--input);
@@ -55,9 +52,6 @@
 	--color-chart-3: var(--chart-3);
 	--color-chart-4: var(--chart-4);
 	--color-chart-5: var(--chart-5);
-
-	--font-sans: var(--font-geist-sans);
-	--font-mono: var(--font-geist-mono);
 }
 
 @layer base {

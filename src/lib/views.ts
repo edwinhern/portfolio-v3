@@ -1,15 +1,29 @@
+import { type UUID, randomUUID } from "node:crypto";
 import { createClient } from "@/lib/supabase/server";
 
-export async function getViewCount(slug: string): Promise<number> {
+interface View {
+	id: UUID;
+	views: number;
+}
+
+export async function getViewCount(slug: string): Promise<View> {
 	try {
 		const supabase = await createClient();
-		const { data, error } = await supabase.from("blog").select("views").eq("slug", slug).single();
+		const { data, error } = await supabase.from("blog").select("id, views").eq("slug", slug).single();
 
-		if (error) throw error;
-		return data?.views || 0;
+		if (error) {
+			if (error.code === "PGRST106") {
+				return { id: randomUUID(), views: 0 };
+			}
+			throw error;
+		}
+
+		return { id: data?.id, views: data?.views ?? 0 };
 	} catch (error) {
-		console.error("Error fetching view count:", error);
-		return 0;
+		if (error instanceof Error && "code" in error && error.code !== "PGRST106") {
+			console.error("Error fetching view count:", error);
+		}
+		return { id: randomUUID(), views: 0 };
 	}
 }
 
