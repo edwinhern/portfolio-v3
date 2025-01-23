@@ -1,4 +1,3 @@
-import { CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -8,11 +7,14 @@ export const metadata: Metadata = {
 
 export default function Page() {
 	return (
-		<CardHeader className="max-w-xl p-0">
-			<CardTitle className="text-xl sm:text-2xl">Gear</CardTitle>
-			<CardDescription className="text-sm sm:text-base">
-				Here are some of the things I use to build software.
-			</CardDescription>
-		</CardHeader>
+		<div className="flex flex-col gap-16 md:gap-24">
+			<div className="flex animate-in flex-col space-y-4">
+				<h1 className="animate-in font-bold text-lg text-primary">Gear</h1>
+
+				<p className="animate-in font-light leading-relaxed" style={{ "--index": 1 } as React.CSSProperties}>
+					List of tools I actually own and enjoy using.
+				</p>
+			</div>
+		</div>
 	);
 }
