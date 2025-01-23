@@ -11,11 +11,9 @@ export const Project: React.FC = async () => {
 	return (
 		<Section heading="Projects" headingAlignment="left">
 			<div className="flex flex-col items-end gap-4">
-				<div className="grid w-full grid-cols-1 md:grid-cols-2">
-					{repositories.map((project) => (
-						<ProjectCard key={project.repo} project={project} />
-					))}
-				</div>
+				<ul className="animated-list grid w-full grid-cols-1 md:grid-cols-2">
+					{repositories.map(ProjectCard)}
+				</ul>
 				<Link
 					target="_blank"
 					href={`${siteConfig.links.github}?tab=repositories`}

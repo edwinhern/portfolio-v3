@@ -16,7 +16,7 @@ function Workplace({ title, company, imageSrc, date, link }: Readonly<Workplace>
 				<Image src={imageSrc} alt={company} width={48} height={48} />
 
 				<div className="flex flex-col gap-px">
-					<p className={link ? "external-arrow" : ""}>{title}</p>
+					<p>{title}</p>
 					<p className="text-muted-foreground">{company}</p>
 				</div>
 			</div>

@@ -27,7 +27,13 @@ export const Introduction: React.FC<React.ComponentProps<"div">> = ({ ...props }
 			</p>
 			<p className="animate-in font-light" style={{ "--index": 3 } as React.CSSProperties}>
 				I currently work as a <span className="font-semibold">Software Engineer</span> at{" "}
-				<span className="font-semibold">Motorola Solutions</span>.
+				<Link
+					className="text-primary underline decoration-2 underline-offset-4 transition-colors hover:text-primary/80"
+					href="https://www.motorolasolutions.com/"
+				>
+					Motorola Solutions
+				</Link>
+				.
 			</p>
 			<SocialMediaIcons className="animate-in" style={{ "--index": 4 } as React.CSSProperties} />
 		</div>
