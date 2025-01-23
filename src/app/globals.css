@@ -47,29 +47,29 @@
 	--color-chart-5: hsl(var(--chart-5));
 
 	--animate-in: in 0.6s both;
-  --animate-in-reverse: in-reverse 0.6s both;
+	--animate-in-reverse: in-reverse 0.6s both;
 
 	@keyframes in {
-    0% { 
-      transform: translateY(18px);
-      opacity: 0;
-    }
-    100% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
+		0% {
+			transform: translateY(18px);
+			opacity: 0;
+		}
+		100% {
+			transform: translateY(0);
+			opacity: 1;
+		}
+	}
 
-  @keyframes in-reverse {
-    0% {
-      transform: translateY(-18px);
-      opacity: 0;
-    }
-    100% {
-      transform: translateY(0);  
-      opacity: 1;
-    }
-  }
+	@keyframes in-reverse {
+		0% {
+			transform: translateY(-18px);
+			opacity: 0;
+		}
+		100% {
+			transform: translateY(0);
+			opacity: 1;
+		}
+	}
 }
 
 /*
@@ -91,49 +91,49 @@
 }
 
 @layer base {
-  :root {
-    --background: 0 0% 94%;
-    --foreground: 0 0% 5%;
-    --card: 0 0% 94%;
-    --card-foreground: 0 0% 5%;
-    --popover: 0 0% 94%;
-    --popover-foreground: 0 0% 5%;
-    --primary: 0 0% 5%;
-    --primary-foreground: 0 0% 94%;
-    --secondary: 0 0% 85%;
-    --secondary-foreground: 0 0% 5%;
-    --muted: 240 4.8% 85.9%;
-  --muted-foreground: 240 3.8% 40.1%;
-    --accent: 0 100% 50%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 85% 60%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 80%;
-    --input: 0 0% 80%;
-    --ring: 0 100% 50%;
-  }
+	:root {
+		--background: 0 0% 94%;
+		--foreground: 0 0% 5%;
+		--card: 0 0% 94%;
+		--card-foreground: 0 0% 5%;
+		--popover: 0 0% 94%;
+		--popover-foreground: 0 0% 5%;
+		--primary: 0 0% 5%;
+		--primary-foreground: 0 0% 94%;
+		--secondary: 0 0% 85%;
+		--secondary-foreground: 0 0% 5%;
+		--muted: 240 4.8% 85.9%;
+		--muted-foreground: 240 3.8% 40.1%;
+		--accent: 0 100% 50%;
+		--accent-foreground: 0 0% 98%;
+		--destructive: 0 85% 60%;
+		--destructive-foreground: 0 0% 98%;
+		--border: 0 0% 80%;
+		--input: 0 0% 80%;
+		--ring: 0 100% 50%;
+	}
 
-  .dark {
-    --background: 0 0% 6%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 6%;
-    --card-foreground: 0 0% 95%;
-    --popover: 0 0% 6%;
-    --popover-foreground: 0 0% 95%;
+	.dark {
+		--background: 0 0% 6%;
+		--foreground: 0 0% 98%;
+		--card: 0 0% 6%;
+		--card-foreground: 0 0% 95%;
+		--popover: 0 0% 6%;
+		--popover-foreground: 0 0% 95%;
 		--primary: 0 0% 98%;
-    --primary-foreground: 0 0% 6%;
+		--primary-foreground: 0 0% 6%;
 		--secondary: 0 0% 15%;
 		--secondary-foreground: 0 0% 98%;
 		--muted: 240 3.7% 25.9%;
 		--muted-foreground: 0 0% 75%;
 		--accent: 0 85% 55%;
 		--accent-foreground: 0 0% 98%;
-    --destructive: 0 62% 30%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 0 100% 50%;
-  }
+		--destructive: 0 62% 30%;
+		--destructive-foreground: 0 0% 98%;
+		--border: 0 0% 20%;
+		--input: 0 0% 20%;
+		--ring: 0 100% 50%;
+	}
 }
 
 @layer base {
@@ -146,7 +146,7 @@
 }
 
 @layer utilities {
-  .animate-in {
+	.animate-in {
 		animation: var(--animate-in);
 		animation-delay: calc(var(--index) * 130ms);
 	}
@@ -156,12 +156,12 @@
 		animation-delay: calc(var(--index) * -130ms);
 	}
 
-  .animated-list:hover li {
-    opacity: 0.6;
-    transition: opacity 0.2s;
-  }
+	.animated-list:hover li {
+		opacity: 0.6;
+		transition: opacity 0.2s;
+	}
 
-  .animated-list:hover li:hover {
-    opacity: 1;
-  }
+	.animated-list:hover li:hover {
+		opacity: 1;
+	}
 }
