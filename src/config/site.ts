@@ -6,16 +6,7 @@ export const siteConfig = {
 		resume: "/assets/resume/Edwin-Hernandez-Resume-2024.pdf",
 	},
 	description: "Software Engineer, gamer, soccer player, and minimalist, based in Dallas, TX.",
-	keywords: [
-		"Next.js",
-		"TypeScript",
-		"Tailwind CSS",
-		"Vitest",
-		"React Testing Library",
-		"Framer Motion",
-		"shadcn/ui",
-		"Aceternity UI",
-	],
+	keywords: ["Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui"],
 	links: {
 		github: "https://github.com/edwinhern",
 		linkedin: "https://www.linkedin.com/in/edwinhern/",
