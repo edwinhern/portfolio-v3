@@ -17,7 +17,7 @@ export const Introduction: React.FC<React.ComponentProps<"div">> = ({ ...props }
 				>
 					self-hosted
 				</Link>{" "}
-				solutions for media management and productivity tools.
+				solutions for media and productivity tools.
 			</p>
 
 			<p className="animate-in font-light leading-relaxed" style={{ "--index": 2 } as React.CSSProperties}>
