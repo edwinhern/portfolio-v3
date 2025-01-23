@@ -7,7 +7,7 @@ import { ThemeProvider } from "@/components/theme/theme-provider";
 
 export function Providers({ children }: Readonly<React.PropsWithChildren>) {
 	return (
-		<ThemeProvider enableSystem attribute="class">
+		<ThemeProvider defaultTheme="light" enableSystem attribute="class">
 			{children}
 			<Analytics />
 			<SpeedInsights />

@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-	metadataBase: new URL("https://edwinhern.com"),
+	metadataBase: new URL("https://v3.edwinhern.com"),
 	alternates: { canonical: "/" },
 	title: {
 		default: "Edwin Hernandez",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
 		siteName: "edwinhern",
 		title: "Edwin Hernandez",
 		type: "website",
-		url: "https://edwinhern.com",
+		url: "https://v3.edwinhern.com",
 	},
 };
 

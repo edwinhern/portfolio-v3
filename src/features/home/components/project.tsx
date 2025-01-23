@@ -1,13 +1,15 @@
+import Link from "next/link";
+
 import { siteConfig } from "@/config/site";
 import { getGithubRepos } from "@/lib/api/github/utils";
-import Link from "next/link";
+import { cn } from "@/lib/utils";
 import { ProjectCard } from "./project-card";
 
-export const Project = async () => {
+export const Project: React.FC<React.ComponentProps<"div">> = async ({ ...props }) => {
 	const repositories = await getGithubRepos();
 
 	return (
-		<section className="space-y-4 py-4">
+		<section {...props} className={cn("space-y-4 py-4", props.className)}>
 			<h2 className="font-semibold text-lg">Projects</h2>
 
 			<div className="flex flex-col items-end gap-4">
@@ -19,7 +21,7 @@ export const Project = async () => {
 				<Link
 					target="_blank"
 					href={`${siteConfig.links.github}?tab=repositories`}
-					className="px-4 text-sm underline"
+					className="text-muted-foreground text-sm underline underline-offset-4 hover:text-primary"
 					rel="noreferrer"
 				>
 					See More...
