@@ -1,4 +1,4 @@
-import { Header } from "@/components/header";
+import { CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -7,12 +7,11 @@ export const metadata: Metadata = {
 
 export default function Page() {
 	return (
-		<div className="py-6">
-			<Header
-				title="Gear"
-				description="Acme is a leading software house dedicated to delivering innovative and custom software solutions. Our team of experienced developers and designers work closely with clients to bring their ideas to life, ensuring high-quality products that meet their business needs.
-"
-			/>
-		</div>
+		<CardHeader className="max-w-xl p-0">
+			<CardTitle className="text-xl sm:text-2xl">Gear</CardTitle>
+			<CardDescription className="text-sm sm:text-base">
+				Here are some of the things I use to build software.
+			</CardDescription>
+		</CardHeader>
 	);
 }

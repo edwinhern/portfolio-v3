@@ -1,73 +1,36 @@
-"use client";
+import Link from "next/link";
 
 import { ThemeSwitcher } from "@/components/theme/theme-switcher";
-import { Icons } from "@/components/ui/icons";
-import { IconBook, IconCircleInfo, IconGear, IconHome } from "justd-icons";
-import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
-import { Navbar } from "ui";
+import { cn } from "@/lib/utils";
+import { IconGear, IconHome } from "justd-icons";
 
-export function AppNavbar({ children, ...props }: Readonly<React.ComponentProps<typeof Navbar>>) {
-	const pathname = usePathname();
-	const [isOpen, setIsOpen] = useState(false);
-
-	useEffect(() => setIsOpen(false), [pathname]);
-
+export function AppNavbar({ children, ...props }: Readonly<React.ComponentProps<"nav">>) {
 	return (
-		<Navbar isOpen={isOpen} onOpenChange={setIsOpen} intent="inset" {...props}>
-			<Navbar.Nav>
-				<Navbar.Logo className="text-fg" href="/">
-					<Icons.Logo className="size-5" />
-				</Navbar.Logo>
+		<nav {...props} className={cn("container relative isolate flex w-full flex-col", props.className)}>
+			<div className="flex justify-between">
+				<Link href="/" className="flex items-center">
+					<h1 className="font-bold text-lg">edwinhern</h1>
+				</Link>
 
-				<Navbar.Section className="w-full justify-between md:items-center">
-					<Navbar.Flex className="flex-col items-start md:flex-1 md:flex-row">
-						<Navbar.Item isCurrent={pathname === "/"} href="/" className="flex">
-							<IconHome />
-							Home
-						</Navbar.Item>
-						<Navbar.Item isCurrent={pathname === "/about"} href="/about">
-							<IconCircleInfo />
-							About
-						</Navbar.Item>
-						<Navbar.Item isCurrent={pathname === "/blog"} href="/blog">
-							<IconBook />
-							Blog
-						</Navbar.Item>
-						<Navbar.Item isCurrent={pathname === "/gear"} href="/gear">
-							<IconGear />
-							Gear
-						</Navbar.Item>
-					</Navbar.Flex>
-
+				<div className="flex gap-4">
+					<ul className="flex items-center space-x-4 text-sm">
+						<li className="hover:underline">
+							<Link href="/" className="flex items-center gap-2">
+								<IconHome />
+								Home
+							</Link>
+						</li>
+						<li className="hover:underline">
+							<Link href="/gear" className="flex items-center gap-2">
+								<IconGear />
+								Gear
+							</Link>
+						</li>
+					</ul>
 					<ThemeSwitcher />
-				</Navbar.Section>
-			</Navbar.Nav>
-
-			<Navbar.Compact>
-				<Navbar.Flex className="w-full items-center justify-between">
-					<Navbar.Flex className="gap-4">
-						<Navbar.Item isCurrent={pathname === "/"} href="/">
-							Home
-						</Navbar.Item>
-						<Navbar.Item isCurrent={pathname === "/about"} href="/about">
-							About
-						</Navbar.Item>
-						<Navbar.Item isCurrent={pathname === "/blog"} href="/blog">
-							Blog
-						</Navbar.Item>
-						<Navbar.Item isCurrent={pathname === "/gear"} href="/gear">
-							Gear
-						</Navbar.Item>
-					</Navbar.Flex>
-				</Navbar.Flex>
-
-				<Navbar.Flex>
-					<ThemeSwitcher appearance="plain" />
-					{/* <Navbar.Trigger className="-ml-2" /> */}
-				</Navbar.Flex>
-			</Navbar.Compact>
+				</div>
+			</div>
 			{children}
-		</Navbar>
+		</nav>
 	);
 }
