@@ -2,7 +2,7 @@ import type { GitHubRepository } from "./types";
 
 export async function getGithubRepos(): Promise<GitHubRepository[]> {
 	try {
-		const response = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/github`, {
+		const response = await fetch(`${process.env.VERCEL_URL}/api/github`, {
 			method: "GET",
 			headers: { "Content-Type": "application/json" },
 		});
