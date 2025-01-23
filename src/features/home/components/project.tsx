@@ -1,17 +1,15 @@
 import Link from "next/link";
 
+import Section from "@/components/ui/section";
 import { siteConfig } from "@/config/site";
 import { getGithubRepos } from "@/lib/api/github/utils";
-import { cn } from "@/lib/utils";
 import { ProjectCard } from "./project-card";
 
-export const Project: React.FC<React.ComponentProps<"div">> = async ({ ...props }) => {
+export const Project: React.FC = async () => {
 	const repositories = await getGithubRepos();
 
 	return (
-		<section {...props} className={cn("space-y-4 py-4", props.className)}>
-			<h2 className="font-semibold text-lg">Projects</h2>
-
+		<Section heading="Projects" headingAlignment="left">
 			<div className="flex flex-col items-end gap-4">
 				<div className="grid w-full grid-cols-1 md:grid-cols-2">
 					{repositories.map((project) => (
@@ -27,6 +25,6 @@ export const Project: React.FC<React.ComponentProps<"div">> = async ({ ...props 
 					See More...
 				</Link>
 			</div>
-		</section>
+		</Section>
 	);
 };
