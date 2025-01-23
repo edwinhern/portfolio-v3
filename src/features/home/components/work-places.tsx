@@ -1,6 +1,3 @@
-"use client";
-
-import clsx from "clsx";
 import Image, { type StaticImageData } from "next/image";
 import Link from "next/link";
 
@@ -16,13 +13,7 @@ function Workplace({ title, company, imageSrc, date, link }: Readonly<Workplace>
 	const content = (
 		<>
 			<div className="flex items-center gap-4">
-				<Image
-					src={imageSrc}
-					alt={company}
-					width={48}
-					height={48}
-					className={clsx("rounded-full", company === "University of Houston" && "bg-neutral-50")}
-				/>
+				<Image src={imageSrc} alt={company} width={48} height={48} />
 
 				<div className="flex flex-col gap-px">
 					<p className={link ? "external-arrow" : ""}>{title}</p>
@@ -32,6 +23,7 @@ function Workplace({ title, company, imageSrc, date, link }: Readonly<Workplace>
 			{date && <time className="text-muted-foreground">{date}</time>}
 		</>
 	);
+
 	return (
 		<li className="rounded-lg transition-opacity" key={`${company}-${title}`}>
 			{link ? (

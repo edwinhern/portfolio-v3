@@ -12,7 +12,6 @@ export const SocialMediaIcons: React.FC<React.ComponentProps<"div">> = ({ ...pro
 		return [
 			{ href: "https://github.com/edwinhern", label: "Github" },
 			{ href: "https://linkedin.com/in/edwinhern", label: "LinkedIn" },
-			{ href: "mailto:edwinhern.16@gmail.com", label: "Collab" },
 		];
 	}, []);
 
