@@ -51,8 +51,8 @@ export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
 		<html lang="en" suppressHydrationWarning className={`${geistSans.variable} ${geistMono.variable}`}>
 			<body className="min-h-svh antialiased">
 				<Providers>
-					<AppNavbar className="mx-auto max-w-[700px]">
-						<div className="px-6 pt-16 pb-24 md:px-6 md:pt-20 md:pb-44">{children}</div>
+					<AppNavbar className="mx-auto px-4 py-4 md:max-w-[700px] md:px-0 md:py-8">
+						<div className="pt-8">{children}</div>
 					</AppNavbar>
 				</Providers>
 			</body>

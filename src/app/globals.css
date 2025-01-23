@@ -1,185 +1,141 @@
 @import "tailwindcss";
-@plugin "tailwindcss-animate";
-@plugin "@tailwindcss/typography";
 
-@variant dark (&:is(.dark *));
+@plugin 'tailwindcss-animate';
+
+@custom-variant dark (&:is(.dark *));
 
 @theme {
-	/* Recommended font is: Inter, Sathosi, Geist */
 	--font-sans: var(--font-geist-sans);
 	--font-mono: var(--font-geist-mono);
 
-	--color-border: var(--border);
-	--color-input: var(--input);
+	--radius-lg: var(--radius);
+	--radius-md: calc(var(--radius) - 2px);
+	--radius-sm: calc(var(--radius) - 4px);
 
-	--color-ring: var(--ring);
+	--color-background: hsl(var(--background));
+	--color-foreground: hsl(var(--foreground));
 
-	--color-bg: var(--bg);
-	--color-fg: var(--fg);
+	--color-card: hsl(var(--card));
+	--color-card-foreground: hsl(var(--card-foreground));
 
-	--color-primary: var(--primary);
-	--color-primary-fg: var(--primary-fg);
+	--color-popover: hsl(var(--popover));
+	--color-popover-foreground: hsl(var(--popover-foreground));
 
-	--color-secondary: var(--secondary);
-	--color-secondary-fg: var(--secondary-fg);
+	--color-primary: hsl(var(--primary));
+	--color-primary-foreground: hsl(var(--primary-foreground));
 
-	--color-accent: var(--accent);
-	--color-accent-fg: var(--accent-fg);
+	--color-secondary: hsl(var(--secondary));
+	--color-secondary-foreground: hsl(var(--secondary-foreground));
 
-	--color-success: var(--success);
-	--color-success-fg: var(--success-fg);
+	--color-muted: hsl(var(--muted));
+	--color-muted-foreground: hsl(var(--muted-foreground));
 
-	--color-danger: var(--danger);
-	--color-danger-fg: var(--danger-fg);
+	--color-accent: hsl(var(--accent));
+	--color-accent-foreground: hsl(var(--accent-foreground));
 
-	--color-warning: var(--warning);
-	--color-warning-fg: var(--warning-fg);
+	--color-destructive: hsl(var(--destructive));
+	--color-destructive-foreground: hsl(var(--destructive-foreground));
 
-	--color-muted: var(--muted);
-	--color-muted-fg: var(--muted-fg);
+	--color-border: hsl(var(--border));
+	--color-input: hsl(var(--input));
+	--color-ring: hsl(var(--ring));
 
-	--color-overlay: var(--overlay);
-	--color-overlay-fg: var(--overlay-fg);
-
-	--color-navbar: var(--navbar);
-	--color-navbar-fg: var(--navbar-fg);
-
-	--color-sidebar: var(--sidebar);
-	--color-sidebar-fg: var(--sidebar-fg);
-
-	--color-chart-1: var(--chart-1);
-	--color-chart-2: var(--chart-2);
-	--color-chart-3: var(--chart-3);
-	--color-chart-4: var(--chart-4);
-	--color-chart-5: var(--chart-5);
+	--color-chart-1: hsl(var(--chart-1));
+	--color-chart-2: hsl(var(--chart-2));
+	--color-chart-3: hsl(var(--chart-3));
+	--color-chart-4: hsl(var(--chart-4));
+	--color-chart-5: hsl(var(--chart-5));
 }
 
-@layer base {
-	:root {
-		--bg: oklch(1 0 0);
-		--fg: oklch(0.141 0.005 285.823);
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
 
-		--primary: oklch(0.141 0.005 285.823);
-		--primary-fg: oklch(0.985 0 0);
-
-		--secondary: oklch(0.92 0.004 286.32);
-		--secondary-fg: oklch(0.141 0.005 285.823);
-
-		--overlay: oklch(1 0 0);
-		--overlay-fg: oklch(0.141 0.005 285.823);
-
-		--accent: oklch(0.92 0.004 286.32);
-		--accent-fg: oklch(0.141 0.005 285.823);
-
-		--muted: oklch(0.967 0.001 286.375);
-		--muted-fg: oklch(0.552 0.016 285.938);
-
-		--success: oklch(0.596 0.145 163.225);
-		--success-fg: oklch(1 0 0);
-
-		--warning: oklch(0.828 0.189 84.429);
-		--warning-fg: oklch(0.279 0.077 45.635);
-
-		--danger: oklch(0.577 0.245 27.325);
-		--danger-fg: oklch(0.971 0.013 17.38);
-
-		--border: oklch(0.911 0.006 286.286);
-		--input: oklch(0.871 0.006 286.286);
-		--ring: oklch(0.141 0.005 285.823);
-
-		--navbar: oklch(0.967 0.001 286.375);
-		--navbar-fg: oklch(0.141 0.005 285.823);
-
-		--sidebar: oklch(0.967 0.001 286.375);
-		--sidebar-fg: oklch(0.141 0.005 285.823);
-
-		--chart-1: oklch(0.21 0.006 285.885);
-		--chart-2: oklch(0.37 0.013 285.805);
-		--chart-3: oklch(0.442 0.017 285.786);
-		--chart-4: oklch(0.552 0.016 285.938);
-		--chart-5: oklch(0.705 0.015 286.067);
-
-		--radius-lg: 0.25rem;
-		--radius-xs: calc(var(--radius-lg) * 0.5);
-		--radius-sm: calc(var(--radius-lg) * 0.75);
-		--radius-md: calc(var(--radius-lg) * 0.9);
-		--radius-xl: calc(var(--radius-lg) * 1.25);
-		--radius-2xl: calc(var(--radius-lg) * 1.5);
-		--radius-3xl: calc(var(--radius-lg) * 2);
-		--radius-4xl: calc(var(--radius-lg) * 3);
-	}
-
-	.dark {
-		--bg: oklch(0.091 0.005 285.823);
-		--fg: oklch(0.985 0 0);
-
-		--primary: oklch(0.985 0 0);
-		--primary-fg: oklch(0.141 0.005 285.823);
-
-		--secondary: oklch(0.244 0.006 286.033);
-		--secondary-fg: oklch(0.985 0 0);
-
-		--accent: oklch(0.274 0.006 286.033);
-		--accent-fg: oklch(0.985 0 0);
-
-		--muted: oklch(0.21 0.006 285.885);
-		--muted-fg: oklch(0.705 0.015 286.067);
-
-		--overlay: oklch(0.17 0.006 285.885);
-		--overlay-fg: oklch(0.985 0 0);
-
-		--success: oklch(0.596 0.145 163.225);
-		--success-fg: oklch(1 0 0);
-
-		--warning: oklch(0.828 0.189 84.429);
-		--warning-fg: oklch(0.279 0.077 45.635);
-
-		--danger: oklch(0.577 0.245 27.325);
-		--danger-fg: oklch(0.971 0.013 17.38);
-
-		--border: oklch(0.27 0.013 285.805);
-		--input: oklch(0.29 0.013 285.805);
-		--ring: oklch(0.985 0 0);
-
-		--navbar: oklch(0.17 0.006 285.885);
-		--navbar-fg: oklch(0.985 0 0);
-
-		--sidebar: oklch(0.16 0.006 285.885);
-		--sidebar-fg: oklch(0.985 0 0);
-
-		--chart-1: oklch(0.274 0.006 286.033);
-		--chart-2: oklch(0.37 0.013 285.805);
-		--chart-3: oklch(0.552 0.016 285.938);
-		--chart-4: oklch(0.705 0.015 286.067);
-		--chart-5: oklch(0.871 0.006 286.286);
-	}
-}
-
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
 @layer base {
 	*,
 	::after,
 	::before,
 	::backdrop,
 	::file-selector-button {
-		border-color: var(--border, currentColor);
+		border-color: var(--color-gray-200, currentColor);
+	}
+}
+
+@layer base {
+	:root {
+		--background: 0 0% 100%;
+		--foreground: 240 10% 3.9%;
+
+		--muted: 240 4.8% 95.9%;
+		--muted-foreground: 240 3.8% 46.1%;
+
+		--popover: 0 0% 100%;
+		--popover-foreground: 240 10% 3.9%;
+
+		--card: 0 0% 100%;
+		--card-foreground: 240 10% 3.9%;
+
+		--border: 240 5.9% 90%;
+		--input: 240 5.9% 90%;
+
+		--primary: 240 5.9% 10%;
+		--primary-foreground: 0 0% 98%;
+
+		--secondary: 240 4.8% 95.9%;
+		--secondary-foreground: 240 5.9% 10%;
+
+		--accent: 240 4.8% 95.9%;
+		--accent-foreground: 240 5.9% 10%;
+
+		--destructive: 0 84.2% 60.2%;
+		--destructive-foreground: 0 0% 98%;
+
+		--ring: 240 5% 64.9%;
+
+		--radius: 0.5rem;
+	}
+
+	.dark {
+		--background: 240 10% 3.9%;
+		--foreground: 0 0% 98%;
+
+		--muted: 240 3.7% 15.9%;
+		--muted-foreground: 240 5% 64.9%;
+
+		--popover: 240 10% 3.9%;
+		--popover-foreground: 0 0% 98%;
+
+		--card: 240 10% 3.9%;
+		--card-foreground: 0 0% 98%;
+
+		--border: 240 3.7% 15.9%;
+		--input: 240 3.7% 15.9%;
+
+		--primary: 0 0% 98%;
+		--primary-foreground: 240 5.9% 10%;
+
+		--secondary: 240 3.7% 15.9%;
+		--secondary-foreground: 0 0% 98%;
+
+		--accent: 240 3.7% 15.9%;
+		--accent-foreground: 0 0% 98%;
+
+		--destructive: 0 62.8% 30.6%;
+		--destructive-foreground: 0 85.7% 97.3%;
+
+		--ring: 240 3.7% 15.9%;
 	}
 }
 
 @layer base {
 	* {
-		font-feature-settings: "cv11", "ss01";
-		font-variation-settings: "opsz" 850;
-		text-rendering: optimizeLegibility;
-
-		/*
-     * Scrollbar
-     */
-		scrollbar-width: thin;
-		scrollbar-color: var(--border) transparent;
+		@apply border-border;
 	}
-
 	body {
-		background-color: var(--bg);
-		color: var(--fg);
+		@apply bg-background text-foreground;
 	}
 }

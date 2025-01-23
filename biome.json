@@ -42,15 +42,8 @@
 					"level": "error",
 					"fix": "safe",
 					"options": {
-						"attributes": ["classList"],
-						"functions": [
-							"cn",
-							"tv",
-							"twMerge",
-							"twJoin",
-							"composeRenderProps",
-							"composeTailwindRenderProps"
-						]
+						"attributes": ["className"],
+						"functions": ["clsx", "cva", "cn"]
 					}
 				}
 			}
