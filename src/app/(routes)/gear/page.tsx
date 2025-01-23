@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
 	title: "Gear",
+	description: "My toolbox. This is gear I actually own and recommend.",
 };
 
 export default function Page() {

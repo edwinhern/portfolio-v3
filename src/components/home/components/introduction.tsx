@@ -10,14 +10,14 @@ export const Introduction: React.FC<React.ComponentProps<"div">> = ({ ...props }
 
 			<p className="animate-in font-light leading-relaxed" style={{ "--index": 1 } as React.CSSProperties}>
 				I&apos;m a software engineer in Dallas, TX building for the web with a design-first mindset. On the
-				side, I create{" "}
+				side, I manage{" "}
 				<Link
 					className="text-primary underline decoration-2 underline-offset-4 transition-colors hover:text-primary/80"
-					href="https://youtube.com/@edwinhern"
+					href="https://hernandezserver.com/"
 				>
-					YouTube
+					self-hosted
 				</Link>{" "}
-				videos about tech and productivity.
+				solutions for media management and productivity tools.
 			</p>
 
 			<p className="animate-in font-light leading-relaxed" style={{ "--index": 2 } as React.CSSProperties}>

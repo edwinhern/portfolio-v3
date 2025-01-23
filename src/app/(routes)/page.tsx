@@ -1,6 +1,6 @@
-import { Introduction } from "@/features/home/components/introduction";
-import { Project } from "@/features/home/components/project";
-import { Work } from "@/features/home/components/work";
+import { Introduction } from "@/components/home/components/introduction";
+import { Project } from "@/components/home/components/project";
+import { Work } from "@/components/home/components/work";
 
 export default async function Home() {
 	return (
