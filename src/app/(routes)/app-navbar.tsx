@@ -2,7 +2,6 @@ import Link from "next/link";
 
 import { ThemeSwitcher } from "@/components/theme/theme-switcher";
 import { cn } from "@/lib/utils";
-import { IconGear, IconHome } from "justd-icons";
 
 export function AppNavbar({ children, ...props }: Readonly<React.ComponentProps<"nav">>) {
 	return (
