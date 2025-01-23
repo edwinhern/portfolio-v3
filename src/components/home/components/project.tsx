@@ -12,7 +12,9 @@ export const Project: React.FC = async () => {
 		<Section heading="Projects" headingAlignment="left">
 			<div className="flex flex-col items-end gap-4">
 				<ul className="animated-list grid w-full grid-cols-1 md:grid-cols-2">
-					{repositories.map(ProjectCard)}
+					{repositories.map((repo, index) => (
+						<ProjectCard key={repo.repo} {...repo} index={index} />
+					))}
 				</ul>
 				<Link
 					target="_blank"

@@ -25,17 +25,8 @@ export const Introduction: React.FC<React.ComponentProps<"div">> = ({ ...props }
 				<span className="font-semibold">React</span>, and <span className="font-semibold">TypeScript</span> for
 				the frontend and <span className="font-semibold">Java</span> for the backend.
 			</p>
-			<p className="animate-in font-light" style={{ "--index": 3 } as React.CSSProperties}>
-				I currently work as a <span className="font-semibold">Software Engineer</span> at{" "}
-				<Link
-					className="text-primary underline decoration-2 underline-offset-4 transition-colors hover:text-primary/80"
-					href="https://www.motorolasolutions.com/"
-				>
-					Motorola Solutions
-				</Link>
-				.
-			</p>
-			<SocialMediaIcons className="animate-in" style={{ "--index": 4 } as React.CSSProperties} />
+
+			<SocialMediaIcons className="animate-in" style={{ "--index": 3 } as React.CSSProperties} />
 		</div>
 	);
 };
