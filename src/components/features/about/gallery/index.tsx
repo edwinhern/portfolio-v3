@@ -1,5 +1,3 @@
-"use client";
-
 import { Photo } from "./components/Photo";
 import { GALLERY_PHOTOS } from "./constants/photos";
 

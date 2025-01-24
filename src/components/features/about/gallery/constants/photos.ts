@@ -1,4 +1,4 @@
-import type { GalleryPhoto } from "../types";
+import type { GalleryPhoto } from "@/features/about/gallery/types";
 
 export const GALLERY_PHOTOS: GalleryPhoto[] = [
 	{
