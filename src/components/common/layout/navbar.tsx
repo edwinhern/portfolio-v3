@@ -20,6 +20,11 @@ export function AppNavbar({ children, ...props }: Readonly<React.ComponentProps<
 							</Link>
 						</li>
 						<li className="decoration-2 underline-offset-4 transition-colors hover:underline">
+							<Link href="/about" className="flex items-center gap-2">
+								About
+							</Link>
+						</li>
+						<li className="decoration-2 underline-offset-4 transition-colors hover:underline">
 							<Link href="/gear" className="flex items-center gap-2">
 								Gear
 							</Link>
