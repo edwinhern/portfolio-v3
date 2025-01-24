@@ -15,7 +15,7 @@ export default function Section({ heading, headingAlignment, children, ...props 
 	return (
 		<section
 			{...props}
-			className={cn("col-reverse flex flex-col gap-4 md:flex-row md:gap-9", props.className)}
+			className={cn("flex flex-col gap-4 md:flex-row md:gap-9", props.className)}
 			id={heading.toLowerCase().replace(/\s/g, "-")}
 		>
 			<h2
@@ -26,7 +26,7 @@ export default function Section({ heading, headingAlignment, children, ...props 
 			>
 				{heading}
 			</h2>
-			{children}
+			<div className="flex-1">{children}</div>
 		</section>
 	);
 }
