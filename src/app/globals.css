@@ -155,7 +155,9 @@
 		animation: var(--animate-in-reverse);
 		animation-delay: calc(var(--index) * -130ms);
 	}
+}
 
+@media (hover: hover) {
 	.animated-list:hover li {
 		opacity: 0.6;
 		transition: opacity 0.2s;

@@ -49,7 +49,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
 	return (
 		<html lang="en" suppressHydrationWarning className={`${geistSans.variable} ${geistMono.variable}`}>
-			<body className="min-h-svh antialiased">
+			<body className="min-h-svh w-full overflow-x-hidden scroll-smooth antialiased">
 				<Providers>
 					<AppNavbar className="mx-auto px-4 py-4 md:max-w-[700px] md:px-0 md:py-8">
 						<div className="pt-8">{children}</div>
