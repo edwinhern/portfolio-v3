@@ -52,7 +52,7 @@ export const gear: GearItem[] = [
 		link: "https://a.co/d/eop43z3",
 	},
 	{
-		title: 'LG 27" UltraGear OLED',
+		title: 'LG 27" UltraGear',
 		description: "Crisp, great display, and great for gaming.",
 		category: GearCategory.Home,
 		image: "https://f.media-amazon.com/images/I/616ZOS5bnnL._AC_SL1500_.jpg",
