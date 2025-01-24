@@ -1,5 +1,5 @@
 import Section from "@/components/ui/section";
-import Workplaces from "./work-places";
+import { WorkCard } from "./work-card";
 
 const workplaces = [
 	{
@@ -36,7 +36,11 @@ export const Work: React.FC = () => {
 	return (
 		<Section heading="Work" headingAlignment="left">
 			<div className="flex w-full flex-col">
-				<Workplaces items={workplaces} />
+				<ul className="animated-list flex flex-col gap-8">
+					{workplaces.map((workplace) => (
+						<WorkCard key={workplace.title} {...workplace} />
+					))}
+				</ul>
 			</div>
 		</Section>
 	);

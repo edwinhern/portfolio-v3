@@ -1,7 +1,7 @@
 import Image, { type StaticImageData } from "next/image";
 import Link from "next/link";
 
-interface Workplace {
+interface WorkCardProps {
 	title: string;
 	company: string;
 	imageSrc: string | StaticImageData;
@@ -9,7 +9,7 @@ interface Workplace {
 	link?: string;
 }
 
-function Workplace({ title, company, imageSrc, date, link }: Readonly<Workplace>) {
+export function WorkCard({ title, company, imageSrc, date, link }: Readonly<WorkCardProps>) {
 	const content = (
 		<>
 			<div className="flex items-center gap-4">
@@ -35,8 +35,4 @@ function Workplace({ title, company, imageSrc, date, link }: Readonly<Workplace>
 			)}
 		</li>
 	);
-}
-
-export default function Workplaces({ items }: Readonly<{ items: Workplace[] }>) {
-	return <ul className="animated-list flex flex-col gap-8">{items.map(Workplace)}</ul>;
 }
