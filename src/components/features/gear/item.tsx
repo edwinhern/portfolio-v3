@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import type { GearItem } from "@/components/gear/gear.constants";
-import { buttonVariants } from "@/components/ui/button";
+import type { GearItem } from "@/features/gear/types";
 import { cn } from "@/lib/utils";
+import { buttonVariants } from "@/ui/button";
 
 export function Item({ title, description, image, link }: Readonly<GearItem>) {
 	return (

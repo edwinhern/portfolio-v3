@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import { cn } from "@/lib/utils";
-import { SocialMediaIcons } from "./social-media-icons";
+import { SocialMedia } from "./social-media";
 
 export const Introduction: React.FC<React.ComponentProps<"div">> = ({ ...props }) => {
 	return (
@@ -26,7 +26,7 @@ export const Introduction: React.FC<React.ComponentProps<"div">> = ({ ...props }
 				the frontend and <span className="font-semibold">Java</span> for the backend.
 			</p>
 
-			<SocialMediaIcons className="animate-in" style={{ "--index": 3 } as React.CSSProperties} />
+			<SocialMedia className="animate-in" style={{ "--index": 3 } as React.CSSProperties} />
 		</div>
 	);
 };

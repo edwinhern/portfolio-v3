@@ -1,7 +1,4 @@
-import Section from "@/components/ui/section";
-import { WorkCard } from "./work-card";
-
-const workplaces = [
+export const WORK_PLACES = [
 	{
 		title: "Software Engineer II",
 		company: "Motorola Solutions",
@@ -31,17 +28,3 @@ const workplaces = [
 		link: "https://www.jpmorganchase.com",
 	},
 ];
-
-export const Work: React.FC = () => {
-	return (
-		<Section heading="Work" headingAlignment="left">
-			<div className="flex w-full flex-col">
-				<ul className="animated-list flex flex-col gap-8">
-					{workplaces.map((workplace) => (
-						<WorkCard key={workplace.title} {...workplace} />
-					))}
-				</ul>
-			</div>
-		</Section>
-	);
-};

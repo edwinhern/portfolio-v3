@@ -1,6 +1,6 @@
-import { Introduction } from "@/components/home/introduction";
-import { Project } from "@/components/home/project";
-import { Work } from "@/components/home/work";
+import { Introduction } from "@/features/home/introduction";
+import { Projects } from "@/features/home/projects";
+import { Work } from "@/features/home/work";
 
 export default async function Home() {
 	return (
@@ -8,7 +8,7 @@ export default async function Home() {
 			<Introduction />
 			<div className="animate-in space-y-12 md:space-y-24" style={{ "--index": 4 } as React.CSSProperties}>
 				<Work />
-				<Project />
+				<Projects />
 			</div>
 		</div>
 	);

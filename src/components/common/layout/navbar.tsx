@@ -1,8 +1,8 @@
 import Link from "next/link";
 
-import { ThemeSwitcher } from "@/components/theme/theme-switcher";
-import { Icons } from "@/components/ui/icons";
+import { ThemeSwitcher } from "@/common/theme/switcher";
 import { cn } from "@/lib/utils";
+import { Icons } from "@/ui/icons";
 
 export function AppNavbar({ children, ...props }: Readonly<React.ComponentProps<"nav">>) {
 	return (

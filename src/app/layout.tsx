@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import type { PropsWithChildren } from "react";
 
-import { AppNavbar } from "@/app/(routes)/app-navbar";
-import { Providers } from "@/components/providers";
+import { AppNavbar } from "@/common/layout/navbar";
+import { Providers } from "@/common/layout/providers";
 
 import "./globals.css";
 

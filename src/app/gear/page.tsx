@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 
-import { Item } from "@/components/gear/gear-item";
-import { type GearCategory, type GearItem, gear } from "@/components/gear/gear.constants";
-import Section from "@/components/ui/section";
+import { gear } from "@/features/gear/constants";
+import { Item } from "@/features/gear/item";
+import type { GearCategory, GearItem } from "@/features/gear/types";
+import Section from "@/ui/section";
 
 export const metadata: Metadata = {
 	title: "Gear",

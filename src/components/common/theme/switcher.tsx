@@ -1,8 +1,9 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import { IconMoon, IconSun } from "justd-icons";
 import { useTheme } from "next-themes";
+
+import { Button } from "@/ui/button";
 
 export function ThemeSwitcher() {
 	const { resolvedTheme, setTheme } = useTheme();

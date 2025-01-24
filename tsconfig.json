@@ -13,13 +13,11 @@
 		"isolatedModules": true,
 		"jsx": "preserve",
 		"incremental": true,
-		"plugins": [
-			{
-				"name": "next"
-			}
-		],
+		"plugins": [{ "name": "next" }],
 		"paths": {
 			"@/*": ["./src/*"],
+			"@/features/*": ["./src/components/features/*"],
+			"@/common/*": ["./src/components/common/*"],
 			"@/ui/*": ["./src/components/ui/*"]
 		}
 	},

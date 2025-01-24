@@ -1,8 +1,9 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import clsx from "clsx";
 import type { ReactNode } from "react";
+
+import { cn } from "@/lib/utils";
 
 interface SectionProps extends React.HTMLAttributes<HTMLDivElement> {
 	heading: string;

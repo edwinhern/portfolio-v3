@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import type { GitHubRepository } from "@/lib/api/github/types";
+import type { GitHubRepository } from "@/lib/api/github";
 import { IconStar } from "justd-icons";
 
 interface ProjectCardProps extends GitHubRepository {

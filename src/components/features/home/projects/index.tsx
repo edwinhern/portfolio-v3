@@ -1,11 +1,11 @@
 import Link from "next/link";
 
-import Section from "@/components/ui/section";
 import { siteConfig } from "@/config/site";
-import { getGithubRepos } from "@/lib/api/github/utils";
-import { ProjectCard } from "./project-card";
+import { getGithubRepos } from "@/lib/api/github";
+import Section from "@/ui/section";
+import { ProjectCard } from "./card";
 
-export const Project: React.FC = async () => {
+export const Projects: React.FC = async () => {
 	const repositories = await getGithubRepos();
 
 	return (
