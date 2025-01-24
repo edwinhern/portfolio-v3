@@ -13,7 +13,13 @@ export function WorkCard({ title, company, imageSrc, date, link }: Readonly<Work
 	const content = (
 		<>
 			<div className="flex items-center gap-4">
-				<Image src={imageSrc} alt={company} width={48} height={48} />
+				<Image
+					className="rounded-md border border-input bg-background transition-colors hover:bg-accent hover:text-accent-foreground"
+					src={imageSrc}
+					alt={company}
+					width={50}
+					height={50}
+				/>
 
 				<div className="flex flex-col gap-px">
 					<p>{title}</p>

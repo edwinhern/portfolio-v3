@@ -1,18 +1,20 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import clsx from "clsx";
 import type { ReactNode } from "react";
 
-interface SectionProps {
+interface SectionProps extends React.HTMLAttributes<HTMLDivElement> {
 	heading: string;
 	headingAlignment?: "right" | "left";
 	children: ReactNode;
 }
 
-export default function Section({ heading, headingAlignment, children }: Readonly<SectionProps>) {
+export default function Section({ heading, headingAlignment, children, ...props }: Readonly<SectionProps>) {
 	return (
 		<section
-			className="col-reverse flex flex-col gap-4 md:flex-row md:gap-9"
+			{...props}
+			className={cn("col-reverse flex flex-col gap-4 md:flex-row md:gap-9", props.className)}
 			id={heading.toLowerCase().replace(/\s/g, "-")}
 		>
 			<h2

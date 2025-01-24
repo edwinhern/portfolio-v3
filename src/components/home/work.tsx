@@ -13,14 +13,14 @@ const workplaces = [
 		title: "Software Engineer II",
 		company: "Tesla",
 		date: "2023 - 2024",
-		imageSrc: "/work/tesla.jpeg",
+		imageSrc: "/work/tesla.png",
 		link: "https://www.tesla.com",
 	},
 	{
 		title: "Software Engineer Intern",
 		company: "Tesla",
 		date: "2022 - 2023",
-		imageSrc: "/work/tesla.jpeg",
+		imageSrc: "/work/tesla.png",
 		link: "https://www.tesla.com",
 	},
 	{
