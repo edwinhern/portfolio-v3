@@ -5,7 +5,6 @@ import { Noto_Serif_Display } from "next/font/google";
 import Image from "next/image";
 import type { ReactNode } from "react";
 
-import Halo from "@/components/ui/halo";
 import { cn } from "@/lib/utils";
 import clsx from "clsx";
 
