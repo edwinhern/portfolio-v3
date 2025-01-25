@@ -1,41 +1,52 @@
-import type { GalleryPhoto } from "@/features/about/gallery/types";
+export interface GalleryPhoto {
+	src: string;
+	meta: string;
+	alt: string;
+	width: number;
+	height: number;
+	rotate: number;
+	left: number;
+	flipDirection?: "left" | "right";
+}
 
 export const GALLERY_PHOTOS: GalleryPhoto[] = [
 	{
-		src: "/gallery/seattle-01.JPG",
-		meta: "Seattle",
+		src: "/gallery/me-nat.JPG",
+		meta: "2024-08-14",
+		alt: "Me and Nat",
+		width: 220,
+		height: 280,
+		rotate: -4,
+		left: -20,
+	},
+	{
+		src: "/gallery/seattle.JPG",
+		meta: "2024-05-02",
 		alt: "Seattle cityscape",
-		width: 500,
-		height: 100,
-		rotate: 10,
-		left: 40,
+		width: 220,
+		height: 280,
+		rotate: 7.6,
+		left: 140,
 		flipDirection: "left",
 	},
-	// {
-	// 	src: "/gallery/florence-01.JPG",
-	// 	meta: "Florence",
-	// 	alt: "Florence street view",
-	// 	width: 300,
-	// 	height: 400,
-	// 	rotate: 4,
-	// 	left: 120,
-	// },
-	// {
-	// 	src: "/gallery/cancun-01.JPG",
-	// 	meta: "Cancun",
-	// 	alt: "Cancun beach",
-	// 	width: 350,
-	// 	height: 400,
-	// 	rotate: -3,
-	// 	left: -20,
-	// },
-	// {
-	// 	src: "/gallery/cancun-03.JPG",
-	// 	meta: "Cancun",
-	// 	alt: "Cancun beach sunset",
-	// 	width: 350,
-	// 	height: 400,
-	// 	rotate: 5,
-	// 	left: 140,
-	// },
+	{
+		src: "/gallery/yachats.JPG",
+		meta: "2024-04-27",
+		alt: "Yachats ocean view",
+		width: 220,
+		height: 280,
+		rotate: -6,
+		left: 300,
+		flipDirection: "right",
+	},
+	{
+		src: "/gallery/california.JPG",
+		meta: "2023-09-15",
+		alt: "California",
+		width: 220,
+		height: 280,
+		rotate: 6.3,
+		left: 500,
+		flipDirection: "left",
+	},
 ];

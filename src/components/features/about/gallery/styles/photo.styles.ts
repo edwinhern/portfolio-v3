@@ -8,5 +8,5 @@ export const photoStyles = {
 		"absolute h-full w-full overflow-hidden rounded-xl",
 		"flex items-center overflow-hidden rounded-xl bg-[#FFFAF2]",
 	),
-	image: "absolute inset-0 object-cover w-full h-full bg-neutral-400 pointer-events-none rounded-xl",
+	image: clsx("pointer-events-none absolute inset-0 rounded-xl", "h-full w-full object-contain"),
 };
