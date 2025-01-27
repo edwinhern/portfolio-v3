@@ -18,8 +18,8 @@ export const Projects: React.FC = async () => {
 				</ul>
 				<Link
 					target="_blank"
+					className="text-muted-foreground text-sm underline decoration-2 underline-offset-4 transition-colors hover:text-primary/80"
 					href={`${siteConfig.links.github}?tab=repositories`}
-					className="text-muted-foreground text-sm underline underline-offset-4 hover:text-primary"
 					rel="noreferrer"
 				>
 					See More...
