@@ -83,7 +83,7 @@ export const gear: GearItem[] = [
 		description: "Spotlight replacement with powerful workflows and extensions.",
 		category: GearCategory.Apps,
 		image: "https://cdn.brandfetch.io/idxxHV50Mm/theme/dark/symbol.svg?c=1bfwsmEH20zzEfSNTed",
-		link: "https://raycast.com",
+		link: "https://raycast.com/?via=edwinhern",
 	},
 	{
 		title: "Cursor",
