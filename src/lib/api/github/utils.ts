@@ -1,13 +1,13 @@
-import { GITHUB_API_CONFIG } from "./constants";
+import { env } from "@/env";
 import type { GitHubRepository } from "./types";
 
 export async function getGithubRepos(): Promise<GitHubRepository[]> {
 	try {
-		const url = new URL(GITHUB_API_CONFIG.BASE_URL);
-		url.searchParams.append("username", GITHUB_API_CONFIG.USERNAME);
+		const url = new URL(env.GITHUB_API_URL);
+		url.searchParams.append("username", env.GITHUB_USERNAME);
 
 		const response = await fetch(url.toString(), {
-			next: { revalidate: GITHUB_API_CONFIG.CACHE_DURATION },
+			next: { revalidate: env.GITHUB_CACHE_DURATION },
 		});
 
 		if (!response.ok) {
