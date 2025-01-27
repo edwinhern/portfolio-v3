@@ -9,4 +9,6 @@ export const env = createEnv({
 		GITHUB_CACHE_DURATION: z.coerce.number().min(1),
 	},
 	experimental__runtimeEnv: process.env,
+	skipValidation: !!process.env.SKIP_ENV_VALIDATION,
+	emptyStringAsUndefined: true,
 });
