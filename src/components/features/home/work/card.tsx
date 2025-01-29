@@ -33,7 +33,12 @@ export function WorkCard({ title, company, imageSrc, date, link }: Readonly<Work
 	return (
 		<li className="rounded-lg transition-opacity" key={`${company}-${title}`}>
 			{link ? (
-				<Link href={link} className="-my-2 flex w-full justify-between py-3 no-underline">
+				<Link
+					href={link}
+					target="_blank"
+					className="-my-2 flex w-full justify-between py-3 no-underline"
+					rel="noreferrer"
+				>
 					{content}
 				</Link>
 			) : (
