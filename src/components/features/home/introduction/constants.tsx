@@ -1,4 +1,4 @@
-import { IconBrandGithub, IconBrandLinkedin, IconCalendarDays } from "justd-icons";
+import { IconBrandGithub, IconBrandLinkedin, IconCalendarDaysFill } from "justd-icons";
 
 export const SOCIAL_MEDIA_LINKS = [
 	{ href: "https://github.com/edwinhern", label: "Github", icon: <IconBrandGithub className="size-4" /> },
@@ -6,6 +6,6 @@ export const SOCIAL_MEDIA_LINKS = [
 	{
 		href: "https://calendar.app.google/hUzVu9tgiTJjjdvp8",
 		label: "Coffee Chat",
-		icon: <IconCalendarDays className="size-4" />,
+		icon: <IconCalendarDaysFill className="size-4" />,
 	},
 ];

@@ -16,10 +16,10 @@
 		"editor.defaultFormatter": "biomejs.biome"
 	},
 	"[markdown]": {
-		"editor.defaultFormatter": "biomejs.biome"
+		"editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
 	},
 	"[yaml]": {
-		"editor.defaultFormatter": "biomejs.biome"
+		"editor.defaultFormatter": "redhat.vscode-yaml"
 	},
 	"files.associations": {
 		"*.yml": "yaml"
