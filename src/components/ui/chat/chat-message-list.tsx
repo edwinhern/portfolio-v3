@@ -1,0 +1,51 @@
+"use client";
+
+import { Button } from "@/components/ui/button";
+import { useAutoScroll } from "@/components/ui/chat/hooks/useAutoScroll";
+import { IconArrowDown } from "justd-icons";
+import * as React from "react";
+
+interface ChatMessageListProps extends React.HTMLAttributes<HTMLDivElement> {
+	smooth?: boolean;
+}
+
+const ChatMessageList = React.forwardRef<HTMLDivElement, ChatMessageListProps>(
+	({ className, children, smooth = false, ...props }, _ref) => {
+		const { scrollRef, isAtBottom, autoScrollEnabled, scrollToBottom, disableAutoScroll } = useAutoScroll({
+			smooth,
+			content: children,
+		});
+
+		return (
+			<div className="relative h-full w-full">
+				<div
+					className={`flex h-full w-full flex-col overflow-y-auto p-4 ${className}`}
+					ref={scrollRef}
+					onWheel={disableAutoScroll}
+					onTouchMove={disableAutoScroll}
+					{...props}
+				>
+					<div className="flex flex-col gap-6">{children}</div>
+				</div>
+
+				{!isAtBottom && (
+					<Button
+						onClick={() => {
+							scrollToBottom();
+						}}
+						size="icon"
+						variant="outline"
+						className="-translate-x-1/2 absolute bottom-2 left-1/2 inline-flex transform rounded-full shadow-md"
+						aria-label="Scroll to bottom"
+					>
+						<IconArrowDown className="h-4 w-4" />
+					</Button>
+				)}
+			</div>
+		);
+	},
+);
+
+ChatMessageList.displayName = "ChatMessageList";
+
+export { ChatMessageList };

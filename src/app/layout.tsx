@@ -4,6 +4,7 @@ import type { PropsWithChildren } from "react";
 
 import { AppNavbar } from "@/common/layout/navbar";
 import { Providers } from "@/common/layout/providers";
+import ChatSupport from "@/components/ui/chat-support";
 
 import "./globals.css";
 
@@ -54,6 +55,7 @@ export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
 					<AppNavbar className="mx-auto px-4 py-4 md:max-w-[700px] md:px-0 md:py-8">
 						<div className="pt-8">{children}</div>
 					</AppNavbar>
+					<ChatSupport />
 				</Providers>
 			</body>
 		</html>
