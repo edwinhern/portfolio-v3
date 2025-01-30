@@ -54,8 +54,8 @@ export const gear: GearItem[] = [
 		title: 'MacBook Pro 16"',
 		description: "Daily driver. Sleek, great display, and powerful.",
 		category: GearCategory.Everyday,
-		image: "https://f.media-amazon.com/images/I/618d5bS2lUL._AC_SL1500_.jpg",
-		link: "https://amzn.to/4azkg4u",
+		image: "https://f.media-amazon.com/images/I/61hw7aZWYSL._AC_SL1500_.jpg",
+		link: "https://amzn.to/42zMQRa",
 	},
 	{
 		title: "Apple AirPods Pro",
