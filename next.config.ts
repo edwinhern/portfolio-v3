@@ -7,6 +7,9 @@ const nextConfig: NextConfig = {
 			{
 				hostname: "f.media-amazon.com",
 			},
+			{
+				hostname: "cdn.brandfetch.io",
+			},
 		],
 	},
 };
