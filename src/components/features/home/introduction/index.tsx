@@ -13,7 +13,7 @@ export const Introduction: React.FC<React.ComponentProps<"div">> = ({ ...props }
 				side, I manage{" "}
 				<Link
 					className="text-primary underline decoration-2 underline-offset-4 transition-colors hover:text-primary/80"
-					href="https://hernandezserver.com/"
+					href="https://hernserver.com/"
 					target="_blank"
 					rel="noopener noreferrer"
 					aria-label="Hernandez Server"
