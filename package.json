@@ -9,28 +9,28 @@
 		"check": "biome check --write"
 	},
 	"dependencies": {
-		"@radix-ui/react-slot": "1.1.2",
+		"@radix-ui/react-slot": "1.2.3",
 		"@vercel/analytics": "1.5.0",
 		"@vercel/speed-insights": "1.2.0",
 		"class-variance-authority": "0.7.1",
 		"clsx": "2.1.1",
-		"justd-icons": "1.10.25",
+		"justd-icons": "1.10.27",
 		"next": "15.4.2",
-		"next-themes": "0.4.4",
-		"react": "19.0.0",
-		"react-dom": "19.0.0",
+		"next-themes": "0.4.6",
+		"react": "19.1.0",
+		"react-dom": "19.1.0",
 		"tailwind-merge": "3.3.1",
 		"tailwindcss-animate": "1.0.7"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.1.2",
-		"@tailwindcss/postcss": "4.0.6",
+		"@tailwindcss/postcss": "4.1.11",
 		"@types/node": "22.16.5",
-		"@types/react": "19.0.9",
-		"@types/react-dom": "19.0.3",
-		"postcss": "8.5.2",
-		"tailwindcss": "4.0.6",
-		"typescript": "5.7.3"
+		"@types/react": "19.1.8",
+		"@types/react-dom": "19.1.6",
+		"postcss": "8.5.6",
+		"tailwindcss": "4.1.11",
+		"typescript": "5.8.3"
 	},
 	"packageManager": "pnpm@10.13.1"
 }
