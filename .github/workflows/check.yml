@@ -1,93 +1,34 @@
-name: Check
+name: CI
 
-on: [push]
+on:
+  push:
+    branches: ["main"]
+  pull_request:
 
 jobs:
-  install-dependencies:
+  setup:
+    name: Setup and Install
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version-file: ".nvmrc"
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          run_install: |
-            - recursive: true
-            - args: [--frozen-lockfile]
-
-      - name: Cache dependencies
-        uses: actions/cache@v4
-        with:
-          path: |
-            **/node_modules
-          key: ${{ runner.os }}-deps-${{ hashFiles('**/pnpm-lock.yaml') }}
-
-  lint:
-    needs: install-dependencies
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+      - name: Setup pnpm
+        uses: ./.github/actions/setup-pnpm
+    
+  quality:
+    name: Code Quality
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version-file: ".nvmrc"
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          run_install: false
-
-      - name: Restore dependencies
-        uses: actions/cache@v4
-        with:
-          path: |
-            **/node_modules
-          key: ${{ runner.os }}-deps-${{ hashFiles('**/pnpm-lock.yaml') }}
-
-      - name: Lint check
-        run: pnpm lint
-
-  format:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Setup Biome
-        uses: biomejs/setup-biome@v2
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+      - uses: biomejs/setup-biome@454fa0d884737805f48d7dc236c1761a0ac3cc13 # v2
         with:
           version: latest
-
-      - name: Format check
-        run: biome ci .
-
+      - run: biome ci .
+  
   build:
-    needs: install-dependencies
+    name: Build
+    needs: setup
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version-file: ".nvmrc"
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          run_install: false
-
-      - name: Restore dependencies
-        uses: actions/cache@v4
-        with:
-          path: |
-            **/node_modules
-          key: ${{ runner.os }}-deps-${{ hashFiles('**/pnpm-lock.yaml') }}
-
-      - name: Build check
-        run: pnpm build
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+      - uses: ./.github/actions/setup-pnpm
+      - run: pnpm build
