@@ -1,13 +1,14 @@
-import Link from "next/link";
-
-import type { GitHubRepository } from "@/lib/api/github";
 import { IconStar } from "justd-icons";
+import Link from "next/link";
+import type { GitHubRepository } from "@/lib/api/github";
 
 interface ProjectCardProps extends GitHubRepository {
 	index: number;
 }
 
 export function ProjectCard({ link, repo, description, stars }: Readonly<ProjectCardProps>) {
+	const starCount: string = stars >= 1000 ? "1k+" : stars.toString();
+
 	return (
 		<li className="rounded-lg transition-opacity" key={`${repo}-${link}`}>
 			<Link
@@ -22,7 +23,7 @@ export function ProjectCard({ link, repo, description, stars }: Readonly<Project
 						<p className="mr-4">{repo}</p>
 						<div className="flex flex-shrink-0 items-center gap-1 text-muted-foreground">
 							<IconStar className="size-4" />
-							{stars}
+							{starCount}
 						</div>
 					</div>
 					<p className="line-clamp-2 text-muted-foreground">{description}</p>
