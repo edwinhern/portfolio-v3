@@ -18,12 +18,7 @@ export default function Section({ heading, headingAlignment, children, ...props 
 			className={cn("flex flex-col gap-4 md:flex-row md:gap-9", props.className)}
 			id={heading.toLowerCase().replace(/\s/g, "-")}
 		>
-			<h2
-				className={clsx(
-					"shrink-0 font-semibold text-lg md:w-32",
-					headingAlignment === "right" && "md:text-right",
-				)}
-			>
+			<h2 className={clsx("shrink-0 font-semibold text-lg md:w-32", headingAlignment === "right" && "md:text-right")}>
 				{heading}
 			</h2>
 			<div className="flex-1">{children}</div>

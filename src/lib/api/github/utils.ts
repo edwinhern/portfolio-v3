@@ -21,7 +21,7 @@ export async function getGithubRepos(): Promise<GitHubRepository[]> {
 			throw new Error("Invalid response format: expected an array");
 		}
 
-		const adjustedData = data.reduce((acc, obj) => {
+		data.reduce((acc, obj) => {
 			if (obj.repo === "express-typescript") {
 				obj.stars = 1000;
 			}

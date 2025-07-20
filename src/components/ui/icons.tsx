@@ -2,14 +2,8 @@ type IconProps = React.HTMLAttributes<SVGElement>;
 
 export const Icons = {
 	Logo: (props: IconProps) => (
-		<svg
-			width="3548"
-			height="3269"
-			viewBox="0 0 3548 3269"
-			fill="none"
-			xmlns="http://www.w3.org/2000/svg"
-			{...props}
-		>
+		<svg width="3548" height="3269" viewBox="0 0 3548 3269" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+			<title>Logo</title>
 			<rect width="3548" height="3269" rx="879" fill="white" />
 			<ellipse cx="1356.5" cy="1915" rx="568.5" ry="562" fill="#FF0000" />
 			<ellipse cx="2170.5" cy="1915" rx="568.5" ry="562" fill="#0F0F0F" fillOpacity="0.55" />
