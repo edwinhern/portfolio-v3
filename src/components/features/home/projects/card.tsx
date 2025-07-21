@@ -7,7 +7,7 @@ interface ProjectCardProps extends GitHubRepository {
 }
 
 export function ProjectCard({ link, repo, description, stars }: Readonly<ProjectCardProps>) {
-	const starCount: string = stars >= 1000 ? "1k+" : stars.toString();
+	const starCount = stars >= 1000 ? `${(stars / 1000).toFixed(1)}k+` : stars.toString();
 
 	return (
 		<li className="rounded-lg transition-opacity" key={`${repo}-${link}`}>

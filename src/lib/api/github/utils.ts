@@ -1,37 +1,70 @@
 import { GITHUB_API_CONFIG } from "./constants";
 import type { GitHubRepository } from "./types";
 
-export async function getGithubRepos(): Promise<GitHubRepository[]> {
-	try {
-		const url = new URL(GITHUB_API_CONFIG.BASE_URL);
-		url.searchParams.append("username", GITHUB_API_CONFIG.USERNAME);
+export async function getPinnedRepos(): Promise<GitHubRepository[]> {
+	const query = `
+		query {
+			user(login: "edwinhern") {
+				pinnedItems(first: 6, types: REPOSITORY) {
+					edges {
+						node {
+							... on Repository {
+								name
+								description
+								stargazerCount
+								forkCount
+								url
+								homepageUrl
+								primaryLanguage {
+									name
+									color
+								}
+								owner {
+									login
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	`;
 
-		const response = await fetch(url.toString(), {
+	try {
+		const response = await fetch(GITHUB_API_CONFIG.GRAPHQL_API, {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+				Authorization: `Bearer ${GITHUB_API_CONFIG.TOKEN}`,
+			},
+			body: JSON.stringify({ query }),
 			next: { revalidate: GITHUB_API_CONFIG.CACHE_DURATION },
 		});
 
 		if (!response.ok) {
-			const errorData = await response.json();
-			throw new Error(`GitHub API Error: ${errorData.message || response.statusText}`);
+			const error = await response.text();
+			throw new Error(`GitHub GraphQL error: ${response.status} - ${error}`);
 		}
 
-		const data = (await response.json()) as GitHubRepository[];
+		const json = await response.json();
 
-		if (!Array.isArray(data)) {
-			throw new Error("Invalid response format: expected an array");
-		}
-
-		data.reduce((acc, obj) => {
-			if (obj.repo === "express-typescript") {
-				obj.stars = 1000;
-			}
-
-			return acc;
-		}, []);
-
-		return data;
+		return json.data.user.pinnedItems.edges.map((edge: any): GitHubRepository => {
+			const repo = edge.node;
+			return {
+				owner: repo.owner.login,
+				repo: repo.name,
+				description: repo.description,
+				stars: repo.stargazerCount,
+				forks: repo.forkCount,
+				link: repo.url,
+				website: repo.homepageUrl,
+				language: repo.primaryLanguage?.name,
+				languageColor: repo.primaryLanguage?.color,
+				image: `https://opengraph.githubassets.com/1/${repo.owner.login}/${repo.name}`,
+			};
+		});
 	} catch (error) {
-		console.error("[GitHub API]:", error instanceof Error ? error.message : "Unknown error occurred");
+		console.error("[GitHub GraphQL API]:", error instanceof Error ? error.message : "Unknown error");
 		return [];
 	}
 }
