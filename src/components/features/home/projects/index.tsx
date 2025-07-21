@@ -1,12 +1,12 @@
 import Link from "next/link";
 
 import { siteConfig } from "@/config/site";
-import { getGithubRepos } from "@/lib/api/github";
+import { getPinnedRepos } from "@/lib/api/github";
 import Section from "@/ui/section";
 import { ProjectCard } from "./card";
 
 export const Projects: React.FC = async () => {
-	const repositories = await getGithubRepos();
+	const repositories = await getPinnedRepos();
 
 	return (
 		<Section heading="Projects" headingAlignment="left">
