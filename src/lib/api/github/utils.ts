@@ -1,5 +1,5 @@
 import { GITHUB_API_CONFIG } from "./constants";
-import type { GitHubRepository } from "./types";
+import type { GitHubRepository, GitHubRepositoryResponse } from "./types";
 
 export async function getPinnedRepos(): Promise<GitHubRepository[]> {
 	const query = `
@@ -46,9 +46,9 @@ export async function getPinnedRepos(): Promise<GitHubRepository[]> {
 			throw new Error(`GitHub GraphQL error: ${response.status} - ${error}`);
 		}
 
-		const json = await response.json();
+		const json = (await response.json()) as GitHubRepositoryResponse;
 
-		return json.data.user.pinnedItems.edges.map((edge: any): GitHubRepository => {
+		return json.data.user.pinnedItems.edges.map((edge): GitHubRepository => {
 			const repo = edge.node;
 			return {
 				owner: repo.owner.login,
@@ -58,8 +58,8 @@ export async function getPinnedRepos(): Promise<GitHubRepository[]> {
 				forks: repo.forkCount,
 				link: repo.url,
 				website: repo.homepageUrl,
-				language: repo.primaryLanguage?.name,
-				languageColor: repo.primaryLanguage?.color,
+				language: repo.primaryLanguage?.name ?? "",
+				languageColor: repo.primaryLanguage?.color ?? "",
 				image: `https://opengraph.githubassets.com/1/${repo.owner.login}/${repo.name}`,
 			};
 		});
