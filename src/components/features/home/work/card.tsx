@@ -42,7 +42,7 @@ export function WorkCard({ title, company, imageSrc, date, link }: Readonly<Work
 					{content}
 				</Link>
 			) : (
-				<div className="flex justify-between ">{content}</div>
+				<div className="flex justify-between">{content}</div>
 			)}
 		</li>
 	);

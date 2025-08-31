@@ -22,6 +22,8 @@
 		"editor.defaultFormatter": "redhat.vscode-yaml"
 	},
 	"files.associations": {
-		"*.yml": "yaml"
+		"*.yml": "yaml",
+		"*.css": "tailwindcss",
+		"*.scss": "tailwindcss"
 	}
 }

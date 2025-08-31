@@ -1,7 +1,7 @@
 {
-	"$schema": "https://biomejs.dev/schemas/2.1.2/schema.json",
+	"$schema": "https://biomejs.dev/schemas/2.2.2/schema.json",
 	"vcs": { "enabled": false, "clientKind": "git", "useIgnoreFile": false },
-	"files": { "ignoreUnknown": false, "includes": ["**", "!.next"] },
+	"files": { "ignoreUnknown": false, "includes": ["**", "!.next", "!.pnpm-store", "!node_modules"] },
 	"linter": {
 		"enabled": true,
 		"rules": {
@@ -18,6 +18,16 @@
 			}
 		}
 	},
+	"overrides": [
+		{
+			"includes": ["src/app/globals.css"],
+			"css": {
+				"linter": {
+					"enabled": false
+				}
+			}
+		}
+	],
 	"formatter": {
 		"enabled": true,
 		"lineWidth": 120,
