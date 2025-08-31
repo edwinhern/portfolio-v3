@@ -6,7 +6,8 @@
 		"dev": "next dev --turbopack",
 		"build": "next build",
 		"start": "next start",
-		"check": "biome check --write"
+		"lint": "biome check --write",
+		"format": "biome format --write"
 	},
 	"dependencies": {
 		"@radix-ui/react-slot": "1.2.3",

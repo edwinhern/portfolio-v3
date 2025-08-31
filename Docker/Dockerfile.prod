@@ -1,0 +1,42 @@
+FROM node:23-alpine AS base
+
+# Install dependencies
+FROM base AS deps
+WORKDIR /app
+
+COPY package.json package-lock.json* pnpm-lock.yaml* ./
+RUN corepack enable pnpm && pnpm install --frozen-lockfile
+
+# Build the application
+FROM base AS builder
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
+
+ENV NEXT_PRIVATE_STANDALONE=true
+
+RUN corepack enable pnpm && pnpm run build
+
+# Production stage
+FROM base AS runner
+WORKDIR /app
+
+ENV NODE_ENV=production
+ENV NEXT_PRIVATE_STANDALONE=true
+
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
+
+
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+COPY --from=builder /app/public ./public
+
+USER nextjs
+
+EXPOSE 3000
+ENV PORT=3000
+ENV HOSTNAME="0.0.0.0"
+
+# Start the application
+CMD ["node", "server.js"]
