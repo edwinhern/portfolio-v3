@@ -1,8 +1,15 @@
 export const WORK_PLACES = [
 	{
 		title: "Software Engineer II",
-		company: "Motorola Solutions",
+		company: "Liberty Mutual Insurance",
 		date: "2025 - Present",
+		imageSrc: "/work/liberty-mutual.jpeg",
+		link: "https://www.libertymutual.com",
+	},
+	{
+		title: "Software Engineer II",
+		company: "Motorola Solutions",
+		date: "2025 - 2025",
 		imageSrc: "/work/motorola-solutions.jpeg",
 		link: "https://www.motorolasolutions.com",
 	},
