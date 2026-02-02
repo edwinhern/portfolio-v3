@@ -1,4 +1,4 @@
-import { ThemeProvider } from "@/common/theme/provider";
+import { ThemeProvider } from "@/layout/theme-provider";
 
 export function Providers({ children }: Readonly<React.PropsWithChildren>) {
 	return (

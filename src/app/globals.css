@@ -145,6 +145,12 @@
 	}
 }
 
+@layer components {
+	.link {
+		@apply no-underline decoration-2 underline-offset-4 transition-colors hover:underline;
+	}
+}
+
 @layer utilities {
 	.animate-in {
 		animation: var(--animate-in);

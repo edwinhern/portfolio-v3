@@ -4,7 +4,6 @@
 	"rsc": true,
 	"tsx": true,
 	"tailwind": {
-		"config": "tailwind.config.ts",
 		"css": "src/app/globals.css",
 		"baseColor": "zinc",
 		"cssVariables": true,
@@ -14,8 +13,6 @@
 		"components": "@/components",
 		"utils": "@/lib/utils",
 		"ui": "@/components/ui",
-		"lib": "@/lib",
-		"hooks": "@/hooks"
-	},
-	"iconLibrary": "lucide"
+		"lib": "@/lib"
+	}
 }

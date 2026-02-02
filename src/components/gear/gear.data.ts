@@ -1,4 +1,4 @@
-import { GearCategory, type GearItem } from "@/features/gear/types";
+import { GearCategory, type GearItem } from "./types";
 
 export const gear: GearItem[] = [
 	{

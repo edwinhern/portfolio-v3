@@ -31,7 +31,7 @@ export function WorkCard({ title, company, imageSrc, date, link }: Readonly<Work
 	);
 
 	return (
-		<li className="rounded-lg transition-opacity" key={`${company}-${title}`}>
+		<li className="rounded-lg transition-opacity">
 			{link ? (
 				<Link
 					href={link}

@@ -1,9 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-
-import type { GearItem } from "@/features/gear/types";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/ui/button";
+import type { GearItem } from "./types";
 
 export function Item({ title, description, image, link }: Readonly<GearItem>) {
 	return (
@@ -24,7 +23,7 @@ export function Item({ title, description, image, link }: Readonly<GearItem>) {
 				<div>
 					<Link
 						className={cn(
-							"ml-auto h-fit rounded-full bg-tertiary px-4 py-2 text-sm",
+							"ml-auto h-fit rounded-full bg-secondary px-4 py-2 text-sm",
 							buttonVariants({ variant: "outline" }),
 						)}
 						href={link}

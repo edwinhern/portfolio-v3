@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import type { PropsWithChildren } from "react";
-
-import { AppNavbar } from "@/common/layout/navbar";
-import { Providers } from "@/common/layout/providers";
+import { siteConfig } from "@/config/site";
+import { Navbar } from "@/layout/navbar";
+import { Providers } from "@/layout/providers";
 
 import "./globals.css";
 
@@ -18,31 +18,22 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-	metadataBase: new URL("https://v3.edwinhern.com"),
+	metadataBase: siteConfig.url,
 	alternates: { canonical: "/" },
 	title: {
-		default: "Edwin Hernandez",
-		template: "%s | Edwin Hernandez",
+		default: siteConfig.name,
+		template: `%s | ${siteConfig.name}`,
 	},
-	description: "Dallas TX based software engineer, optimist, community builder.",
-	icons: {
-		apple: "/favicons/apple-touch-icon.png",
-		icon: "/favicons/favicon.ico",
-		shortcut: "/favicons/favicon-16x16.png",
-	},
+	description: siteConfig.description,
+	icons: siteConfig.icons,
 	openGraph: {
-		description: "Dallas TX based software engineer, optimist, community builder.",
-		images: [
-			{
-				alt: "Edwin Hernandez",
-				url: "/og-image.png",
-			},
-		],
+		description: siteConfig.description,
+		images: [{ alt: siteConfig.name, url: siteConfig.opImage }],
 		locale: "en_US",
-		siteName: "edwinhern",
-		title: "Edwin Hernandez",
+		siteName: siteConfig.siteTitle,
+		title: siteConfig.name,
 		type: "website",
-		url: "https://v3.edwinhern.com",
+		url: siteConfig.url.href,
 	},
 };
 
@@ -51,9 +42,9 @@ export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
 		<html lang="en" suppressHydrationWarning className={`${geistSans.variable} ${geistMono.variable}`}>
 			<body className="min-h-svh w-full overflow-x-hidden scroll-smooth antialiased">
 				<Providers>
-					<AppNavbar className="mx-auto px-4 py-4 md:max-w-[700px] md:px-0 md:py-8">
+					<Navbar className="mx-auto px-4 py-4 md:max-w-[700px] md:px-0 md:py-8">
 						<div className="pt-8">{children}</div>
-					</AppNavbar>
+					</Navbar>
 				</Providers>
 			</body>
 		</html>
