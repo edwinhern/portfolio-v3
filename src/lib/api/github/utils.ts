@@ -1,10 +1,11 @@
+import { siteConfig } from "@/config/site";
 import { GITHUB_API_CONFIG } from "./constants";
 import type { GitHubRepository, GitHubRepositoryResponse } from "./types";
 
 export async function getPinnedRepos(): Promise<GitHubRepository[]> {
 	const query = `
 		query {
-			user(login: "edwinhern") {
+			user(login: "${siteConfig.githubUsername}") {
 				pinnedItems(first: 6, types: REPOSITORY) {
 					edges {
 						node {
