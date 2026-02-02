@@ -1,6 +1,6 @@
-import { Introduction } from "@/features/home/introduction";
-import { Projects } from "@/features/home/projects";
-import { Work } from "@/features/home/work";
+import { Introduction } from "@/home/introduction";
+import { Projects } from "@/home/projects";
+import { Work } from "@/home/work";
 import { AnimateIn } from "@/ui/animate-in";
 
 export default async function Home() {

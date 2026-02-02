@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { ThemeSwitcher } from "@/common/theme-switcher";
+import { ThemeSwitcher } from "@/layout/theme-switcher";
 import { cn } from "@/lib/utils";
 import { Icons } from "@/ui/icons";
 

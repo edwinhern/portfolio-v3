@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { gear, groupByCategory, Item } from "@/features/gear";
+import { gear, groupByCategory, Item } from "@/gear";
 import { AnimateIn, AnimateInGroup } from "@/ui/animate-in";
 import { Section } from "@/ui/section";
 

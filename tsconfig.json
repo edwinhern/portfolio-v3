@@ -16,8 +16,10 @@
 		"plugins": [{ "name": "next" }],
 		"paths": {
 			"@/*": ["./src/*"],
-			"@/features/*": ["./src/components/features/*"],
-			"@/common/*": ["./src/components/common/*"],
+			"@/layout/*": ["./src/components/layout/*"],
+			"@/home/*": ["./src/components/home/*"],
+			"@/gear": ["./src/components/gear"],
+			"@/gear/*": ["./src/components/gear/*"],
 			"@/ui/*": ["./src/components/ui/*"]
 		}
 	},
