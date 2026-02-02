@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 
-import { gear } from "@/features/gear/constants";
-import { Item } from "@/features/gear/item";
-import { groupByCategory } from "@/features/gear/utils";
+import { gear, groupByCategory, Item } from "@/features/gear";
 import { AnimateIn, AnimateInGroup } from "@/ui/animate-in";
 import { Section } from "@/ui/section";
 

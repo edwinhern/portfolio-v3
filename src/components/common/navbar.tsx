@@ -1,10 +1,10 @@
 import Link from "next/link";
 
-import { ThemeSwitcher } from "@/common/theme/switcher";
+import { ThemeSwitcher } from "@/common/theme-switcher";
 import { cn } from "@/lib/utils";
 import { Icons } from "@/ui/icons";
 
-export function AppNavbar({ children, ...props }: Readonly<React.ComponentProps<"nav">>) {
+export function Navbar({ children, ...props }: Readonly<React.ComponentProps<"nav">>) {
 	return (
 		<nav {...props} className={cn("container relative isolate flex w-full flex-col", props.className)}>
 			<div className="flex justify-between">
