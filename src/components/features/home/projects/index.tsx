@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import { siteConfig } from "@/config/site";
 import { getPinnedRepos } from "@/lib/api/github";
-import Section from "@/ui/section";
+import { Section } from "@/ui/section";
 import { ProjectCard } from "./card";
 
 export const Projects: React.FC = async () => {
@@ -18,7 +18,7 @@ export const Projects: React.FC = async () => {
 				</ul>
 				<Link
 					target="_blank"
-					className="text-muted-foreground text-sm underline decoration-2 underline-offset-4 transition-colors hover:text-primary/80"
+					className="link text-muted-foreground text-sm hover:text-primary/80"
 					href={`${siteConfig.links.github}?tab=repositories`}
 					rel="noreferrer"
 				>

@@ -14,7 +14,7 @@ export function ProjectCard({ link, repo, description, stars }: Readonly<Project
 			<Link
 				target="_blank"
 				href={link}
-				rel="noopener noreferrer"
+				rel="noreferrer"
 				aria-label={repo}
 				className="-my-2 flex w-full flex-col py-3 no-underline"
 			>

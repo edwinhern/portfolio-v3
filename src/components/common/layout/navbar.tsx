@@ -14,12 +14,12 @@ export function AppNavbar({ children, ...props }: Readonly<React.ComponentProps<
 
 				<div className="flex gap-4">
 					<ul className="flex items-center space-x-4 text-sm">
-						<li className="decoration-2 underline-offset-4 transition-colors hover:underline">
+						<li className="link hover:underline">
 							<Link href="/" className="flex items-center gap-2">
 								Home
 							</Link>
 						</li>
-						<li className="decoration-2 underline-offset-4 transition-colors hover:underline">
+						<li className="link hover:underline">
 							<Link href="/gear" className="flex items-center gap-2">
 								Gear
 							</Link>

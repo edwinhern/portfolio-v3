@@ -5,16 +5,30 @@ export const siteConfig = {
 		logo: "/assets/images/logo.png",
 		resume: "/assets/resume/Edwin-Hernandez-Resume-2024.pdf",
 	},
-	description: "Software Engineer, gamer, soccer player, and minimalist, based in Dallas, TX.",
+	description: "Dallas TX based software engineer, optimist, community builder.",
+	icons: {
+		apple: "/favicons/apple-touch-icon.png",
+		icon: "/favicons/favicon.ico",
+		shortcut: "/favicons/favicon-16x16.png",
+	},
 	keywords: ["Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui"],
 	links: {
 		github: "https://github.com/edwinhern",
 		linkedin: "https://www.linkedin.com/in/edwinhern/",
 	},
 	name: "Edwin Hernandez",
+	socialLinks: [
+		{ id: "github", label: "Github" },
+		{ id: "linkedin", label: "LinkedIn" },
+		{
+			id: "calendar",
+			href: "https://calendar.app.google/hUzVu9tgiTJjjdvp8",
+			label: "Coffee Chat",
+		},
+	],
 	opImage: "/og-image.png",
 	siteTitle: "edwinhern",
 	url: new URL("https://edwinhern.com"),
-};
+} as const;
 
 export type SiteConfig = typeof siteConfig;

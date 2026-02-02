@@ -11,7 +11,7 @@ interface SectionProps extends React.HTMLAttributes<HTMLDivElement> {
 	children: ReactNode;
 }
 
-export default function Section({ heading, headingAlignment, children, ...props }: Readonly<SectionProps>) {
+export function Section({ heading, headingAlignment, children, ...props }: Readonly<SectionProps>) {
 	return (
 		<section
 			{...props}
