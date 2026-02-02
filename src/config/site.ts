@@ -16,7 +16,7 @@ export const siteConfig = {
 		{ id: "linkedin", label: "LinkedIn" },
 		{
 			id: "calendar",
-			href: "https://calendar.app.google/hUzVu9tgiTJjjdvp8",
+			href: "https://calendar.app.google/LygB6ogzdxv7tHr56",
 			label: "Coffee Chat",
 		},
 	],
