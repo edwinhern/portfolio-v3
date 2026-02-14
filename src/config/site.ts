@@ -20,7 +20,7 @@ export const siteConfig = {
 			label: "Coffee Chat",
 		},
 	],
-	opImage: "/og-image.png",
+	opImage: "/og-image.webp",
 	siteTitle: "edwinhern",
 	url: new URL("https://edwinhern.com"),
 } as const;

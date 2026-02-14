@@ -21,11 +21,6 @@ export const Introduction: React.FC = () => {
 				</Link>{" "}
 				solutions for media and productivity tools.
 			</p>
-			<p className="font-light leading-relaxed">
-				My favorite tech stack for building apps is <span className="font-semibold">Next.js</span>,{" "}
-				<span className="font-semibold">React</span>, and <span className="font-semibold">TypeScript</span> for the
-				frontend and <span className="font-semibold">Java</span> for the backend.
-			</p>
 			<SocialMedia />
 		</AnimateInGroup>
 	);
