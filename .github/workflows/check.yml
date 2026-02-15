@@ -33,4 +33,4 @@ jobs:
       - uses: ./.github/actions/setup-pnpm
       - run: pnpm build
         env:
-          GITHUB_API_TOKEN: ${{ secrets.GITHUB_API_TOKEN }}
+          GH_API_TOKEN: ${{ secrets.GH_API_TOKEN }}

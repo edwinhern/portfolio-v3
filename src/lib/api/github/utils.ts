@@ -36,7 +36,7 @@ export async function getPinnedRepos(): Promise<GitHubRepository[]> {
 	`;
 
 	if (!GITHUB_API_CONFIG.TOKEN) {
-		throw new Error("GITHUB_API_TOKEN is not set");
+		throw new Error("GH_API_TOKEN is not set");
 	}
 
 	try {
