@@ -47,6 +47,13 @@ export interface GitHubData {
 	user: GitHubUser;
 }
 
+export interface GitHubGraphQLError {
+	message: string;
+	type?: string;
+	path?: string[];
+}
+
 export interface GitHubRepositoryResponse {
-	data: GitHubData;
+	data?: GitHubData;
+	errors?: GitHubGraphQLError[];
 }

@@ -35,6 +35,10 @@ export async function getPinnedRepos(): Promise<GitHubRepository[]> {
 		}
 	`;
 
+	if (!GITHUB_API_CONFIG.TOKEN) {
+		throw new Error("GITHUB_API_TOKEN is not set");
+	}
+
 	try {
 		const response = await fetch(GITHUB_API_CONFIG.GRAPHQL_API, {
 			method: "POST",
@@ -52,7 +56,16 @@ export async function getPinnedRepos(): Promise<GitHubRepository[]> {
 
 		const json = (await response.json()) as GitHubRepositoryResponse;
 
-		return json.data.user.pinnedItems.edges.map((edge): GitHubRepository => {
+		if (json.errors?.length) {
+			throw new Error(`GitHub GraphQL errors: ${json.errors.map((e) => e.message).join(", ")}`);
+		}
+
+		const edges = json.data?.user?.pinnedItems?.edges;
+		if (!edges) {
+			return [];
+		}
+
+		return edges.map((edge): GitHubRepository => {
 			const repo = edge.node;
 			return {
 				owner: repo.owner.login,
