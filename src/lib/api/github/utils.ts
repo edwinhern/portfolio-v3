@@ -1,8 +1,12 @@
+import { cacheLife } from "next/cache";
 import { siteConfig } from "@/config/site";
 import { GITHUB_API_CONFIG } from "./constants";
 import type { GitHubRepository, GitHubRepositoryResponse } from "./types";
 
 export async function getPinnedRepos(): Promise<GitHubRepository[]> {
+	"use cache";
+	cacheLife("days");
+
 	const query = `
 		query {
 			user(login: "${siteConfig.githubUsername}") {
@@ -31,6 +35,10 @@ export async function getPinnedRepos(): Promise<GitHubRepository[]> {
 		}
 	`;
 
+	if (!GITHUB_API_CONFIG.TOKEN) {
+		throw new Error("GH_API_TOKEN is not set");
+	}
+
 	try {
 		const response = await fetch(GITHUB_API_CONFIG.GRAPHQL_API, {
 			method: "POST",
@@ -39,7 +47,6 @@ export async function getPinnedRepos(): Promise<GitHubRepository[]> {
 				Authorization: `Bearer ${GITHUB_API_CONFIG.TOKEN}`,
 			},
 			body: JSON.stringify({ query }),
-			next: { revalidate: GITHUB_API_CONFIG.CACHE_DURATION },
 		});
 
 		if (!response.ok) {
@@ -49,7 +56,16 @@ export async function getPinnedRepos(): Promise<GitHubRepository[]> {
 
 		const json = (await response.json()) as GitHubRepositoryResponse;
 
-		return json.data.user.pinnedItems.edges.map((edge): GitHubRepository => {
+		if (json.errors?.length) {
+			throw new Error(`GitHub GraphQL errors: ${json.errors.map((e) => e.message).join(", ")}`);
+		}
+
+		const edges = json.data?.user?.pinnedItems?.edges;
+		if (!edges) {
+			return [];
+		}
+
+		return edges.map((edge): GitHubRepository => {
 			const repo = edge.node;
 			return {
 				owner: repo.owner.login,
@@ -64,8 +80,7 @@ export async function getPinnedRepos(): Promise<GitHubRepository[]> {
 				image: `https://opengraph.githubassets.com/1/${repo.owner.login}/${repo.name}`,
 			};
 		});
-	} catch (error) {
-		console.error("[GitHub GraphQL API]:", error instanceof Error ? error.message : "Unknown error");
+	} catch {
 		return [];
 	}
 }

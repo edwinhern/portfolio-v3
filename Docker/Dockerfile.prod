@@ -15,6 +15,9 @@ COPY . .
 
 ENV NEXT_PRIVATE_STANDALONE=true
 
+ARG GH_API_TOKEN
+ENV GH_API_TOKEN=${GH_API_TOKEN}
+
 RUN corepack enable pnpm && pnpm run build
 
 # Production stage
