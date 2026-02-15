@@ -1,3 +1,9 @@
+interface SocialLink {
+	id: string;
+	href: string;
+	label: string;
+}
+
 export const siteConfig = {
 	description: "Dallas TX based software engineer, optimist, community builder.",
 	icons: {
@@ -12,14 +18,10 @@ export const siteConfig = {
 	},
 	name: "Edwin Hernandez",
 	socialLinks: [
-		{ id: "github", label: "Github" },
-		{ id: "linkedin", label: "LinkedIn" },
-		{
-			id: "calendar",
-			href: "https://calendar.app.google/LygB6ogzdxv7tHr56",
-			label: "Coffee Chat",
-		},
-	],
+		{ id: "github", href: "https://github.com/edwinhern", label: "Github" },
+		{ id: "linkedin", href: "https://www.linkedin.com/in/edwinhern/", label: "LinkedIn" },
+		{ id: "calendar", href: "https://calendar.app.google/LygB6ogzdxv7tHr56", label: "Coffee Chat" },
+	] as const satisfies readonly SocialLink[],
 	opImage: "/og-image.webp",
 	siteTitle: "edwinhern",
 	url: new URL("https://edwinhern.com"),

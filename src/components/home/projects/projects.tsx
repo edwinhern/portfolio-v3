@@ -5,7 +5,7 @@ import { getPinnedRepos } from "@/lib/api/github";
 import { Section } from "@/ui/section";
 import { ProjectCard } from "./card";
 
-export const Projects: React.FC = async () => {
+export async function Projects() {
 	const repositories = await getPinnedRepos();
 
 	return (
@@ -27,4 +27,4 @@ export const Projects: React.FC = async () => {
 			</div>
 		</Section>
 	);
-};
+}

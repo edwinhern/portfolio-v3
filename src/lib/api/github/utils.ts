@@ -1,8 +1,12 @@
+import { cacheLife } from "next/cache";
 import { siteConfig } from "@/config/site";
 import { GITHUB_API_CONFIG } from "./constants";
 import type { GitHubRepository, GitHubRepositoryResponse } from "./types";
 
 export async function getPinnedRepos(): Promise<GitHubRepository[]> {
+	"use cache";
+	cacheLife("days");
+
 	const query = `
 		query {
 			user(login: "${siteConfig.githubUsername}") {
@@ -31,41 +35,35 @@ export async function getPinnedRepos(): Promise<GitHubRepository[]> {
 		}
 	`;
 
-	try {
-		const response = await fetch(GITHUB_API_CONFIG.GRAPHQL_API, {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-				Authorization: `Bearer ${GITHUB_API_CONFIG.TOKEN}`,
-			},
-			body: JSON.stringify({ query }),
-			next: { revalidate: GITHUB_API_CONFIG.CACHE_DURATION },
-		});
+	const response = await fetch(GITHUB_API_CONFIG.GRAPHQL_API, {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+			Authorization: `Bearer ${GITHUB_API_CONFIG.TOKEN}`,
+		},
+		body: JSON.stringify({ query }),
+	});
 
-		if (!response.ok) {
-			const error = await response.text();
-			throw new Error(`GitHub GraphQL error: ${response.status} - ${error}`);
-		}
-
-		const json = (await response.json()) as GitHubRepositoryResponse;
-
-		return json.data.user.pinnedItems.edges.map((edge): GitHubRepository => {
-			const repo = edge.node;
-			return {
-				owner: repo.owner.login,
-				repo: repo.name,
-				description: repo.description,
-				stars: repo.stargazerCount,
-				forks: repo.forkCount,
-				link: repo.url,
-				website: repo.homepageUrl,
-				language: repo.primaryLanguage?.name ?? "",
-				languageColor: repo.primaryLanguage?.color ?? "",
-				image: `https://opengraph.githubassets.com/1/${repo.owner.login}/${repo.name}`,
-			};
-		});
-	} catch (error) {
-		console.error("[GitHub GraphQL API]:", error instanceof Error ? error.message : "Unknown error");
-		return [];
+	if (!response.ok) {
+		const error = await response.text();
+		throw new Error(`GitHub GraphQL error: ${response.status} - ${error}`);
 	}
+
+	const json = (await response.json()) as GitHubRepositoryResponse;
+
+	return json.data.user.pinnedItems.edges.map((edge): GitHubRepository => {
+		const repo = edge.node;
+		return {
+			owner: repo.owner.login,
+			repo: repo.name,
+			description: repo.description,
+			stars: repo.stargazerCount,
+			forks: repo.forkCount,
+			link: repo.url,
+			website: repo.homepageUrl,
+			language: repo.primaryLanguage?.name ?? "",
+			languageColor: repo.primaryLanguage?.color ?? "",
+			image: `https://opengraph.githubassets.com/1/${repo.owner.login}/${repo.name}`,
+		};
+	});
 }
