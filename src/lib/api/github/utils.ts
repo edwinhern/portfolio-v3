@@ -35,35 +35,39 @@ export async function getPinnedRepos(): Promise<GitHubRepository[]> {
 		}
 	`;
 
-	const response = await fetch(GITHUB_API_CONFIG.GRAPHQL_API, {
-		method: "POST",
-		headers: {
-			"Content-Type": "application/json",
-			Authorization: `Bearer ${GITHUB_API_CONFIG.TOKEN}`,
-		},
-		body: JSON.stringify({ query }),
-	});
+	try {
+		const response = await fetch(GITHUB_API_CONFIG.GRAPHQL_API, {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+				Authorization: `Bearer ${GITHUB_API_CONFIG.TOKEN}`,
+			},
+			body: JSON.stringify({ query }),
+		});
 
-	if (!response.ok) {
-		const error = await response.text();
-		throw new Error(`GitHub GraphQL error: ${response.status} - ${error}`);
+		if (!response.ok) {
+			const error = await response.text();
+			throw new Error(`GitHub GraphQL error: ${response.status} - ${error}`);
+		}
+
+		const json = (await response.json()) as GitHubRepositoryResponse;
+
+		return json.data.user.pinnedItems.edges.map((edge): GitHubRepository => {
+			const repo = edge.node;
+			return {
+				owner: repo.owner.login,
+				repo: repo.name,
+				description: repo.description,
+				stars: repo.stargazerCount,
+				forks: repo.forkCount,
+				link: repo.url,
+				website: repo.homepageUrl,
+				language: repo.primaryLanguage?.name ?? "",
+				languageColor: repo.primaryLanguage?.color ?? "",
+				image: `https://opengraph.githubassets.com/1/${repo.owner.login}/${repo.name}`,
+			};
+		});
+	} catch {
+		return [];
 	}
-
-	const json = (await response.json()) as GitHubRepositoryResponse;
-
-	return json.data.user.pinnedItems.edges.map((edge): GitHubRepository => {
-		const repo = edge.node;
-		return {
-			owner: repo.owner.login,
-			repo: repo.name,
-			description: repo.description,
-			stars: repo.stargazerCount,
-			forks: repo.forkCount,
-			link: repo.url,
-			website: repo.homepageUrl,
-			language: repo.primaryLanguage?.name ?? "",
-			languageColor: repo.primaryLanguage?.color ?? "",
-			image: `https://opengraph.githubassets.com/1/${repo.owner.login}/${repo.name}`,
-		};
-	});
 }
