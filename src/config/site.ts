@@ -5,7 +5,7 @@ interface SocialLink {
 }
 
 export const siteConfig = {
-	description: "Dallas TX based software engineer, optimist, community builder.",
+	description: "Software engineer in Dallas, TX specializing in React, TypeScript, and full-stack web development.",
 	icons: {
 		apple: "/favicons/apple-touch-icon.png",
 		icon: "/favicons/favicon.ico",

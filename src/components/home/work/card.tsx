@@ -1,10 +1,11 @@
-import Image, { type StaticImageData } from "next/image";
 import Link from "next/link";
+
+import { Avatar, AvatarFallback, AvatarImage } from "@/ui/avatar";
 
 interface WorkCardProps {
 	title: string;
 	company: string;
-	imageSrc: string | StaticImageData;
+	imageSrc: string;
 	date?: string;
 	link?: string;
 }
@@ -13,13 +14,10 @@ export function WorkCard({ title, company, imageSrc, date, link }: Readonly<Work
 	const content = (
 		<>
 			<div className="flex items-center gap-4">
-				<Image
-					className="rounded-md border border-input bg-background transition-colors hover:bg-accent hover:text-accent-foreground"
-					src={imageSrc}
-					alt={company}
-					width={50}
-					height={50}
-				/>
+				<Avatar className="size-12 rounded-md border border-input">
+					<AvatarImage src={imageSrc} alt={company} />
+					<AvatarFallback className="rounded-md text-xs">{company.slice(0, 2).toUpperCase()}</AvatarFallback>
+				</Avatar>
 
 				<div className="flex flex-col gap-px">
 					<p>{title}</p>
@@ -31,7 +29,7 @@ export function WorkCard({ title, company, imageSrc, date, link }: Readonly<Work
 	);
 
 	return (
-		<li className="rounded-lg transition-opacity">
+		<li className="rounded-lg transition-all duration-200 hover:translate-x-1">
 			{link ? (
 				<Link
 					href={link}

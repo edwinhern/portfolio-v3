@@ -1,11 +1,15 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Noto_Sans } from "next/font/google";
 import type { PropsWithChildren } from "react";
+import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/config/site";
 import { Navbar } from "@/layout/navbar";
 import { Providers } from "@/layout/providers";
 
 import "./globals.css";
+import { cn } from "@/lib/utils";
+
+const notoSans = Noto_Sans({subsets:['latin'],variable:'--font-sans'});
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
@@ -35,12 +39,24 @@ export const metadata: Metadata = {
 		type: "website",
 		url: siteConfig.url.href,
 	},
+	twitter: {
+		card: "summary_large_image",
+		title: siteConfig.name,
+		description: siteConfig.description,
+		images: [siteConfig.opImage],
+		creator: "@edwinhern",
+	},
 };
 
 export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
 	return (
-		<html lang="en" suppressHydrationWarning className={`${geistSans.variable} ${geistMono.variable}`}>
+		<html lang="en" suppressHydrationWarning className={cn(geistSans.variable, geistMono.variable, "font-sans", notoSans.variable)}>
+			<head>
+				<link rel="dns-prefetch" href="https://f.media-amazon.com" />
+				<link rel="dns-prefetch" href="https://cdn.brandfetch.io" />
+			</head>
 			<body className="min-h-svh w-full overflow-x-hidden scroll-smooth antialiased">
+				<JsonLd />
 				<Providers>
 					<Navbar className="mx-auto px-4 py-4 md:max-w-[700px] md:px-0 md:py-8">
 						<div className="pt-8">{children}</div>

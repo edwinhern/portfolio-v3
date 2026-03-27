@@ -6,13 +6,13 @@ import type { GearItem } from "./types";
 
 export function Item({ title, description, image, link }: Readonly<GearItem>) {
 	return (
-		<li className="col-span-1 row-span-1 flex snap-start items-center gap-4 transition-opacity">
+		<li className="flex snap-start items-center gap-4 transition-all duration-200 hover:translate-x-1">
 			<Link className="relative h-20 w-20 flex-shrink-0" href={link} target="_blank" rel="noreferrer">
 				<Image
 					src={image}
 					alt={title}
 					fill
-					className="rounded-md border border-input bg-white object-contain object-center p-2"
+					className="rounded-md border border-input bg-background object-contain object-center p-2"
 				/>
 			</Link>
 			<div className="flex grow items-center justify-between gap-2">
