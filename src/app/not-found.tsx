@@ -1,4 +1,4 @@
-import { IconArrowUpRight } from "justd-icons";
+import { ArrowUpRightIcon } from "@phosphor-icons/react/dist/ssr";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
@@ -21,7 +21,7 @@ export default function Custom404() {
 				<div className="h-2" />
 				<Link className={cn(buttonVariants({ variant: "outline" }), "max-w-fit")} href="/">
 					Return home
-					<IconArrowUpRight className="size-4" />
+					<ArrowUpRightIcon className="size-4" />
 				</Link>
 			</AnimateInGroup>
 		</div>

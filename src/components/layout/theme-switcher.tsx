@@ -1,22 +1,31 @@
 "use client";
 
-import { IconMoon, IconSun } from "justd-icons";
+import { CircleHalfIcon } from "@phosphor-icons/react";
 import { useTheme } from "next-themes";
-
+import { type ComponentProps, useCallback } from "react";
+import { cn } from "@/lib/utils";
 import { Button } from "@/ui/button";
 
-export function ThemeSwitcher() {
+interface ThemeSwitcherProps {
+	variant?: ComponentProps<typeof Button>["variant"];
+	className?: ComponentProps<typeof Button>["className"];
+}
+export function ThemeSwitcher({ variant = "ghost", className }: ThemeSwitcherProps) {
 	const { resolvedTheme, setTheme } = useTheme();
+
+	const toggleTheme = useCallback(() => {
+		setTheme(resolvedTheme === "dark" ? "light" : "dark");
+	}, [resolvedTheme, setTheme]);
 
 	return (
 		<Button
+			variant={variant}
 			size="icon"
-			variant="outline"
-			aria-label="Switch theme"
-			onClick={() => setTheme(resolvedTheme === "light" ? "dark" : "light")}
+			aria-label="Toggle theme"
+			className={cn("group/toggle extend-touch-target size-8", className)}
+			onClick={toggleTheme}
 		>
-			<IconSun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-			<IconMoon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+			<CircleHalfIcon className="size-4.5" />
 		</Button>
 	);
 }

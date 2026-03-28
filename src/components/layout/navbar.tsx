@@ -1,30 +1,34 @@
 import Link from "next/link";
-
 import { ThemeSwitcher } from "@/layout/theme-switcher";
-import { cn } from "@/lib/utils";
+import { Button } from "@/ui/button";
 import { Icons } from "@/ui/icons";
+
+type NavItem = {
+	href: string;
+	label: string;
+};
+
+const NAV_ITEMS: readonly NavItem[] = [
+	{ href: "/", label: "Home" },
+	{ href: "/gear", label: "Gear" },
+] as const;
 
 export function Navbar({ children, ...props }: Readonly<React.ComponentProps<"nav">>) {
 	return (
-		<nav {...props} className={cn("container relative isolate flex w-full flex-col", props.className)}>
+		<nav {...props}>
 			<div className="flex justify-between">
 				<Link href="/" className="flex items-center">
-					<Icons.Logo className="size-10" />
+					<Icons.Logo className="size-5" />
 				</Link>
 
-				<div className="flex gap-4">
-					<ul className="flex items-center space-x-4 text-sm">
-						<li className="link hover:underline">
-							<Link href="/" className="flex items-center gap-2">
-								Home
+				<div className="flex items-center gap-0">
+					{NAV_ITEMS.map((item) => (
+						<Button key={item.href} variant="ghost" asChild size="sm" className="px-2.5">
+							<Link href={item.href} className="relative items-center">
+								{item.label}
 							</Link>
-						</li>
-						<li className="link hover:underline">
-							<Link href="/gear" className="flex items-center gap-2">
-								Gear
-							</Link>
-						</li>
-					</ul>
+						</Button>
+					))}
 					<ThemeSwitcher />
 				</div>
 			</div>
