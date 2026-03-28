@@ -14,8 +14,8 @@ export function WorkCard({ title, company, imageSrc, date, link }: Readonly<Work
 	const content = (
 		<>
 			<div className="flex items-center gap-4">
-				<Avatar className="size-12 rounded-md border border-input">
-					<AvatarImage src={imageSrc} alt={company} />
+				<Avatar className="size-12 rounded-md border border-input bg-background transition-colors">
+					<AvatarImage className="rounded-md bg-background transition-colors" src={imageSrc} alt={company} />
 					<AvatarFallback className="rounded-md text-xs">{company.slice(0, 2).toUpperCase()}</AvatarFallback>
 				</Avatar>
 

@@ -1,5 +1,4 @@
-import { ArrowUpRightIcon, CalendarDotsIcon, GithubLogoIcon, LinkedinLogoIcon } from "@phosphor-icons/react/dist/ssr";
-import { IconBrandGithub, IconBrandLinkedin, IconCalendarDaysFill } from "justd-icons";
+import { IconArrowUpRight, IconBrandGithub, IconBrandLinkedin, IconCalendarDaysFill } from "@intentui/icons";
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
@@ -7,9 +6,9 @@ import { buttonVariants } from "@/ui/button";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/ui/tooltip";
 
 const SOCIAL_ICONS = {
-	github: GithubLogoIcon,
-	linkedin: LinkedinLogoIcon,
-	calendar: CalendarDotsIcon,
+	github: IconBrandGithub,
+	linkedin: IconBrandLinkedin,
+	calendar: IconCalendarDaysFill,
 } as const;
 
 export const SocialMedia: React.FC<React.ComponentProps<"div">> = ({ ...props }) => {
@@ -31,7 +30,7 @@ export const SocialMedia: React.FC<React.ComponentProps<"div">> = ({ ...props })
 								<span className="block sm:hidden">
 									<Icon className="size-4" />
 								</span>
-								<ArrowUpRightIcon className="hidden size-4 sm:block" />
+								<IconArrowUpRight className="hidden size-4 sm:block" />
 							</Link>
 						</TooltipTrigger>
 						<TooltipContent>{link.label}</TooltipContent>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Noto_Sans, Public_Sans } from "next/font/google";
+import { Public_Sans } from "next/font/google";
 import type { PropsWithChildren } from "react";
 import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/config/site";
@@ -7,19 +7,8 @@ import { Navbar } from "@/layout/navbar";
 import { Providers } from "@/layout/providers";
 
 import "./globals.css";
-import { cn } from "@/lib/utils";
 
-const publicSans = Public_Sans({subsets:['latin'],variable:'--font-sans'});
-
-const geistSans = Geist({
-	variable: "--font-geist-sans",
-	subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-	variable: "--font-geist-mono",
-	subsets: ["latin"],
-});
+const publicSans = Public_Sans({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
 	metadataBase: siteConfig.url,
@@ -50,11 +39,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
 	return (
-		<html
-			lang="en"
-			suppressHydrationWarning
-			className={cn(geistSans.variable, geistMono.variable, "font-sans", publicSans.variable)}
-		>
+		<html lang="en" suppressHydrationWarning className={`${publicSans.variable}`}>
 			<head>
 				<link rel="dns-prefetch" href="https://f.media-amazon.com" />
 				<link rel="dns-prefetch" href="https://cdn.brandfetch.io" />

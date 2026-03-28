@@ -1,6 +1,6 @@
 "use client";
 
-import { CircleHalfIcon } from "@phosphor-icons/react";
+import { IconCircleHalf } from "@intentui/icons";
 import { useTheme } from "next-themes";
 import { type ComponentProps, useCallback } from "react";
 import { cn } from "@/lib/utils";
@@ -25,7 +25,7 @@ export function ThemeSwitcher({ variant = "ghost", className }: ThemeSwitcherPro
 			className={cn("group/toggle extend-touch-target size-8", className)}
 			onClick={toggleTheme}
 		>
-			<CircleHalfIcon className="size-4.5" />
+			<IconCircleHalf className="size-4.5" />
 		</Button>
 	);
 }

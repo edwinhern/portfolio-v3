@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { gear, groupByCategory, Item } from "@/gear";
 import { AnimateIn, AnimateInGroup } from "@/ui/animate-in";
 import { Section } from "@/ui/section";
-import { Separator } from "@/ui/separator";
 
 export const metadata: Metadata = {
 	title: "Gear",
@@ -23,7 +22,6 @@ export default function Page() {
 			</AnimateInGroup>
 			{sortedCategories.map(([category, items], index) => (
 				<AnimateIn key={category} index={index + 2}>
-					{index > 0 && <Separator className="mb-12 bg-border/50 md:mb-24" />}
 					<Section heading={category} headingAlignment="left">
 						<ul className="animated-list flex flex-col gap-8">
 							{items.map((item) => (
