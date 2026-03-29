@@ -8,7 +8,7 @@ import { Providers } from "@/layout/providers";
 
 import "./globals.css";
 
-const publicSans = Public_Sans({ subsets: ["latin"], variable: "--font-sans" });
+const publicSans = Public_Sans({ subsets: ["latin"], variable: "--font-public-sans" });
 
 export const metadata: Metadata = {
 	metadataBase: siteConfig.url,

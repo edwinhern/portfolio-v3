@@ -14,8 +14,8 @@ export function WorkCard({ title, company, imageSrc, date, link }: Readonly<Work
 	const content = (
 		<>
 			<div className="flex items-center gap-4">
-				<Avatar className="size-12 rounded-md border border-input bg-background transition-colors">
-					<AvatarImage className="rounded-md bg-background transition-colors" src={imageSrc} alt={company} />
+				<Avatar className="size-12 rounded-md border-none bg-background transition-colors after:border-0">
+					<AvatarImage className="rounded-md" src={imageSrc} alt={company} />
 					<AvatarFallback className="rounded-md text-xs">{company.slice(0, 2).toUpperCase()}</AvatarFallback>
 				</Avatar>
 
@@ -29,7 +29,7 @@ export function WorkCard({ title, company, imageSrc, date, link }: Readonly<Work
 	);
 
 	return (
-		<li className="rounded-lg transition-all duration-200 hover:translate-x-1">
+		<li className="rounded-lg transition-opacity">
 			{link ? (
 				<Link
 					href={link}

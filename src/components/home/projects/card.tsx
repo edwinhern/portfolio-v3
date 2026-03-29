@@ -11,7 +11,7 @@ export function ProjectCard({ link, repo, description, stars }: Readonly<Project
 	const starCount = stars >= 1000 ? `${(stars / 1000).toFixed(1)}k+` : stars.toString();
 
 	return (
-		<li className="rounded-lg transition-all duration-200 hover:translate-x-1" key={`${repo}-${link}`}>
+		<li className="rounded-lg transition-opacity" key={`${repo}-${link}`}>
 			<Link
 				target="_blank"
 				href={link}
@@ -22,7 +22,7 @@ export function ProjectCard({ link, repo, description, stars }: Readonly<Project
 				<div className="flex flex-col gap-px">
 					<div className="flex w-full items-center justify-between">
 						<p className="mr-4">{repo}</p>
-						<Badge variant="secondary" className="flex-shrink-0 gap-1 font-normal">
+						<Badge variant="secondary" className="shrink-0 gap-1 font-normal">
 							<IconStar className="size-3" />
 							{starCount}
 						</Badge>

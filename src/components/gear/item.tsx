@@ -6,8 +6,8 @@ import type { GearItem } from "./types";
 
 export function Item({ title, description, image, link }: Readonly<GearItem>) {
 	return (
-		<li className="flex snap-start items-center gap-4 transition-all duration-200 hover:translate-x-1">
-			<Link className="relative h-20 w-20 flex-shrink-0" href={link} target="_blank" rel="noreferrer">
+		<li className="flex snap-start items-center gap-4 transition-opacity">
+			<Link className="relative h-20 w-20 shrink-0" href={link} target="_blank" rel="noreferrer">
 				<Image
 					src={image}
 					alt={title}

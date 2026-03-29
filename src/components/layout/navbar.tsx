@@ -18,13 +18,13 @@ export function Navbar({ children, ...props }: Readonly<React.ComponentProps<"na
 		<nav {...props}>
 			<div className="flex justify-between">
 				<Link href="/" className="flex items-center">
-					<Icons.Logo className="size-5" />
+					<Icons.Logo className="size-10" />
 				</Link>
 
 				<div className="flex items-center gap-0">
 					{NAV_ITEMS.map((item) => (
-						<Button key={item.href} variant="ghost" asChild size="sm" className="px-2.5">
-							<Link href={item.href} className="relative items-center">
+						<Button key={item.href} variant="ghost" asChild className="px-4">
+							<Link href={item.href} className="relative items-center text-lg">
 								{item.label}
 							</Link>
 						</Button>
