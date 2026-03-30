@@ -1,5 +1,6 @@
 import { IconStar } from "@intentui/icons";
 import Link from "next/link";
+
 import type { GitHubRepository } from "@/lib/api/github";
 import { Badge } from "@/ui/badge";
 

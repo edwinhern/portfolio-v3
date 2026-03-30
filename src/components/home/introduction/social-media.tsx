@@ -1,5 +1,6 @@
 import { IconArrowUpRight, IconBrandGithub, IconBrandLinkedin, IconCalendarDaysFill } from "@intentui/icons";
 import Link from "next/link";
+
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/ui/button";

@@ -1,6 +1,5 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-@import "shadcn/tailwind.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -38,6 +37,8 @@
 	--color-card: var(--card);
 	--color-foreground: var(--foreground);
 	--color-background: var(--background);
+	--color-selection: var(--selection);
+	--color-selection-foreground: var(--selection-foreground);
 	--radius-sm: calc(var(--radius) * 0.6);
 	--radius-md: calc(var(--radius) * 0.8);
 	--radius-lg: var(--radius);
@@ -105,6 +106,8 @@
 	--sidebar-ring: oklch(0.705 0.015 286.067);
 	--background: oklch(1 0 0);
 	--foreground: oklch(0.141 0.005 285.823);
+	--selection: oklch(0.141 0.005 285.823);
+	--selection-foreground: oklch(1 0 0);
 }
 
 .dark {
@@ -139,17 +142,27 @@
 	--sidebar-accent-foreground: oklch(0.985 0 0);
 	--sidebar-border: oklch(1 0 0 / 10%);
 	--sidebar-ring: oklch(0.552 0.016 285.938);
+	--selection: oklch(1 0 0);
+	--selection-foreground: oklch(0.141 0.005 285.823);
 }
 
 @layer base {
 	* {
 		@apply border-border outline-ring/50;
 	}
-	body {
-		@apply bg-background text-foreground;
+	::selection {
+		@apply bg-selection text-selection-foreground;
 	}
 	html {
-		@apply font-sans;
+		@apply overscroll-y-none;
+		@media (prefers-reduced-motion: no-preference) {
+			scroll-behavior: smooth;
+		}
+	}
+	body {
+		@apply min-h-svh w-full overflow-x-hidden bg-background text-foreground antialiased;
+		font-synthesis-weight: none;
+		text-rendering: optimizeLegibility;
 	}
 }
 
@@ -159,11 +172,9 @@
 	}
 }
 
-@layer utilities {
-	.animate-in {
-		animation: var(--animate-in);
-		animation-delay: calc(var(--index) * 130ms);
-	}
+@utility animate-in {
+	animation: var(--animate-in);
+	animation-delay: calc(var(--index) * 130ms);
 }
 
 @media (hover: hover) {
@@ -174,5 +185,11 @@
 
 	.animated-list:hover li:hover {
 		opacity: 1;
+	}
+}
+
+@utility extend-touch-target {
+	@media (pointer: coarse) {
+		@apply relative touch-manipulation after:absolute after:-inset-2;
 	}
 }

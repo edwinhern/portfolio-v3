@@ -1,4 +1,5 @@
 import Link from "next/link";
+
 import { ThemeSwitcher } from "@/layout/theme-switcher";
 import { Button } from "@/ui/button";
 import { Icons } from "@/ui/icons";

@@ -1,4 +1,5 @@
 import { cacheLife } from "next/cache";
+
 import { siteConfig } from "@/config/site";
 import { GITHUB_API_CONFIG } from "./constants";
 import type { GitHubRepository, GitHubRepositoryResponse } from "./types";

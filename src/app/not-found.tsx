@@ -1,6 +1,7 @@
 import { IconArrowUpRight } from "@intentui/icons";
 import type { Metadata } from "next";
 import Link from "next/link";
+
 import { cn } from "@/lib/utils";
 import { AnimateInGroup } from "@/ui/animate-in";
 import { buttonVariants } from "@/ui/button";
