@@ -3,7 +3,7 @@ import Link from "next/link";
 import { siteConfig } from "@/config/site";
 import { getPinnedRepos } from "@/lib/api/github";
 import { SectionList } from "@/ui/section-list";
-import { ProjectCard } from "./card";
+import { ProjectCard } from "./ProjectCard";
 
 export async function Projects() {
 	const repositories = await getPinnedRepos();

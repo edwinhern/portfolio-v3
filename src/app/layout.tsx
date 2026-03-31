@@ -2,10 +2,8 @@ import type { Metadata } from "next";
 import { Public_Sans } from "next/font/google";
 import type { PropsWithChildren } from "react";
 
-import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/config/site";
-import { Navbar } from "@/layout/navbar";
-import { Providers } from "@/layout/providers";
+import { JsonLd, Navbar, Providers } from "@/layout";
 
 import "./globals.css";
 
@@ -43,14 +41,12 @@ export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
 		<html lang="en" suppressHydrationWarning className={`${publicSans.variable}`}>
 			<head>
 				<link rel="dns-prefetch" href="https://f.media-amazon.com" />
-				<link rel="dns-prefetch" href="https://cdn.brandfetch.io" />
 			</head>
 			<body className="mx-auto px-4 py-4 md:max-w-[750px] md:px-0 md:py-8">
 				<JsonLd />
 				<Providers>
-					<Navbar>
-						<div className="pt-8">{children}</div>
-					</Navbar>
+					<Navbar />
+					<div className="pt-8">{children}</div>
 				</Providers>
 			</body>
 		</html>

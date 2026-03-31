@@ -1,4 +1,4 @@
-import type { GearCategory, GearItem } from "./types";
+import type { GearCategory, GearItem } from "./gearTypes";
 
 export function groupByCategory(items: GearItem[]): [GearCategory, GearItem[]][] {
 	const categories = items.reduce((acc, item) => {

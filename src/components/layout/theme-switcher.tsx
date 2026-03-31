@@ -24,7 +24,7 @@ export function ThemeSwitcher({ variant = "ghost", className }: ThemeSwitcherPro
 			variant={variant}
 			size="icon"
 			aria-label="Toggle theme"
-			className={cn("group/toggle extend-touch-target size-8", className)}
+			className={cn("size-10", className)}
 			onClick={toggleTheme}
 		>
 			<IconCircleHalf className="size-4.5" />

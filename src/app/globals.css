@@ -175,6 +175,9 @@
 @utility animate-in {
 	animation: var(--animate-in);
 	animation-delay: calc(var(--index) * 130ms);
+	@media (prefers-reduced-motion: reduce) {
+		animation: none;
+	}
 }
 
 @media (hover: hover) {

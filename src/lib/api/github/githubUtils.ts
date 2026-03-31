@@ -1,8 +1,8 @@
 import { cacheLife } from "next/cache";
 
 import { siteConfig } from "@/config/site";
-import { GITHUB_API_CONFIG } from "./constants";
-import type { GitHubEdge, GitHubRepository, GitHubRepositoryResponse } from "./types";
+import { GITHUB_API_CONFIG } from "./githubConstants";
+import type { GitHubEdge, GitHubRepository, GitHubRepositoryResponse } from "./githubTypes";
 
 const PINNED_REPOS_QUERY = (username: string) => `
 	query {

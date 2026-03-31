@@ -44,7 +44,6 @@ export function Navbar({ children, ...props }: Readonly<React.ComponentProps<"na
 					<ThemeSwitcher />
 				</div>
 			</div>
-			{children}
 		</nav>
 	);
 }

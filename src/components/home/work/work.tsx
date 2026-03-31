@@ -1,6 +1,6 @@
 import { SectionList } from "@/ui/section-list";
-import { WorkCard } from "./card";
-import { WORK_PLACES } from "./work.data";
+import { WorkCard } from "./WorkCard";
+import { WORK_PLACES } from "./workData";
 
 export const Work: React.FC = () => {
 	return (
