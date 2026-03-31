@@ -7,10 +7,8 @@ export default async function Home() {
 	return (
 		<div className="flex flex-col space-y-12 md:space-y-24">
 			<Introduction />
-			<AnimateIn index={4}>
+			<AnimateIn index={4} className="space-y-12 md:space-y-24">
 				<Work />
-			</AnimateIn>
-			<AnimateIn index={5}>
 				<Projects />
 			</AnimateIn>
 		</div>

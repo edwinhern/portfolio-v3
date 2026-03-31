@@ -7,15 +7,15 @@ import { Button } from "@/ui/button";
 
 interface GlobalErrorProps {
 	error: Error & { digest?: string };
-	unstable_retry: () => void;
+	reset: () => void;
 }
 
-export default function GlobalError({ error, unstable_retry }: GlobalErrorProps) {
+export default function GlobalError({ error, reset }: GlobalErrorProps) {
 	console.error(error);
 
 	const handleRetry = useCallback(() => {
-		unstable_retry();
-	}, [unstable_retry]);
+		reset();
+	}, [reset]);
 
 	return (
 		<div className="flex flex-col gap-2">

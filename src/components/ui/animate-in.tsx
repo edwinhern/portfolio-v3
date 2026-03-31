@@ -10,7 +10,11 @@ interface AnimateInProps extends React.HTMLAttributes<HTMLDivElement> {
 /** Single item with explicit index (e.g. inside a map). */
 export function AnimateIn({ index, className, style, ...props }: Readonly<AnimateInProps>) {
 	return (
-		<div className={cn("animate-in", className)} style={{ "--index": index, ...style } as CSSProperties} {...props} />
+		<div
+			className={cn("animate-in motion-reduce:animate-none", className)}
+			style={{ "--index": index, ...style } as CSSProperties}
+			{...props}
+		/>
 	);
 }
 
@@ -24,7 +28,7 @@ export function AnimateInGroup({ startIndex = 0, className, children, ...props }
 	return (
 		<div className={cn(className)} {...props}>
 			{Children.map(children, (child, i) => (
-				<div className="animate-in" style={{ "--index": startIndex + i } as CSSProperties}>
+				<div className="animate-in motion-reduce:animate-none" style={{ "--index": startIndex + i } as CSSProperties}>
 					{child}
 				</div>
 			))}
