@@ -1,16 +1,16 @@
 import { IconArrowUpRight, IconBrandGithub, IconBrandLinkedin, IconCalendarDaysFill } from "@intentui/icons";
 import Link from "next/link";
 
-import { siteConfig } from "@/config/site";
+import { type SocialIconId, siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/ui/button";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/ui/tooltip";
 
-const SOCIAL_ICONS = {
+const SOCIAL_ICONS: Record<SocialIconId, React.ComponentType<React.SVGProps<SVGSVGElement>>> = {
 	github: IconBrandGithub,
 	linkedin: IconBrandLinkedin,
 	calendar: IconCalendarDaysFill,
-} as const;
+};
 
 export const SocialMedia: React.FC<React.ComponentProps<"div">> = ({ ...props }) => {
 	return (

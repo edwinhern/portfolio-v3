@@ -1,4 +1,5 @@
 export interface GitHubRepository {
+	id: string;
 	description: string;
 	forks: number;
 	image: string;
@@ -21,6 +22,7 @@ export interface GitHubOwner {
 }
 
 export interface GitHubRepositoryNode {
+	id: string;
 	name: string;
 	description: string;
 	stargazerCount: number;

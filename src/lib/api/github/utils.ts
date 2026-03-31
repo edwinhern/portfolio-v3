@@ -2,39 +2,57 @@ import { cacheLife } from "next/cache";
 
 import { siteConfig } from "@/config/site";
 import { GITHUB_API_CONFIG } from "./constants";
-import type { GitHubRepository, GitHubRepositoryResponse } from "./types";
+import type { GitHubEdge, GitHubRepository, GitHubRepositoryResponse } from "./types";
 
-export async function getPinnedRepos(): Promise<GitHubRepository[]> {
-	"use cache";
-	cacheLife("days");
-
-	const query = `
-		query {
-			user(login: "${siteConfig.githubUsername}") {
-				pinnedItems(first: 3, types: REPOSITORY) {
-					edges {
-						node {
-							... on Repository {
+const PINNED_REPOS_QUERY = (username: string) => `
+	query {
+		user(login: "${username}") {
+			pinnedItems(first: 3, types: REPOSITORY) {
+				edges {
+					node {
+						... on Repository {
+							id
+							name
+							description
+							stargazerCount
+							forkCount
+							url
+							homepageUrl
+							primaryLanguage {
 								name
-								description
-								stargazerCount
-								forkCount
-								url
-								homepageUrl
-								primaryLanguage {
-									name
-									color
-								}
-								owner {
-									login
-								}
+								color
+							}
+							owner {
+								login
 							}
 						}
 					}
 				}
 			}
 		}
-	`;
+	}
+`;
+
+function mapEdgeToRepository(edge: GitHubEdge): GitHubRepository {
+	const repo = edge.node;
+	return {
+		id: repo.id,
+		owner: repo.owner.login,
+		repo: repo.name,
+		description: repo.description,
+		stars: repo.stargazerCount,
+		forks: repo.forkCount,
+		link: repo.url,
+		website: repo.homepageUrl,
+		language: repo.primaryLanguage?.name ?? "",
+		languageColor: repo.primaryLanguage?.color ?? "",
+		image: `https://opengraph.githubassets.com/1/${repo.owner.login}/${repo.name}`,
+	};
+}
+
+export async function getPinnedRepos(): Promise<GitHubRepository[]> {
+	"use cache";
+	cacheLife("days");
 
 	if (!GITHUB_API_CONFIG.TOKEN) {
 		throw new Error("GH_API_TOKEN is not set");
@@ -47,7 +65,7 @@ export async function getPinnedRepos(): Promise<GitHubRepository[]> {
 				"Content-Type": "application/json",
 				Authorization: `Bearer ${GITHUB_API_CONFIG.TOKEN}`,
 			},
-			body: JSON.stringify({ query }),
+			body: JSON.stringify({ query: PINNED_REPOS_QUERY(siteConfig.githubUsername) }),
 		});
 
 		if (!response.ok) {
@@ -66,21 +84,7 @@ export async function getPinnedRepos(): Promise<GitHubRepository[]> {
 			return [];
 		}
 
-		return edges.map((edge): GitHubRepository => {
-			const repo = edge.node;
-			return {
-				owner: repo.owner.login,
-				repo: repo.name,
-				description: repo.description,
-				stars: repo.stargazerCount,
-				forks: repo.forkCount,
-				link: repo.url,
-				website: repo.homepageUrl,
-				language: repo.primaryLanguage?.name ?? "",
-				languageColor: repo.primaryLanguage?.color ?? "",
-				image: `https://opengraph.githubassets.com/1/${repo.owner.login}/${repo.name}`,
-			};
-		});
+		return edges.map(mapEdgeToRepository);
 	} catch {
 		return [];
 	}

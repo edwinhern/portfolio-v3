@@ -1,5 +1,7 @@
+export type SocialIconId = "github" | "linkedin" | "calendar";
+
 interface SocialLink {
-	id: string;
+	id: SocialIconId;
 	href: string;
 	label: string;
 	tooltip: string;

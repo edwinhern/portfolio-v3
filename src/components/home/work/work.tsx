@@ -1,17 +1,13 @@
-import { Section } from "@/ui/section";
+import { SectionList } from "@/ui/section-list";
 import { WorkCard } from "./card";
 import { WORK_PLACES } from "./work.data";
 
 export const Work: React.FC = () => {
 	return (
-		<Section heading="Work" headingAlignment="left">
-			<div className="flex w-full flex-col">
-				<ul className="animated-list flex flex-col gap-8">
-					{WORK_PLACES.map((workplace) => (
-						<WorkCard key={`${workplace.company}-${workplace.title}-${workplace.date ?? ""}`} {...workplace} />
-					))}
-				</ul>
-			</div>
-		</Section>
+		<SectionList heading="Work">
+			{WORK_PLACES.map((workplace) => (
+				<WorkCard key={`${workplace.company}-${workplace.title}-${workplace.date ?? ""}`} {...workplace} />
+			))}
+		</SectionList>
 	);
 };
