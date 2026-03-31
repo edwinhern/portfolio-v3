@@ -2,10 +2,12 @@ interface SocialLink {
 	id: string;
 	href: string;
 	label: string;
+	tooltip: string;
 }
 
 export const siteConfig = {
-	description: "Software engineer in Dallas, TX specializing in React, TypeScript, and full-stack web development.",
+	description:
+		"Software engineer focused on front-end, infrastructure, and AI — building fast, thoughtful web experiences.",
 	icons: {
 		apple: "/favicons/apple-touch-icon.png",
 		icon: "/favicons/favicon.ico",
@@ -18,9 +20,19 @@ export const siteConfig = {
 	},
 	name: "Edwin Hernandez",
 	socialLinks: [
-		{ id: "github", href: "https://github.com/edwinhern", label: "Github" },
-		{ id: "linkedin", href: "https://www.linkedin.com/in/edwinhern/", label: "LinkedIn" },
-		{ id: "calendar", href: "https://calendar.app.google/LygB6ogzdxv7tHr56", label: "Coffee Chat" },
+		{ id: "github", href: "https://github.com/edwinhern", label: "Github", tooltip: "View my open-source projects" },
+		{
+			id: "linkedin",
+			href: "https://www.linkedin.com/in/edwinhern/",
+			label: "LinkedIn",
+			tooltip: "Connect with me professionally",
+		},
+		{
+			id: "calendar",
+			href: "https://calendar.app.google/LygB6ogzdxv7tHr56",
+			label: "Coffee Chat",
+			tooltip: "Schedule a 30-min coffee chat",
+		},
 	] as const satisfies readonly SocialLink[],
 	opImage: "/og-image.webp",
 	siteTitle: "edwinhern",

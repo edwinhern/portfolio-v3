@@ -6,20 +6,20 @@ import { SocialMedia } from "./social-media";
 export const Introduction: React.FC = () => {
 	return (
 		<AnimateInGroup className="space-y-4">
-			<h1 className="font-bold text-lg text-primary">Welcome!</h1>
+			<h1 className="font-bold text-primary text-xl">Welcome!</h1>
 			<p className="font-light leading-relaxed">
-				I&apos;m a software engineer in Dallas, TX building for the web with a design-first mindset. On the side, I
-				manage{" "}
+				I build products for the web, optimize the systems that run them, and use AI to go faster at both. Currently at
+				Liberty Mutual. On the side, I run a{" "}
 				<Link
-					className="link text-primary underline hover:text-primary/80"
+					className="link"
 					href="https://hernserver.com/"
 					target="_blank"
 					rel="noreferrer"
 					aria-label="Hernandez Server"
 				>
-					self-hosted
+					self-hosted server
 				</Link>{" "}
-				solutions for media and productivity tools.
+				for apps, AI models, and tools I want to exist.
 			</p>
 			<SocialMedia />
 		</AnimateInGroup>

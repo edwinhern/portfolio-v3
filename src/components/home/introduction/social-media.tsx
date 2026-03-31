@@ -34,7 +34,7 @@ export const SocialMedia: React.FC<React.ComponentProps<"div">> = ({ ...props })
 								<IconArrowUpRight className="hidden size-4 sm:block" />
 							</Link>
 						</TooltipTrigger>
-						<TooltipContent>{link.label}</TooltipContent>
+						<TooltipContent>{link.tooltip}</TooltipContent>
 					</Tooltip>
 				);
 			})}

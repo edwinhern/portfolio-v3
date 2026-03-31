@@ -45,10 +45,10 @@ export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
 				<link rel="dns-prefetch" href="https://f.media-amazon.com" />
 				<link rel="dns-prefetch" href="https://cdn.brandfetch.io" />
 			</head>
-			<body>
+			<body className="mx-auto px-4 py-4 md:max-w-[750px] md:px-0 md:py-8">
 				<JsonLd />
 				<Providers>
-					<Navbar className="mx-auto px-4 py-4 md:max-w-[750px] md:px-0 md:py-8">
+					<Navbar>
 						<div className="pt-8">{children}</div>
 					</Navbar>
 				</Providers>

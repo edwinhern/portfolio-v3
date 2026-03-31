@@ -3,9 +3,11 @@ import Link from "next/link";
 
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/ui/button";
-import type { GearItem } from "./types";
+import { GearCategory, type GearItem } from "./types";
 
-export function Item({ title, description, image, link }: Readonly<GearItem>) {
+export function Item({ title, description, image, link, category }: Readonly<GearItem>) {
+	const isApp = category === GearCategory.Apps;
+
 	return (
 		<li className="flex snap-start items-center gap-4 transition-opacity">
 			<Link className="relative h-20 w-20 shrink-0" href={link} target="_blank" rel="noreferrer">
@@ -13,7 +15,10 @@ export function Item({ title, description, image, link }: Readonly<GearItem>) {
 					src={image}
 					alt={title}
 					fill
-					className="rounded-md border border-input bg-background object-contain object-center p-2"
+					className={cn(
+						"rounded-md border border-input object-contain object-center p-2",
+						isApp ? "bg-background" : "bg-white",
+					)}
 				/>
 			</Link>
 			<div className="flex grow items-center justify-between gap-2">

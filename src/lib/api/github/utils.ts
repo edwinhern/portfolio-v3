@@ -11,7 +11,7 @@ export async function getPinnedRepos(): Promise<GitHubRepository[]> {
 	const query = `
 		query {
 			user(login: "${siteConfig.githubUsername}") {
-				pinnedItems(first: 6, types: REPOSITORY) {
+				pinnedItems(first: 3, types: REPOSITORY) {
 					edges {
 						node {
 							... on Repository {
