@@ -13,7 +13,11 @@ export type GearImage = { type: "url"; src: string | StaticImageData } | { type:
 export interface GearItem {
 	title: string;
 	description: string;
-	category: GearCategory;
 	image: GearImage;
 	link: string;
+}
+
+export interface GearSection {
+	category: GearCategory;
+	items: GearItem[];
 }

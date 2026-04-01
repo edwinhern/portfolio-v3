@@ -22,18 +22,18 @@ export const siteConfig = {
 	},
 	name: "Edwin Hernandez",
 	socialLinks: [
-		{ id: "github", href: "https://github.com/edwinhern", label: "Github", tooltip: "View my open-source projects" },
+		{ id: "github", href: "https://github.com/edwinhern", label: "Github", tooltip: "My Github" },
 		{
 			id: "linkedin",
 			href: "https://www.linkedin.com/in/edwinhern/",
 			label: "LinkedIn",
-			tooltip: "Connect with me professionally",
+			tooltip: "My LinkedIn",
 		},
 		{
 			id: "calendar",
 			href: "https://calendar.app.google/LygB6ogzdxv7tHr56",
 			label: "Coffee Chat",
-			tooltip: "Schedule a 30-min coffee chat",
+			tooltip: "Book a 30-min chat",
 		},
 	] as const satisfies readonly SocialLink[],
 	opImage: "/og-image.webp",

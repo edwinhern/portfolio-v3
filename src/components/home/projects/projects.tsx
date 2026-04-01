@@ -21,8 +21,8 @@ export async function Projects() {
 
 	return (
 		<SectionList heading="Projects" footer={footer}>
-			{repositories.map((repo, index) => (
-				<ProjectCard key={repo.repo} {...repo} index={index} />
+			{repositories.map((repo) => (
+				<ProjectCard key={repo.repo} {...repo} />
 			))}
 		</SectionList>
 	);

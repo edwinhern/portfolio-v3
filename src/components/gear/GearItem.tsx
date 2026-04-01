@@ -46,10 +46,7 @@ export function Item({ title, description, image, link }: Readonly<GearItem>) {
 				</div>
 				<div>
 					<Link
-						className={cn(
-							"ml-auto h-fit rounded-full bg-secondary px-4 py-2 text-sm",
-							buttonVariants({ variant: "outline" }),
-						)}
+						className={cn(buttonVariants({ variant: "outline", size: "lg" }))}
 						href={link}
 						target="_blank"
 						rel="noreferrer"

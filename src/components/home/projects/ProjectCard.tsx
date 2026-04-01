@@ -4,15 +4,11 @@ import Link from "next/link";
 import type { GitHubRepository } from "@/lib/api/github";
 import { Badge } from "@/ui/badge";
 
-interface ProjectCardProps extends GitHubRepository {
-	index: number;
-}
-
-export function ProjectCard({ link, repo, description, stars }: Readonly<ProjectCardProps>) {
+export function ProjectCard({ link, repo, description, stars, id }: Readonly<GitHubRepository>) {
 	const starCount = stars >= 1000 ? `${(stars / 1000).toFixed(1)}k+` : stars.toString();
 
 	return (
-		<li className="rounded-lg transition-opacity" key={`${repo}-${link}`}>
+		<li className="transition-opacity" key={id}>
 			<Link
 				target="_blank"
 				href={link}
@@ -23,7 +19,7 @@ export function ProjectCard({ link, repo, description, stars }: Readonly<Project
 				<div className="flex flex-col gap-px">
 					<div className="flex w-full items-center justify-between">
 						<p className="mr-4">{repo}</p>
-						<Badge variant="secondary" className="shrink-0 gap-1 font-normal">
+						<Badge variant="secondary">
 							<IconStar className="size-3" />
 							{starCount}
 						</Badge>

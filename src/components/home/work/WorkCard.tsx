@@ -7,16 +7,16 @@ interface WorkCardProps {
 	company: string;
 	imageSrc: string;
 	date?: string;
-	link?: string;
+	link: string;
 }
 
 export function WorkCard({ title, company, imageSrc, date, link }: Readonly<WorkCardProps>) {
 	const content = (
 		<>
 			<div className="flex items-center gap-4">
-				<Avatar className="size-12 rounded-md border-none bg-background transition-colors after:border-0">
-					<AvatarImage className="rounded-md" src={imageSrc} alt={company} />
-					<AvatarFallback className="rounded-md text-xs">{company.slice(0, 2).toUpperCase()}</AvatarFallback>
+				<Avatar className="size-12 after:border-0">
+					<AvatarImage src={imageSrc} alt={company} />
+					<AvatarFallback>{company.slice(0, 2).toUpperCase()}</AvatarFallback>
 				</Avatar>
 
 				<div className="flex flex-col gap-px">
@@ -29,19 +29,15 @@ export function WorkCard({ title, company, imageSrc, date, link }: Readonly<Work
 	);
 
 	return (
-		<li className="rounded-lg transition-opacity">
-			{link ? (
-				<Link
-					href={link}
-					target="_blank"
-					className="-my-2 flex w-full justify-between py-3 no-underline"
-					rel="noreferrer"
-				>
-					{content}
-				</Link>
-			) : (
-				<div className="flex justify-between">{content}</div>
-			)}
+		<li className="transition-opacity">
+			<Link
+				href={link}
+				target="_blank"
+				className="-my-2 flex w-full justify-between py-3 no-underline"
+				rel="noreferrer"
+			>
+				{content}
+			</Link>
 		</li>
 	);
 }
