@@ -1,21 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Public_Sans } from "next/font/google";
 import type { PropsWithChildren } from "react";
+
 import { siteConfig } from "@/config/site";
-import { Navbar } from "@/layout/navbar";
-import { Providers } from "@/layout/providers";
+import { JsonLd, Navbar, Providers } from "@/layout";
 
 import "./globals.css";
 
-const geistSans = Geist({
-	variable: "--font-geist-sans",
-	subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-	variable: "--font-geist-mono",
-	subsets: ["latin"],
-});
+const publicSans = Public_Sans({ subsets: ["latin"], variable: "--font-public-sans" });
 
 export const metadata: Metadata = {
 	metadataBase: siteConfig.url,
@@ -35,16 +27,28 @@ export const metadata: Metadata = {
 		type: "website",
 		url: siteConfig.url.href,
 	},
+	twitter: {
+		card: "summary_large_image",
+		title: siteConfig.name,
+		description: siteConfig.description,
+		images: [siteConfig.opImage],
+		creator: "@edwinhern",
+	},
 };
 
 export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
 	return (
-		<html lang="en" suppressHydrationWarning className={`${geistSans.variable} ${geistMono.variable}`}>
-			<body className="min-h-svh w-full overflow-x-hidden scroll-smooth antialiased">
+		<html lang="en" suppressHydrationWarning className={`${publicSans.variable}`}>
+			<head>
+				<link rel="dns-prefetch" href="https://f.media-amazon.com" />
+			</head>
+			<body className="mx-auto px-4 py-4 md:max-w-[750px] md:px-0 md:py-8">
+				<JsonLd />
 				<Providers>
-					<Navbar className="mx-auto px-4 py-4 md:max-w-[700px] md:px-0 md:py-8">
-						<div className="pt-8">{children}</div>
-					</Navbar>
+					<Navbar />
+					<main id="main" className="pt-8">
+						{children}
+					</main>
 				</Providers>
 			</body>
 		</html>

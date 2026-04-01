@@ -16,6 +16,8 @@
 		"plugins": [{ "name": "next" }],
 		"paths": {
 			"@/*": ["./src/*"],
+			"@/hooks/*": ["./src/hooks/*"],
+			"@/layout": ["./src/components/layout"],
 			"@/layout/*": ["./src/components/layout/*"],
 			"@/home/*": ["./src/components/home/*"],
 			"@/gear": ["./src/components/gear"],
