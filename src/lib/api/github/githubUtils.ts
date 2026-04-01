@@ -85,7 +85,8 @@ export async function getPinnedRepos(): Promise<GitHubRepository[]> {
 		}
 
 		return edges.map(mapEdgeToRepository);
-	} catch {
+	} catch (error) {
+		console.error("[getPinnedRepos] Failed to fetch GitHub pinned repos:", error);
 		return [];
 	}
 }

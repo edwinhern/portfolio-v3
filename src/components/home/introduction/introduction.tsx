@@ -1,7 +1,7 @@
 import { AnimateInGroup } from "@/ui/animate-in";
 import { SocialMedia } from "./social-media";
 
-export const Introduction: React.FC = () => {
+export function Introduction() {
 	return (
 		<AnimateInGroup className="space-y-4">
 			<h1 className="font-bold text-primary text-xl">Welcome!</h1>
@@ -12,4 +12,4 @@ export const Introduction: React.FC = () => {
 			<SocialMedia />
 		</AnimateInGroup>
 	);
-};
+}

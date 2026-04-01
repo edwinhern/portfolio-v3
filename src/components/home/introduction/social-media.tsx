@@ -12,7 +12,7 @@ const SOCIAL_ICONS: Record<SocialIconId, React.ComponentType<React.SVGProps<SVGS
 	calendar: IconCalendarDaysFill,
 };
 
-export const SocialMedia: React.FC<React.ComponentProps<"div">> = ({ ...props }) => {
+export function SocialMedia({ ...props }: React.ComponentProps<"div">) {
 	return (
 		<div {...props} className={cn("flex gap-4", props.className)}>
 			{siteConfig.socialLinks.map((link) => {
@@ -40,4 +40,4 @@ export const SocialMedia: React.FC<React.ComponentProps<"div">> = ({ ...props })
 			})}
 		</div>
 	);
-};
+}

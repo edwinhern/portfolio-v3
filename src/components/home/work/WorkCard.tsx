@@ -1,16 +1,9 @@
 import Link from "next/link";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/ui/avatar";
+import type { WorkPlace } from "./workData";
 
-interface WorkCardProps {
-	title: string;
-	company: string;
-	imageSrc: string;
-	date?: string;
-	link: string;
-}
-
-export function WorkCard({ title, company, imageSrc, date, link }: Readonly<WorkCardProps>) {
+export function WorkCard({ title, company, imageSrc, date, link }: Readonly<WorkPlace>) {
 	const content = (
 		<>
 			<div className="flex items-center gap-4">

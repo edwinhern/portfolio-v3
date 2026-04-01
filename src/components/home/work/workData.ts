@@ -1,4 +1,12 @@
-export const WORK_PLACES = [
+export interface WorkPlace {
+	title: string;
+	company: string;
+	date?: string;
+	imageSrc: string;
+	link: string;
+}
+
+export const WORK_PLACES: WorkPlace[] = [
 	{
 		title: "Software Engineer",
 		company: "Liberty Mutual Insurance",

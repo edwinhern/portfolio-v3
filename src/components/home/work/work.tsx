@@ -2,7 +2,7 @@ import { SectionList } from "@/ui/section-list";
 import { WorkCard } from "./WorkCard";
 import { WORK_PLACES } from "./workData";
 
-export const Work: React.FC = () => {
+export function Work() {
 	return (
 		<SectionList heading="Work">
 			{WORK_PLACES.map((workplace) => (
@@ -10,4 +10,4 @@ export const Work: React.FC = () => {
 			))}
 		</SectionList>
 	);
-};
+}

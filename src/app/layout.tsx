@@ -46,7 +46,9 @@ export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
 				<JsonLd />
 				<Providers>
 					<Navbar />
-					<div className="pt-8">{children}</div>
+					<main id="main" className="pt-8">
+						{children}
+					</main>
 				</Providers>
 			</body>
 		</html>

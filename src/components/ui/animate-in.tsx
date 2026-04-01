@@ -1,5 +1,4 @@
-import type { CSSProperties } from "react";
-import { Children } from "react";
+import type { CSSProperties, ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -25,10 +24,16 @@ interface AnimateInGroupProps extends React.HTMLAttributes<HTMLDivElement> {
 
 /** Wraps children and staggers animate-in by child order. No manual indices needed. */
 export function AnimateInGroup({ startIndex = 0, className, children, ...props }: Readonly<AnimateInGroupProps>) {
+	const childArray = Array.isArray(children) ? children : children != null ? [children] : [];
 	return (
 		<div className={cn(className)} {...props}>
-			{Children.map(children, (child, i) => (
-				<div className="animate-in motion-reduce:animate-none" style={{ "--index": startIndex + i } as CSSProperties}>
+			{(childArray as ReactNode[]).map((child, i) => (
+				<div
+					// biome-ignore lint/suspicious/noArrayIndexKey: order is stable, no reordering occurs
+					key={i}
+					className="animate-in motion-reduce:animate-none"
+					style={{ "--index": startIndex + i } as CSSProperties}
+				>
 					{child}
 				</div>
 			))}

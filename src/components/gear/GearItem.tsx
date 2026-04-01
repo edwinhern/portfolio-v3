@@ -30,7 +30,7 @@ function ItemImage({ image, title }: ItemImageProps) {
 		);
 	}
 
-	return <Image src={image.src} alt={title} fill className={baseClass} />;
+	return <Image src={image.src} alt={title} fill sizes="100px" className={baseClass} />;
 }
 
 export function Item({ title, description, image, link }: Readonly<GearItem>) {
