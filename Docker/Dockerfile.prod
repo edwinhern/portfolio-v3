@@ -1,4 +1,4 @@
-FROM node:24.13.0-alpine AS base
+FROM node:24.14.1-alpine AS base
 
 # Install dependencies
 FROM base AS deps
@@ -15,10 +15,9 @@ COPY . .
 
 ENV NEXT_PRIVATE_STANDALONE=true
 
-ARG GH_API_TOKEN
-ENV GH_API_TOKEN=${GH_API_TOKEN}
-
-RUN corepack enable pnpm && pnpm run build
+RUN --mount=type=cache,id=nextjs-cache,target=/app/.next/cache,sharing=locked \
+    --mount=type=secret,id=gh_api_token,env=GH_API_TOKEN \
+    corepack enable pnpm && pnpm run build
 
 # Production stage
 FROM base AS runner
