@@ -45,6 +45,6 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
-          build-args: |
-            GH_API_TOKEN=${{ secrets.GH_API_TOKEN }}
+          secrets: |
+            gh_api_token=${{ secrets.GH_API_TOKEN }}
         
