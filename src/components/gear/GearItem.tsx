@@ -19,9 +19,8 @@ function ItemImage({ image, title }: ItemImageProps) {
 				<svg
 					role="img"
 					viewBox="0 0 24 24"
-					xmlns="http://www.w3.org/2000/svg"
 					aria-label={image.icon.title}
-					className="size-12"
+					className="size-8"
 					style={{ fill: `#${image.icon.hex}` }}
 				>
 					<path d={image.icon.path} />
@@ -36,7 +35,7 @@ function ItemImage({ image, title }: ItemImageProps) {
 export function Item({ title, description, image, link }: Readonly<GearItem>) {
 	return (
 		<li className="flex snap-start items-center gap-4 transition-opacity">
-			<Link className="relative h-20 w-20 shrink-0" href={link} target="_blank" rel="noreferrer">
+			<Link className="relative size-16 shrink-0" href={link} target="_blank" rel="noreferrer">
 				<ItemImage image={image} title={title} />
 			</Link>
 			<div className="flex grow items-center justify-between gap-2">
