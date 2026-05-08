@@ -1,7 +1,7 @@
 import { cacheLife } from "next/cache";
 
 import { siteConfig } from "@/config/site";
-import { GITHUB_API_CONFIG } from "./githubConstants";
+import { GITHUB_API_CONFIG, getGitHubToken } from "./githubConstants";
 import type { GitHubEdge, GitHubRepository, GitHubRepositoryResponse } from "./githubTypes";
 
 const PINNED_REPOS_QUERY = (username: string) => `
@@ -54,8 +54,10 @@ export async function getPinnedRepos(): Promise<GitHubRepository[]> {
 	"use cache";
 	cacheLife("days");
 
-	if (!GITHUB_API_CONFIG.TOKEN) {
-		throw new Error("GH_API_TOKEN is not set");
+	const token = getGitHubToken();
+	if (!token) {
+		console.error("[getPinnedRepos] GH_API_TOKEN is not set");
+		return [];
 	}
 
 	try {
@@ -63,7 +65,8 @@ export async function getPinnedRepos(): Promise<GitHubRepository[]> {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
-				Authorization: `Bearer ${GITHUB_API_CONFIG.TOKEN}`,
+				Authorization: `Bearer ${token}`,
+				"User-Agent": siteConfig.githubUsername,
 			},
 			body: JSON.stringify({ query: PINNED_REPOS_QUERY(siteConfig.githubUsername) }),
 		});

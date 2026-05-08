@@ -1,6 +1,6 @@
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"main": ".open-next/worker.js",
+	"main": "worker.js",
 	"name": "portfolio-v3",
 	"compatibility_date": "2026-05-08",
 	"compatibility_flags": [
@@ -34,5 +34,6 @@
 		// Enable image optimization
 		// see https://opennext.js.org/cloudflare/howtos/image
 		"binding": "IMAGES"
-	}
+	},
+	"upload_source_maps": true
 }
