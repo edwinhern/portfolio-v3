@@ -9,12 +9,6 @@
 	"[typescript][typescriptreact][json]": {
 		"editor.defaultFormatter": "biomejs.biome"
 	},
-	"[markdown]": {
-		"editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
-	},
-	"[yaml]": {
-		"editor.defaultFormatter": "redhat.vscode-yaml"
-	},
 	"files.associations": {
 		"*.css": "tailwindcss",
 		"*.scss": "tailwindcss"

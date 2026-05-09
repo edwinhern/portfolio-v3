@@ -3,14 +3,19 @@
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
-		"dev": "next dev --turbopack",
 		"build": "next build --turbopack",
+		"dev": "next dev --turbopack",
 		"start": "next start",
 		"lint": "biome check --write",
-		"format": "biome format --write"
+		"format": "biome format --write",
+		"preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
+		"deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+		"cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
+		"upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload"
 	},
 	"dependencies": {
 		"@intentui/icons": "1.11.3",
+		"@opennextjs/cloudflare": "^1.19.8",
 		"@radix-ui/react-avatar": "1.1.11",
 		"@radix-ui/react-separator": "1.1.8",
 		"@radix-ui/react-slot": "1.2.4",
@@ -33,7 +38,8 @@
 		"@types/react-dom": "19.2.3",
 		"postcss": "8.5.8",
 		"tailwindcss": "4.2.2",
-		"typescript": "6.0.2"
+		"typescript": "6.0.2",
+		"wrangler": "^4.90.0"
 	},
 	"packageManager": "pnpm@10.33.0"
 }

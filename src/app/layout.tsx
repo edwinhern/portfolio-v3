@@ -42,7 +42,7 @@ export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
 			<head>
 				<link rel="dns-prefetch" href="https://f.media-amazon.com" />
 			</head>
-			<body className="mx-auto px-4 py-4 md:max-w-[750px] md:px-0 md:py-8">
+			<body className="mx-auto px-4 py-4 md:max-w-187.5 md:px-0 md:py-8">
 				<JsonLd />
 				<Providers>
 					<Navbar />
